@@ -8,10 +8,10 @@
 <meta property="og:description" content="مصحف، رقية، أذان بأصوات مؤذنين، رحلة صفاء، دليل العمرة والمزيد — مجاني وآمن 100%">
 <title>صفاء الروح — كل ما يحتاجه المسلم في تطبيق واحد</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;800;900&family=Reem+Kufi:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;800;900&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --night:#120b06; --night2:#1d1208; --brown:#3a2210; --gold:#d4af37; --gold2:#f7e08a;
+  --night:#120b06; --night2:#1d1208; --gold:#d4af37; --gold2:#f7e08a;
   --cream:#f9eac0; --ink:#3a2310; --emerald:#1e9e5a;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -23,82 +23,104 @@ body{
     radial-gradient(900px 500px at 10% 110%, rgba(212,175,55,.10), transparent 60%),
     linear-gradient(180deg,#0d0803 0%, var(--night) 30%, var(--night2) 60%, #2a1a0e 100%);
 }
-/* زخرفة هندسية خفيفة */
 body::before{
   content:"";position:fixed;inset:0;pointer-events:none;opacity:.05;z-index:0;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='1'%3E%3Cpath d='M40 0L80 40L40 80L0 40Z'/%3E%3Cpath d='M40 12L68 40L40 68L12 40Z'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3C/g%3E%3C/svg%3E");
 }
-/* إطار ذهبي حول الصفحة */
 body::after{content:"";position:fixed;inset:10px;border:1px solid rgba(212,175,55,.28);border-radius:10px;pointer-events:none;z-index:0}
 .wrap{max-width:640px;margin:0 auto;padding:0 18px 150px;position:relative;z-index:1}
 
 /* ===== الهيدر الملكي ===== */
 .hero{text-align:center;padding:64px 0 8px;position:relative}
-.hero .orn{color:var(--gold);opacity:.85;font-size:22px;letter-spacing:8px;animation:glow 3s ease-in-out infinite}
+.spark{position:absolute;color:var(--gold2);font-size:10px;opacity:0;animation:twinkle 3.4s ease-in-out infinite;pointer-events:none}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.6)}50%{opacity:.9;transform:scale(1.15)}}
+.hero .orn{color:var(--gold);opacity:.85;font-size:20px;letter-spacing:8px;animation:glow 3s ease-in-out infinite}
 @keyframes glow{0%,100%{text-shadow:0 0 8px rgba(212,175,55,.4)}50%{text-shadow:0 0 22px rgba(212,175,55,.9)}}
-.hero h2{font-family:'Amiri',serif;font-size:31px;line-height:1.7;margin-top:10px;color:#fff;text-shadow:0 3px 14px rgba(0,0,0,.6)}
+.hero h2{font-family:'Amiri',serif;font-size:30px;line-height:1.7;margin-top:10px;color:#fff;text-shadow:0 3px 14px rgba(0,0,0,.6)}
 .hero h1{
-  font-family:'Reem Kufi','Amiri',serif;font-size:26px;margin-top:6px;
-  background:linear-gradient(180deg,#fff6d8,var(--gold2) 45%,var(--gold));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  font-family:'Aref Ruqaa','Amiri',serif;font-weight:700;font-size:40px;line-height:1.5;margin-top:2px;
+  background:linear-gradient(100deg,#fff6d8 10%,var(--gold2) 30%,#fff 48%,var(--gold2) 62%,var(--gold) 90%);
+  background-size:220% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:shine 4.5s linear infinite;
+  filter:drop-shadow(0 4px 16px rgba(212,175,55,.35));
 }
-.hero .rule{width:150px;height:2px;margin:16px auto 0;border-radius:2px;
+@keyframes shine{to{background-position:220% center}}
+.hero .rule{width:150px;height:2px;margin:14px auto 0;border-radius:2px;
   background:linear-gradient(90deg,transparent,var(--gold),transparent);position:relative}
 .hero .rule::before,.hero .rule::after{content:"✦";position:absolute;top:-9px;color:var(--gold);font-size:12px}
 .hero .rule::before{right:-14px}.hero .rule::after{left:-14px}
 
-/* أيقونة التطبيق المتوهجة */
+/* أيقونة التطبيق الحقيقية بهالة دوّارة */
 .appicon{
-  width:118px;height:118px;margin:26px auto 0;border-radius:30px;position:relative;
-  background:radial-gradient(circle at 32% 28%,#fff8e1,#e6c25a 55%,#b8962f);
-  display:flex;align-items:center;justify-content:center;font-size:56px;
-  box-shadow:0 0 0 4px rgba(255,255,255,.9),0 0 0 7px rgba(212,175,55,.55),0 18px 50px rgba(0,0,0,.6),0 0 44px rgba(212,175,55,.35);
+  width:122px;height:122px;margin:28px auto 0;border-radius:32px;position:relative;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 0 4px rgba(255,255,255,.92),0 0 0 7px rgba(212,175,55,.55),0 18px 50px rgba(0,0,0,.6),0 0 46px rgba(212,175,55,.38);
   animation:float 4s ease-in-out infinite;
 }
+.appicon img{width:100%;height:100%;object-fit:cover;border-radius:inherit;display:block}
+.appicon::before{
+  content:"";position:absolute;inset:-13px;border-radius:40px;z-index:-1;
+  background:conic-gradient(from 0deg, transparent 0 62%, rgba(212,175,55,.85) 82%, transparent 100%);
+  animation:spin 5s linear infinite;filter:blur(2px);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:20px}
 .chip{background:rgba(212,175,55,.12);border:1px solid rgba(212,175,55,.4);color:var(--gold2);
   font-size:11px;font-weight:700;padding:6px 14px;border-radius:99px;backdrop-filter:blur(6px)}
+.chip.live{display:inline-flex;align-items:center;gap:7px;border-color:rgba(30,158,90,.55);background:rgba(30,158,90,.12);color:#9fe8bd}
+.chip.live .dot{width:7px;height:7px;border-radius:50%;background:#2ee08a;box-shadow:0 0 10px #2ee08a;animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.55}}
+.chip.live b{font-weight:900}
 
 /* عدّادات */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:26px}
-.stat{background:rgba(255,255,255,.05);border:1px solid rgba(212,175,55,.25);border-radius:16px;padding:12px 6px;text-align:center;backdrop-filter:blur(8px)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:24px}
+.stat{background:rgba(255,255,255,.05);border:1px solid rgba(212,175,55,.25);border-radius:16px;padding:12px 6px;text-align:center;backdrop-filter:blur(8px);transition:.3s}
+.stat:active{transform:scale(.96)}
 .stat b{display:block;font-size:17px;color:var(--gold2);font-weight:900}
 .stat span{font-size:9.5px;color:#cbb98a}
 
 /* عناوين الأقسام */
-.sec{display:flex;align-items:center;gap:10px;margin:38px 0 16px;font-family:'Amiri',serif;font-size:21px;color:var(--gold2)}
+.sec{display:flex;align-items:center;gap:10px;margin:40px 0 16px;font-family:'Amiri',serif;font-size:21px;color:var(--gold2)}
 .sec::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(212,175,55,.6),transparent)}
 
 /* بطاقات الميزات */
 .feat{display:grid;grid-template-columns:1fr 1fr;gap:11px}
 .feat div{
   background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.03));
-  border:1px solid rgba(212,175,55,.28);border-radius:18px;padding:15px 10px;text-align:center;
-  backdrop-filter:blur(8px);display:flex;flex-direction:column;gap:6px;align-items:center;
+  border:1px solid rgba(212,175,55,.28);border-radius:18px;padding:16px 10px;text-align:center;
+  backdrop-filter:blur(8px);display:flex;flex-direction:column;gap:6px;align-items:center;position:relative;overflow:hidden;
   opacity:0;transform:translateY(18px);transition:.6s cubic-bezier(.2,.7,.3,1);
 }
+.feat div::before{content:"";position:absolute;top:-40%;right:-40%;width:80%;height:80%;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,175,55,.16),transparent 70%);opacity:0;transition:.4s}
+.feat div:active::before{opacity:1}
 .feat div.in{opacity:1;transform:none}
 .feat div span{font-size:26px;filter:drop-shadow(0 4px 10px rgba(0,0,0,.4))}
 .feat div b{font-size:12.5px;color:#fff}
 .feat div small{font-size:10px;color:#cbb98a;line-height:1.6}
 
-/* لقطات */
-.shots{display:flex;gap:14px;overflow-x:auto;padding:8px 4px 20px;scroll-snap-type:x mandatory}
+/* لقطات بإطار ذهبي وانعكاس زجاجي */
+.shots{display:flex;gap:16px;overflow-x:auto;padding:8px 4px 26px;scroll-snap-type:x mandatory}
 .shots::-webkit-scrollbar{display:none}
-.shots img{height:430px;border-radius:24px;border:2px solid rgba(212,175,55,.55);
-  box-shadow:0 18px 44px rgba(0,0,0,.55);flex-shrink:0;background:#fff;scroll-snap-align:center;
-  transition:transform .4s}
+.shots img{
+  height:430px;border-radius:24px;border:2px solid rgba(212,175,55,.55);
+  box-shadow:0 18px 44px rgba(0,0,0,.55),0 0 0 6px rgba(212,175,55,.08);
+  flex-shrink:0;background:#fff;scroll-snap-align:center;transition:transform .4s;
+  -webkit-box-reflect:below 4px linear-gradient(transparent 82%, rgba(255,255,255,.22));
+}
 .shots img:active{transform:scale(.98)}
 
 /* بطاقة رحلة صفاء */
 .journey{
-  border:1px solid rgba(212,175,55,.4);border-radius:22px;padding:20px;text-align:center;
+  border:1px solid rgba(212,175,55,.4);border-radius:22px;padding:22px;text-align:center;position:relative;overflow:hidden;
   background:linear-gradient(160deg,rgba(212,175,55,.14),rgba(212,175,55,.04));backdrop-filter:blur(8px);
 }
-.journey .em{font-size:44px;animation:float 3.5s ease-in-out infinite}
-.journey h3{font-family:'Amiri',serif;color:var(--gold2);font-size:20px;margin:8px 0 6px}
-.journey p{font-size:12.5px;line-height:2;color:#e8d9ae}
+.journey::before{content:"";position:absolute;inset:0;background:radial-gradient(400px 200px at 50% -20%,rgba(212,175,55,.18),transparent 70%)}
+.journey .em{font-size:46px;animation:float 3.5s ease-in-out infinite;position:relative}
+.journey h3{font-family:'Aref Ruqaa','Amiri',serif;color:var(--gold2);font-size:23px;margin:8px 0 6px;position:relative}
+.journey p{font-size:12.5px;line-height:2;color:#e8d9ae;position:relative}
 
 /* الأمان */
 .trust{background:rgba(30,158,90,.10);border:1px solid rgba(30,158,90,.4);border-radius:18px;padding:14px 16px;display:flex;gap:12px;align-items:center}
@@ -114,11 +136,11 @@ details p{padding:0 16px 14px;font-size:12px;line-height:2;color:#e8d9ae}
 
 /* الوصف */
 .desc{background:rgba(255,255,255,.06);border:1px solid rgba(212,175,55,.28);border-radius:20px;padding:20px;line-height:2.15;font-size:13.5px;color:#f0e3bd;backdrop-filter:blur(8px)}
-.desc h3{font-family:'Amiri',serif;color:var(--gold2);font-size:19px;margin-bottom:8px}
+.desc h3{font-family:'Aref Ruqaa','Amiri',serif;color:var(--gold2);font-size:22px;margin-bottom:8px}
 
 footer{text-align:center;color:#9c8a5f;font-size:11px;line-height:2;margin-top:36px}
 
-/* ===== شريط التثبيت السفلي ===== */
+/* ===== شريط التثبيت ===== */
 .bar{
   position:fixed;bottom:12px;left:50%;transform:translateX(-50%);width:calc(100% - 22px);max-width:600px;
   background:linear-gradient(180deg,rgba(45,30,14,.92),rgba(18,11,6,.96));border:1px solid rgba(212,175,55,.55);
@@ -128,8 +150,11 @@ footer{text-align:center;color:#9c8a5f;font-size:11px;line-height:2;margin-top:3
 .btn{
   background:linear-gradient(180deg,var(--gold2),var(--gold));color:#2a1a0e;border:0;border-radius:99px;
   padding:13px 26px;font-family:'Tajawal';font-weight:900;font-size:14px;cursor:pointer;white-space:nowrap;
-  box-shadow:0 8px 22px rgba(212,175,55,.45),inset 0 1px 0 rgba(255,255,255,.6);
+  box-shadow:0 8px 22px rgba(212,175,55,.45),inset 0 1px 0 rgba(255,255,255,.6);position:relative;overflow:hidden;
 }
+.btn::after{content:"";position:absolute;top:0;right:-60%;width:40%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.7),transparent);animation:btnshine 3s ease-in-out infinite}
+@keyframes btnshine{0%{right:-60%}55%{right:120%}100%{right:120%}}
 .btn:active{transform:scale(.96)}
 
 /* ===== لوحة التحميل ===== */
@@ -139,10 +164,8 @@ footer{text-align:center;color:#9c8a5f;font-size:11px;line-height:2;margin-top:3
   box-shadow:0 26px 70px rgba(0,0,0,.75);backdrop-filter:blur(16px);
 }
 .dl-top{display:flex;align-items:center;gap:14px}
-.ring{
-  width:64px;height:64px;border-radius:50%;flex:0 0 64px;display:flex;align-items:center;justify-content:center;
-  background:conic-gradient(var(--gold) 0%, rgba(255,255,255,.08) 0);position:relative;
-}
+.ring{width:64px;height:64px;border-radius:50%;flex:0 0 64px;display:flex;align-items:center;justify-content:center;
+  background:conic-gradient(var(--gold) 0%, rgba(255,255,255,.08) 0);position:relative}
 .ring::before{content:"";position:absolute;inset:6px;border-radius:50%;background:#140d07}
 .ring b{position:relative;font-size:13px;color:var(--gold2);font-weight:900}
 .dl-info{flex:1;min-width:0}
@@ -159,12 +182,17 @@ footer{text-align:center;color:#9c8a5f;font-size:11px;line-height:2;margin-top:3
 <div class="wrap">
 
   <div class="hero">
+    <span class="spark" style="top:70px;right:12%">✦</span>
+    <span class="spark" style="top:110px;left:10%;animation-delay:1.1s">✦</span>
+    <span class="spark" style="top:180px;right:22%;animation-delay:2s">✧</span>
+    <span class="spark" style="top:60px;left:26%;animation-delay:.6s">✧</span>
     <div class="orn">✦ ✦ ✦</div>
     <h2>كل ما يحتاجه المسلم في تطبيق واحد</h2>
     <h1>صفاء الروح</h1>
     <div class="rule"></div>
-    <div class="appicon">📿</div>
+    <div class="appicon"><img src="images/screen7.png" alt="أيقونة تطبيق صفاء الروح"></div>
     <div class="chips">
+      <span class="chip live"><i class="dot"></i><b id="dlCount">١٠٬٠٠٠</b>&nbsp;تحميل</span>
       <span class="chip">الإصدار v5.2.1</span>
       <span class="chip">161MB</span>
       <span class="chip">+10 تطبيقات في واحد</span>
@@ -239,16 +267,14 @@ footer{text-align:center;color:#9c8a5f;font-size:11px;line-height:2;margin-top:3
   </footer>
 </div>
 
-<!-- شريط التثبيت -->
 <div class="bar">
   <div>
     <div style="color:var(--gold2);font-weight:900;font-size:14px">تثبيت مباشر وآمن</div>
-    <div style="color:#9c8a5f;font-size:11px">يستكمل تلقائيًا بعد انقطاع النت</div>
+    <div style="color:#9c8a5f;font-size:11px">انضم إلى <span id="barCount">+١٠٬٠٠٠</span> حمّلوا التطبيق</div>
   </div>
   <button class="btn" id="installBtn">📥 تثبيت الآن</button>
 </div>
 
-<!-- لوحة التحميل -->
 <div id="dl">
   <div class="dl-top">
     <div class="ring" id="ring"><b id="pct">0%</b></div>
@@ -264,9 +290,67 @@ footer{text-align:center;color:#9c8a5f;font-size:11px;line-height:2;margin-top:3
   <div class="dl-note">💾 التقدم محفوظ داخل متصفحك — إذا خرجت وعدت سيكمل من نفس النقطة. عند اكتمال 100% سيُفتح مثبّت أندرويد تلقائيًا مثل المتاجر.</div>
 </div>
 
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 <script>
 /* =====================================================
-   محرك التحميل الملكي — خلفية + استكمال حقيقي + تثبيت تلقائي
+   1) عدّاد التحميلات: ١٠٬٠٠٠ أساسي + عد حقيقي من ١٠٬٠٠١
+   ===================================================== */
+const BASE_DL=10000;
+let realDL=parseInt(localStorage.getItem('safa_site_dl')||'0',10);
+let dbSite=null;
+const fmtNum=n=>n.toLocaleString('ar-EG');
+
+function paintCount(animate){
+  const target=BASE_DL+realDL;
+  const el=document.getElementById('dlCount'), bar=document.getElementById('barCount');
+  if(!animate){el.textContent=fmtNum(target);bar.textContent='+'+fmtNum(target);return;}
+  const start=Math.max(0,target-40); let t0=null;
+  function step(ts){
+    if(!t0)t0=ts;
+    const p=Math.min(1,(ts-t0)/1200);
+    const v=Math.round(start+(target-start)*p);
+    el.textContent=fmtNum(v); bar.textContent='+'+fmtNum(v);
+    if(p<1)requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+function initFirebaseCounter(){
+  try{
+    if(!firebase.apps.length)firebase.initializeApp({
+      apiKey:"AIzaSyBvTTNnmCXOqwS31hTIxBR2I5FysMkns_s",
+      authDomain:"safa-c5fb4.firebaseapp.com",
+      projectId:"safa-c5fb4",
+      storageBucket:"safa-c5fb4.firebasestorage.app",
+      messagingSenderId:"402309766312",
+      appId:"1:402309766312:web:470bf9b87151a69dc9369d"
+    });
+    dbSite=firebase.firestore();
+    dbSite.collection('site_stats').doc('downloads').get().then(doc=>{
+      if(doc.exists){
+        const r=doc.data().real||0;
+        if(r>realDL){realDL=r;localStorage.setItem('safa_site_dl',String(r));}
+      }
+      paintCount(true);
+    }).catch(()=>paintCount(true));
+  }catch(e){paintCount(true);}
+}
+
+function bumpCounter(){
+  realDL++;
+  localStorage.setItem('safa_site_dl',String(realDL));
+  paintCount(false);
+  try{
+    if(dbSite)dbSite.collection('site_stats').doc('downloads')
+      .set({real:firebase.firestore.FieldValue.increment(1)},{merge:true}).catch(()=>{});
+  }catch(e){}
+}
+paintCount(true);
+window.addEventListener('load',initFirebaseCounter);
+
+/* =====================================================
+   2) محرك التحميل الملكي — خلفية + استكمال + تثبيت تلقائي
    ===================================================== */
 const APK_URL   = "https://archive.org/download/safa-alrouh-v5.2.1/safa-alrouh-v5.2.1.apk";
 const FILE_NAME = "safa-alrouh-v5.2.1.apk";
@@ -277,7 +361,6 @@ const dl=document.getElementById('dl'), ring=document.getElementById('ring'),
 
 let db=null, controller=null, busy=false, wakeLock=null;
 
-/* ---------- IndexedDB ---------- */
 function openDB(){return new Promise((res,rej)=>{
   const r=indexedDB.open('safa_dl',1);
   r.onupgradeneeded=()=>{const d=r.result;
@@ -300,11 +383,9 @@ function paint(meta,speed,eta){
     +(eta>0?'  •  متبقٍ '+eta+' ث':'');
 }
 
-/* ---------- إبقاء الشاشة مستيقظة أثناء التحميل ---------- */
 async function keepAwake(){try{if('wakeLock' in navigator)wakeLock=await navigator.wakeLock.request('screen');}catch(e){}}
 function releaseWake(){try{if(wakeLock)wakeLock.release();wakeLock=null;}catch(e){}}
 
-/* ---------- التثبيت التلقائي مثل المتاجر ---------- */
 function autoInstall(blob){
   const url=URL.createObjectURL(blob);
   const a=document.createElement('a');
@@ -313,14 +394,12 @@ function autoInstall(blob){
   setTimeout(()=>URL.revokeObjectURL(url),120000);
 }
 
-/* ---------- احتياط: تحميل المتصفح الأصلي ---------- */
 function nativeDownload(msg){
   busy=false; releaseWake();
   dlt.textContent=msg||'سيكمل المتصفح التحميل في شريط الإشعارات';
   setTimeout(()=>{const a=document.createElement('a');a.href=APK_URL;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove();},700);
 }
 
-/* ---------- محرك التحميل ---------- */
 async function startDownload(){
   if(busy)return; busy=true;
   dl.style.display='block';
@@ -352,7 +431,7 @@ async function startDownload(){
   await put('meta','m',meta);
 
   const reader=res.body.getReader();
-  const t0=Date.now(); let idx=meta.idx, last=0, lastSave=0, ema=0;
+  const t0=Date.now(); let idx=meta.idx, lastSave=0, ema=0;
   try{
     while(true){
       const {done,value}=await reader.read();
@@ -370,7 +449,6 @@ async function startDownload(){
     pauseBtn.textContent='▶ متابعة'; busy=false; releaseWake(); return;
   }
 
-  /* اكتمل: فحص السلامة ثم التجميع والتثبيت */
   dlt.textContent='يفحص سلامة الملف...';
   const all=[];
   for(let i=0;i<idx;i++){const c=await get('chunks',i);if(c)all.push(c);}
@@ -382,12 +460,12 @@ async function startDownload(){
   }
   paint({received:blob.size,total:blob.size},0,0);
   dlt.textContent='✅ اكتمل! يُفتح المثبّت الآن...';
+  bumpCounter();          /* 🔢 العداد الحقيقي +1 */
   autoInstall(blob);
   await resetAll();
   busy=false; releaseWake();
 }
 
-/* ---------- الأزرار ---------- */
 document.getElementById('installBtn').addEventListener('click',startDownload);
 pauseBtn.addEventListener('click',()=>{
   if(!busy){startDownload();return;}
@@ -400,10 +478,10 @@ document.getElementById('dlCancel').addEventListener('click',async()=>{
   dl.style.display='none'; paint({received:0,total:0},0,0);
 });
 
-/* استئناف مقترح عند العودة */
 (async()=>{
   try{
-    const d=await (db||await openDB(), get('meta','m'));
+    db=db||await openDB();
+    const d=await get('meta','m');
     if(d&&d.received>0){
       dl.style.display='block';
       paint(d,0,0);
@@ -413,7 +491,7 @@ document.getElementById('dlCancel').addEventListener('click',async()=>{
   }catch(e){}
 })();
 
-/* ---------- حركات ظهور الميزات ---------- */
+/* حركات ظهور الميزات */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.15});
 document.querySelectorAll('#feat div').forEach((el,i)=>{el.style.transitionDelay=(i*0.05)+'s';io.observe(el);});
 </script>
