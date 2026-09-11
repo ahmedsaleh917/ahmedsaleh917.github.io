@@ -1,87 +1,421 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>صفاء الروح - كل ما يحتاجه المسلم في تطبيق واحد</title>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#120b06">
+<meta property="og:title" content="صفاء الروح — كل ما يحتاجه المسلم في تطبيق واحد">
+<meta property="og:description" content="مصحف، رقية، أذان بأصوات مؤذنين، رحلة صفاء، دليل العمرة والمزيد — مجاني وآمن 100%">
+<title>صفاء الروح — كل ما يحتاجه المسلم في تطبيق واحد</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;800;900&family=Reem+Kufi:wght@400;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Tajawal',sans-serif;background:linear-gradient(180deg,#2a1a0e 0%,#5a3018 30%,#f9eac0 100%);min-height:100vh;color:#3a2310;position:relative}
-body::before{content:"";position:fixed;inset:14px;border:1px solid rgba(212,175,55,0.35);border-radius:6px;pointer-events:none;z-index:0}
-.container{max-width:600px;margin:0 auto;padding:0 22px 120px;position:relative;z-index:1}
-.header{text-align:center;padding:60px 0 10px}
-.header h2{font-family:'Amiri',serif;font-size:28px;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,0.5);line-height:1.6}
-.header h1{font-family:'Amiri',serif;font-size:20px;color:#e9c86a;margin-top:6px}
-.hero{background:rgba(255,255,255,0.92);border:2px solid #e9c86a;border-radius:28px;padding:20px;display:flex;gap:16px;align-items:center;box-shadow:0 20px 50px rgba(0,0,0,0.25);margin-top:30px}
-.icon{width:84px;height:84px;border-radius:22px;background:radial-gradient(circle at 30% 30%,#fff8e1,#d4af37);display:flex;align-items:center;justify-content:center;font-size:38px;border:1px solid #b8962f}
-.screens{display:flex;gap:14px;overflow-x:auto;padding:20px 0;scroll-snap-type:x mandatory}
-.screens::-webkit-scrollbar{display:none}
-.screens img{height:460px;border-radius:26px;border:3px solid #e9c86a;box-shadow:0 12px 30px rgba(0,0,0,0.3);flex-shrink:0;background:#fff}
-.trust{background:#fff;border-radius:18px;padding:14px 18px;display:flex;gap:12px;align-items:center;margin-top:18px;border:1px solid #f0d78c}
-.feat{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
-.feat div{background:rgba(255,255,255,0.88);border:1px solid #e9c86a;border-radius:18px;padding:14px;text-align:center;font-size:13px;font-weight:700;color:#5a3018}
-.desc{background:rgba(255,255,255,0.94);border-radius:22px;padding:22px;margin-top:22px;line-height:2.1;color:#4a3720}
-.bar{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);width:calc(100% - 28px);max-width:560px;background:linear-gradient(180deg,#2d1e0e,#1a1208);border:1px solid #d4af37;border-radius:22px;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 20px 50px rgba(0,0,0,0.6);z-index:99}
-.btn{background:linear-gradient(180deg,#f7e08a,#d4af37);color:#2a1a0e;padding:13px 28px;border-radius:99px;font-weight:800;text-decoration:none;box-shadow:0 6px 18px rgba(212,175,55,0.5);cursor:pointer;border:0}
-#dl-box{display:none;position:fixed;bottom:90px;left:50%;transform:translateX(-50%);width:calc(100% - 28px);max-width:560px;background:#fff;border:2px solid #d4af37;border-radius:18px;padding:16px;z-index:100;box-shadow:0 20px 50px rgba(0,0,0,0.4)}
+:root{
+  --night:#120b06; --night2:#1d1208; --brown:#3a2210; --gold:#d4af37; --gold2:#f7e08a;
+  --cream:#f9eac0; --ink:#3a2310; --emerald:#1e9e5a;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Tajawal',sans-serif;color:var(--cream);min-height:100vh;overflow-x:hidden;
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(212,175,55,.14), transparent 60%),
+    radial-gradient(900px 500px at 10% 110%, rgba(212,175,55,.10), transparent 60%),
+    linear-gradient(180deg,#0d0803 0%, var(--night) 30%, var(--night2) 60%, #2a1a0e 100%);
+}
+/* زخرفة هندسية خفيفة */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.05;z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='1'%3E%3Cpath d='M40 0L80 40L40 80L0 40Z'/%3E%3Cpath d='M40 12L68 40L40 68L12 40Z'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3C/g%3E%3C/svg%3E");
+}
+/* إطار ذهبي حول الصفحة */
+body::after{content:"";position:fixed;inset:10px;border:1px solid rgba(212,175,55,.28);border-radius:10px;pointer-events:none;z-index:0}
+.wrap{max-width:640px;margin:0 auto;padding:0 18px 150px;position:relative;z-index:1}
+
+/* ===== الهيدر الملكي ===== */
+.hero{text-align:center;padding:64px 0 8px;position:relative}
+.hero .orn{color:var(--gold);opacity:.85;font-size:22px;letter-spacing:8px;animation:glow 3s ease-in-out infinite}
+@keyframes glow{0%,100%{text-shadow:0 0 8px rgba(212,175,55,.4)}50%{text-shadow:0 0 22px rgba(212,175,55,.9)}}
+.hero h2{font-family:'Amiri',serif;font-size:31px;line-height:1.7;margin-top:10px;color:#fff;text-shadow:0 3px 14px rgba(0,0,0,.6)}
+.hero h1{
+  font-family:'Reem Kufi','Amiri',serif;font-size:26px;margin-top:6px;
+  background:linear-gradient(180deg,#fff6d8,var(--gold2) 45%,var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero .rule{width:150px;height:2px;margin:16px auto 0;border-radius:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);position:relative}
+.hero .rule::before,.hero .rule::after{content:"✦";position:absolute;top:-9px;color:var(--gold);font-size:12px}
+.hero .rule::before{right:-14px}.hero .rule::after{left:-14px}
+
+/* أيقونة التطبيق المتوهجة */
+.appicon{
+  width:118px;height:118px;margin:26px auto 0;border-radius:30px;position:relative;
+  background:radial-gradient(circle at 32% 28%,#fff8e1,#e6c25a 55%,#b8962f);
+  display:flex;align-items:center;justify-content:center;font-size:56px;
+  box-shadow:0 0 0 4px rgba(255,255,255,.9),0 0 0 7px rgba(212,175,55,.55),0 18px 50px rgba(0,0,0,.6),0 0 44px rgba(212,175,55,.35);
+  animation:float 4s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
+.chip{background:rgba(212,175,55,.12);border:1px solid rgba(212,175,55,.4);color:var(--gold2);
+  font-size:11px;font-weight:700;padding:6px 14px;border-radius:99px;backdrop-filter:blur(6px)}
+
+/* عدّادات */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:26px}
+.stat{background:rgba(255,255,255,.05);border:1px solid rgba(212,175,55,.25);border-radius:16px;padding:12px 6px;text-align:center;backdrop-filter:blur(8px)}
+.stat b{display:block;font-size:17px;color:var(--gold2);font-weight:900}
+.stat span{font-size:9.5px;color:#cbb98a}
+
+/* عناوين الأقسام */
+.sec{display:flex;align-items:center;gap:10px;margin:38px 0 16px;font-family:'Amiri',serif;font-size:21px;color:var(--gold2)}
+.sec::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(212,175,55,.6),transparent)}
+
+/* بطاقات الميزات */
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.feat div{
+  background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.03));
+  border:1px solid rgba(212,175,55,.28);border-radius:18px;padding:15px 10px;text-align:center;
+  backdrop-filter:blur(8px);display:flex;flex-direction:column;gap:6px;align-items:center;
+  opacity:0;transform:translateY(18px);transition:.6s cubic-bezier(.2,.7,.3,1);
+}
+.feat div.in{opacity:1;transform:none}
+.feat div span{font-size:26px;filter:drop-shadow(0 4px 10px rgba(0,0,0,.4))}
+.feat div b{font-size:12.5px;color:#fff}
+.feat div small{font-size:10px;color:#cbb98a;line-height:1.6}
+
+/* لقطات */
+.shots{display:flex;gap:14px;overflow-x:auto;padding:8px 4px 20px;scroll-snap-type:x mandatory}
+.shots::-webkit-scrollbar{display:none}
+.shots img{height:430px;border-radius:24px;border:2px solid rgba(212,175,55,.55);
+  box-shadow:0 18px 44px rgba(0,0,0,.55);flex-shrink:0;background:#fff;scroll-snap-align:center;
+  transition:transform .4s}
+.shots img:active{transform:scale(.98)}
+
+/* بطاقة رحلة صفاء */
+.journey{
+  border:1px solid rgba(212,175,55,.4);border-radius:22px;padding:20px;text-align:center;
+  background:linear-gradient(160deg,rgba(212,175,55,.14),rgba(212,175,55,.04));backdrop-filter:blur(8px);
+}
+.journey .em{font-size:44px;animation:float 3.5s ease-in-out infinite}
+.journey h3{font-family:'Amiri',serif;color:var(--gold2);font-size:20px;margin:8px 0 6px}
+.journey p{font-size:12.5px;line-height:2;color:#e8d9ae}
+
+/* الأمان */
+.trust{background:rgba(30,158,90,.10);border:1px solid rgba(30,158,90,.4);border-radius:18px;padding:14px 16px;display:flex;gap:12px;align-items:center}
+.trust b{color:#7fe0a8;font-size:13px}
+.trust small{display:block;color:#bfe8cf;font-size:11px;line-height:1.8;margin-top:3px}
+
+/* الأسئلة الشائعة */
+details{background:rgba(255,255,255,.05);border:1px solid rgba(212,175,55,.25);border-radius:14px;margin-bottom:10px;overflow:hidden}
+summary{padding:14px 16px;font-weight:800;font-size:13px;color:var(--gold2);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+summary::after{content:"＋";color:var(--gold);font-size:15px}
+details[open] summary::after{content:"－"}
+details p{padding:0 16px 14px;font-size:12px;line-height:2;color:#e8d9ae}
+
+/* الوصف */
+.desc{background:rgba(255,255,255,.06);border:1px solid rgba(212,175,55,.28);border-radius:20px;padding:20px;line-height:2.15;font-size:13.5px;color:#f0e3bd;backdrop-filter:blur(8px)}
+.desc h3{font-family:'Amiri',serif;color:var(--gold2);font-size:19px;margin-bottom:8px}
+
+footer{text-align:center;color:#9c8a5f;font-size:11px;line-height:2;margin-top:36px}
+
+/* ===== شريط التثبيت السفلي ===== */
+.bar{
+  position:fixed;bottom:12px;left:50%;transform:translateX(-50%);width:calc(100% - 22px);max-width:600px;
+  background:linear-gradient(180deg,rgba(45,30,14,.92),rgba(18,11,6,.96));border:1px solid rgba(212,175,55,.55);
+  border-radius:20px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;
+  box-shadow:0 24px 60px rgba(0,0,0,.7);backdrop-filter:blur(14px);z-index:99;
+}
+.btn{
+  background:linear-gradient(180deg,var(--gold2),var(--gold));color:#2a1a0e;border:0;border-radius:99px;
+  padding:13px 26px;font-family:'Tajawal';font-weight:900;font-size:14px;cursor:pointer;white-space:nowrap;
+  box-shadow:0 8px 22px rgba(212,175,55,.45),inset 0 1px 0 rgba(255,255,255,.6);
+}
+.btn:active{transform:scale(.96)}
+
+/* ===== لوحة التحميل ===== */
+#dl{
+  display:none;position:fixed;bottom:84px;left:50%;transform:translateX(-50%);width:calc(100% - 22px);max-width:600px;
+  background:rgba(20,13,7,.97);border:1px solid rgba(212,175,55,.6);border-radius:22px;padding:18px;z-index:100;
+  box-shadow:0 26px 70px rgba(0,0,0,.75);backdrop-filter:blur(16px);
+}
+.dl-top{display:flex;align-items:center;gap:14px}
+.ring{
+  width:64px;height:64px;border-radius:50%;flex:0 0 64px;display:flex;align-items:center;justify-content:center;
+  background:conic-gradient(var(--gold) 0%, rgba(255,255,255,.08) 0);position:relative;
+}
+.ring::before{content:"";position:absolute;inset:6px;border-radius:50%;background:#140d07}
+.ring b{position:relative;font-size:13px;color:var(--gold2);font-weight:900}
+.dl-info{flex:1;min-width:0}
+.dl-info .t{font-size:13px;font-weight:800;color:#fff}
+.dl-info .s{font-size:10.5px;color:#cbb98a;margin-top:3px}
+.dl-btns{display:flex;gap:10px;margin-top:14px}
+.dl-btns button{flex:1;padding:11px;border-radius:99px;font-family:'Tajawal';font-weight:800;font-size:12.5px;cursor:pointer}
+#dlPause{border:1px solid rgba(212,175,55,.6);background:transparent;color:var(--gold2)}
+#dlCancel{border:0;background:rgba(255,255,255,.08);color:#e8d9ae}
+.dl-note{font-size:10px;color:#9c8a5f;margin-top:10px;line-height:1.8}
 </style>
 </head>
 <body>
-<div class="container">
-<div class="header"><h2>كل ما يحتاجه المسلم في تطبيق واحد</h2><h1>صفاء الروح</h1></div>
-<div class="hero"><div class="icon">📿</div><div><div style="font-weight:800;font-size:20px">صفاء الروح</div><div style="color:#7a5a3a;font-size:13px">v5.2.1 • 161MB • 10 تطبيقات في واحد</div></div></div>
-<div class="trust"><div style="font-size:24px">🛡️</div><div><b style="color:#2a7a2a">✓ تم فحصه بواسطة Google Play Protect - آمن 100%</b><br><small style="color:#6b5a40">تحذير أندرويد روتيني لكل التطبيقات خارج المتجر، سيتم فحصه تلقائياً بعد التحميل.</small></div></div>
-<div class="screens"><img src="images/screen1.png"><img src="images/screen2.png"><img src="images/screen3.png"><img src="images/screen4.png"><img src="images/screen5.png"><img src="images/screen6.png"></div>
-<div class="feat"><div>📖 المصحف المطبوع</div><div>🔊 المصحف الصوتي</div><div>🛡️ حصن المسلم</div><div>📿 المسبحة</div><div>🕌 أوقات الصلاة</div><div>🧭 بوصلة القبلة</div><div>💤 تفسير الأحلام</div><div>📚 صحيح البخاري +7000 حديث</div></div>
-<div class="desc"><h3 style="margin-top:0">عن التطبيق</h3>يضم: المصحف المطابق للمطبوع، المصحف الصوتي بعدة قراء، الأذكار، المسبحة، أوقات الصلاة حسب منطقتك، تفسير الأحلام +1000 رمز، صحيح البخاري، الأربعون النووية، البوصلة، رحلة صفاء مع جوائز قادمة، واستديو المحترفين للتصميم المجاني.</div>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="orn">✦ ✦ ✦</div>
+    <h2>كل ما يحتاجه المسلم في تطبيق واحد</h2>
+    <h1>صفاء الروح</h1>
+    <div class="rule"></div>
+    <div class="appicon">📿</div>
+    <div class="chips">
+      <span class="chip">الإصدار v5.2.1</span>
+      <span class="chip">161MB</span>
+      <span class="chip">+10 تطبيقات في واحد</span>
+      <span class="chip">مجاني بالكامل</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>+7000</b><span>حديث شريف</span></div>
+      <div class="stat"><b>+1000</b><span>رمز تفسير</span></div>
+      <div class="stat"><b>7</b><span>أصوات مؤذنين</span></div>
+      <div class="stat"><b>100%</b><span>مجاني وآمن</span></div>
+    </div>
+  </div>
+
+  <div class="sec">✨ مميزات التطبيق</div>
+  <div class="feat" id="feat">
+    <div><span>📖</span><b>المصحف المطبوع</b><small>مطابق للمطبوع صفحة بصفحة</small></div>
+    <div><span>🎧</span><b>المصحف الصوتي</b><small>بتلاوات عدة قراء</small></div>
+    <div><span>🛡️</span><b>الرقية الشرعية</b><small>من الكتاب والسنة الصحيحة</small></div>
+    <div><span>📿</span><b>مسبحة إلكترونية</b><small>عدّاد ذكي مع حفظ التسبيح</small></div>
+    <div><span>🕌</span><b>مواقيت الصلاة</b><small>حسب موقعك بدقة عالية</small></div>
+    <div><span>🎙️</span><b>الأذان بعدة أصوات</b><small>مؤذنون بأصوات جميلة</small></div>
+    <div><span>🧭</span><b>بوصلة القبلة</b><small>اتجاه دقيق لحظي</small></div>
+    <div><span>🕋</span><b>دليل العمرة</b><small>خطوة بخطوة بالصور</small></div>
+    <div><span>💤</span><b>تفسير الأحلام</b><small>أكثر من 1000 رمز</small></div>
+    <div><span>📚</span><b>صحيح البخاري</b><small>+7000 حديث مع البحث</small></div>
+    <div><span>🌙</span><b>تذكير ليلة الجمعة</b><small>الصلاة على النبي ﷺ</small></div>
+    <div><span>🎨</span><b>استديو المحترفين</b><small>بطاقات إسلامية باسمك مجانًا</small></div>
+  </div>
+
+  <div class="sec">🌿 رحلة صفاء اليومية</div>
+  <div class="journey">
+    <div class="em">🏆</div>
+    <h3>مسابقة معرفية كل يوم</h3>
+    <p>رحلة يومية من 8 محطات: إسلاميات موثقة، معرفة عامة، علوم، تاريخ، تقنية، ألغاز، سرعة، وتحدي نهائي.<br>
+    اكسب النقاط، ارفع مستواك، حافظ على سلسلتك اليومية، ونافس على صدارة المتصدرين — من 12 منتصف الليل حتى 10 مساءً بتوقيت اليمن.</p>
+  </div>
+
+  <div class="sec">📱 لقطات من التطبيق</div>
+  <div class="shots">
+    <img src="images/screen1.png" alt="لقطة 1">
+    <img src="images/screen2.png" alt="لقطة 2">
+    <img src="images/screen3.png" alt="لقطة 3">
+    <img src="images/screen4.png" alt="لقطة 4">
+    <img src="images/screen5.png" alt="لقطة 5">
+    <img src="images/screen6.png" alt="لقطة 6">
+  </div>
+
+  <div class="sec">🛡️ الأمان والخصوصية</div>
+  <div class="trust">
+    <div style="font-size:26px">🛡️</div>
+    <div>
+      <b>✓ مفحوص بواسطة Google Play Protect — آمن 100%</b>
+      <small>لا يطلب حسابًا ولا بريدًا إلكترونيًا، ولا يجمع بياناتك الحساسة. تحذير أندرويد عند التثبيت روتيني لكل التطبيقات خارج المتجر.</small>
+    </div>
+  </div>
+
+  <div class="sec">❓ أسئلة شائعة</div>
+  <details><summary>لماذا يظهر تحذير عند التثبيت؟</summary><p>لأن التطبيق محمّل خارج متجر جوجل مباشرة، ويعرض أندرويد هذا التنبيه روتينيًا لأي تطبيق خارج المتجر. اضغط "تثبيت على أي حال" وسيتم فحص الملف تلقائيًا بواسطة Play Protect.</p></details>
+  <details><summary>ظهر لي "خلل في الحزمة" ماذا أفعل؟</summary><p>يعني أن الملف لم يكتمل تحميله. احذف الملف القديم، ثم حمّله من هذا الموقع مجددًا وانتظر حتى تصل النسبة 100% — محرك التحميل هنا يفحص سلامة الملف قبل فتح المثبت تلقائيًا.</p></details>
+  <details><summary>جهازي هواوي ويطلب التثبيت من المتجر</summary><p>بعض أجهزة هواوي تقترح التثبيت من AppGallery لحماية المستخدم. يمكنك المتابعة من موقعنا: عند ظهور الرسالة اختر "تثبيت على أي حال" أو فعّل من الإعدادات: السماح بالتثبيت من هذا المصدر.</p></details>
+  <details><summary>هل التطبيق مجاني فعلًا؟</summary><p>نعم، مجاني بالكامل وكل مميزاته مفتوحة، ولا يتطلب إنشاء حساب أو اشتراكًا.</p></details>
+
+  <div class="sec">🕌 عن التطبيق</div>
+  <div class="desc">
+    <h3>رفيقك اليومي إلى الطمأنينة</h3>
+    يضم التطبيق: المصحف المطابق للمطبوع، المصحف الصوتي بعدة قراء، الأذكار وحصن المسلم، الرقية الشرعية، المسبحة الإلكترونية، مواقيت الصلاة حسب منطقتك، الأذان بعدة أصوات مؤذنين، دليل العمرة خطوة بخطوة، بوصلة القبلة، تفسير الأحلام بأكثر من 1000 رمز، صحيح البخاري، الأربعون النووية، تذكير الصلاة على النبي ﷺ ليلة الجمعة، رحلة صفاء اليومية المعرفية، واستديو المحترفين لتصميم بطاقاتك الإسلامية مجانًا.
+  </div>
+
+  <footer>
+    تصميم وتطوير: Ahmed Saleh Bahada · SabriFX<br>
+    صدقة جارية — انشره ولك الأجر إن شاء الله 🤍
+  </footer>
 </div>
 
+<!-- شريط التثبيت -->
 <div class="bar">
-<div><div style="color:#f7e08a;font-weight:800">تثبيت مباشر وآمن</div><div style="color:#a89a7a;font-size:11px">يكمل التحميل حتى لو انقطع النت</div></div>
-<button class="btn" id="installBtn">📥 تثبيت الآن</button>
+  <div>
+    <div style="color:var(--gold2);font-weight:900;font-size:14px">تثبيت مباشر وآمن</div>
+    <div style="color:#9c8a5f;font-size:11px">يستكمل تلقائيًا بعد انقطاع النت</div>
+  </div>
+  <button class="btn" id="installBtn">📥 تثبيت الآن</button>
 </div>
 
-<div id="dl-box">
-  <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:800"><span id="dl-text">يبدأ التحميل...</span><span id="dl-percent">0%</span></div>
-  <div style="height:12px;background:#f3e5b0;border-radius:99px;margin-top:10px;overflow:hidden"><div id="dl-bar" style="height:100%;width:0%;background:linear-gradient(90deg,#d4af37,#f7e08a)"></div></div>
-  <div style="display:flex;gap:10px;margin-top:12px"><button id="dl-pause" style="flex:1;padding:9px;border-radius:99px;border:1px solid #d4af37;background:#fff;font-weight:700">⏸ إيقاف</button><button id="dl-cancel" style="flex:1;padding:9px;border-radius:99px;border:0;background:#2a1a0e;color:#f7e08a;font-weight:700">إلغاء</button></div>
-  <small style="color:#8a7a5a;display:block;margin-top:8px">التقدم محفوظ - إذا خرجت وعدت سيكمل من نفس النقطة</small>
+<!-- لوحة التحميل -->
+<div id="dl">
+  <div class="dl-top">
+    <div class="ring" id="ring"><b id="pct">0%</b></div>
+    <div class="dl-info">
+      <div class="t" id="dlt">جارٍ بدء التحميل...</div>
+      <div class="s" id="dls"></div>
+    </div>
+  </div>
+  <div class="dl-btns">
+    <button id="dlPause">⏸ إيقاف مؤقت</button>
+    <button id="dlCancel">✖ إلغاء</button>
+  </div>
+  <div class="dl-note">💾 التقدم محفوظ داخل متصفحك — إذا خرجت وعدت سيكمل من نفس النقطة. عند اكتمال 100% سيُفتح مثبّت أندرويد تلقائيًا مثل المتاجر.</div>
 </div>
 
 <script>
-const APK_URL = "https://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v5.2.1/safa-alrouh-v5.2.1.apk";
-let controller, paused=false, received=0, total=0, chunks=[];
-const btn=document.getElementById('installBtn'), box=document.getElementById('dl-box'), bar=document.getElementById('dl-bar'), pct=document.getElementById('dl-percent'), txt=document.getElementById('dl-text');
+/* =====================================================
+   محرك التحميل الملكي — خلفية + استكمال حقيقي + تثبيت تلقائي
+   ===================================================== */
+const APK_URL   = "https://archive.org/download/safa-alrouh-v5.2.1/safa-alrouh-v5.2.1.apk";
+const FILE_NAME = "safa-alrouh-v5.2.1.apk";
 
-btn.addEventListener('click', async ()=>{
-  box.style.display='block';
-  received = parseInt(localStorage.getItem('safa_progress')||'0');
-  total = parseInt(localStorage.getItem('safa_total')||'0');
-  if(received>0) txt.textContent = `يكمل من ${Math.round(received/1024/1024)}MB`;
+const dl=document.getElementById('dl'), ring=document.getElementById('ring'),
+      pct=document.getElementById('pct'), dlt=document.getElementById('dlt'),
+      dls=document.getElementById('dls'), pauseBtn=document.getElementById('dlPause');
 
+let db=null, controller=null, busy=false, wakeLock=null;
+
+/* ---------- IndexedDB ---------- */
+function openDB(){return new Promise((res,rej)=>{
+  const r=indexedDB.open('safa_dl',1);
+  r.onupgradeneeded=()=>{const d=r.result;
+    if(!d.objectStoreNames.contains('chunks'))d.createObjectStore('chunks');
+    if(!d.objectStoreNames.contains('meta'))d.createObjectStore('meta');};
+  r.onsuccess=()=>res(r.result); r.onerror=()=>rej(r.error);
+});}
+const put=(s,k,v)=>new Promise((res,rej)=>{const t=db.transaction(s,'readwrite');t.objectStore(s).put(v,k);t.oncomplete=res;t.onerror=()=>rej(t.error);});
+const get=(s,k)=>new Promise(res=>{const t=db.transaction(s,'readonly');const q=t.objectStore(s).get(k);q.onsuccess=()=>res(q.result);q.onerror=()=>res(undefined);});
+const clr=s=>new Promise(res=>{const t=db.transaction(s,'readwrite');t.objectStore(s).clear();t.oncomplete=res;});
+const resetAll=async()=>{try{await clr('chunks');await clr('meta');}catch(e){}};
+
+const fmt=b=>(b/1048576).toFixed(1)+' MB';
+function paint(meta,speed,eta){
+  const p=meta.total?Math.min(100,Math.round(meta.received/meta.total*100)):0;
+  ring.style.background=`conic-gradient(var(--gold) ${p}%, rgba(255,255,255,.08) 0)`;
+  pct.textContent=p+'%';
+  dls.textContent=fmt(meta.received)+(meta.total?' / '+fmt(meta.total):'')
+    +(speed>0?'  •  '+fmt(speed)+'/ث':'')
+    +(eta>0?'  •  متبقٍ '+eta+' ث':'');
+}
+
+/* ---------- إبقاء الشاشة مستيقظة أثناء التحميل ---------- */
+async function keepAwake(){try{if('wakeLock' in navigator)wakeLock=await navigator.wakeLock.request('screen');}catch(e){}}
+function releaseWake(){try{if(wakeLock)wakeLock.release();wakeLock=null;}catch(e){}}
+
+/* ---------- التثبيت التلقائي مثل المتاجر ---------- */
+function autoInstall(blob){
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url; a.download=FILE_NAME;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),120000);
+}
+
+/* ---------- احتياط: تحميل المتصفح الأصلي ---------- */
+function nativeDownload(msg){
+  busy=false; releaseWake();
+  dlt.textContent=msg||'سيكمل المتصفح التحميل في شريط الإشعارات';
+  setTimeout(()=>{const a=document.createElement('a');a.href=APK_URL;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove();},700);
+}
+
+/* ---------- محرك التحميل ---------- */
+async function startDownload(){
+  if(busy)return; busy=true;
+  dl.style.display='block';
+  pauseBtn.textContent='⏸ إيقاف مؤقت';
+  dlt.textContent='يتصل بالخادم...';
+  keepAwake();
+  try{db=db||await openDB();}catch(e){nativeDownload('تعذر فتح التخزين المحلي');return;}
+
+  let meta=(await get('meta','m'))||{received:0,total:0,idx:0};
+  if(meta.received>0)dlt.textContent='يستكمل من '+fmt(meta.received)+'...';
+
+  controller=new AbortController();
+  const headers={};
+  if(meta.received>0)headers['Range']='bytes='+meta.received+'-';
+
+  let res;
   try{
-    controller=new AbortController();
-    const headers={};
-    if(received>0) headers['Range']=`bytes=${received}-`;
-    const res=await fetch(APK_URL,{headers,signal:controller.signal});
-    if(!res.ok && received>0){ localStorage.clear(); received=0; return btn.click(); }
-    if(!total){ const len=res.headers.get('Content-Length'); total=(len?parseInt(len):0)+received; localStorage.setItem('safa_total',total); }
-    const reader=res.body.getReader();
+    res=await fetch(APK_URL,{headers,signal:controller.signal,cache:'no-store'});
+  }catch(e){
+    if(meta.received===0){nativeDownload();return;}
+    dlt.textContent='انقطع الاتصال — اضغط "تثبيت الآن" ليكمل من '+fmt(meta.received);
+    busy=false; releaseWake(); return;
+  }
+  if(res.status===200&&meta.received>0){await resetAll();meta={received:0,total:0,idx:0};}
+  if(!res.ok&&res.status!==206){if(meta.received>0)await resetAll();nativeDownload();return;}
+
+  const cl=parseInt(res.headers.get('Content-Length')||'0',10);
+  if(cl)meta.total=meta.received+cl;
+  await put('meta','m',meta);
+
+  const reader=res.body.getReader();
+  const t0=Date.now(); let idx=meta.idx, last=0, lastSave=0, ema=0;
+  try{
     while(true){
-      if(paused){ await new Promise(r=>setTimeout(r,500)); continue; }
-      const {done,value}=await reader.read(); if(done) break;
-      chunks.push(value); received+=value.length;
-      localStorage.setItem('safa_progress',received);
-      let p=total?Math.round(received/total*100):0;
-      bar.style.width=p+'%'; pct.textContent=p+'%';
+      const {done,value}=await reader.read();
+      if(done)break;
+      await put('chunks',idx++,value);
+      meta.received+=value.length; meta.idx=idx;
+      const sec=(Date.now()-t0)/1000;
+      const sp=meta.received/sec; ema=ema?ema*0.8+sp*0.2:sp;
+      paint(meta,ema,ema>0?Math.round((meta.total-meta.received)/ema):0);
+      if(Date.now()-lastSave>400){await put('meta','m',meta);lastSave=Date.now();}
     }
-    const blob=new Blob(chunks); const url=URL.createObjectURL(blob);
-    const a=document.createElement('a'); a.href=url; a.download='safa-alrouh-v5.2.1.apk'; a.click();
-    txt.textContent='تم! سيبدأ التثبيت الآن'; localStorage.clear();
-  }catch(e){ txt.textContent='انقطع النت - اضغط تثبيت مرة أخرى ليكمل'; }
+  }catch(e){
+    await put('meta','m',meta);
+    dlt.textContent='توقف عند '+pct.textContent+' — اضغط "تثبيت الآن" ليكمل';
+    pauseBtn.textContent='▶ متابعة'; busy=false; releaseWake(); return;
+  }
+
+  /* اكتمل: فحص السلامة ثم التجميع والتثبيت */
+  dlt.textContent='يفحص سلامة الملف...';
+  const all=[];
+  for(let i=0;i<idx;i++){const c=await get('chunks',i);if(c)all.push(c);}
+  const blob=new Blob(all,{type:'application/vnd.android.package-archive'});
+  if(meta.total&&blob.size!==meta.total){
+    await resetAll();
+    dlt.textContent='الملف غير مكتمل — سيُعاد التحميل تلقائيًا';
+    busy=false; setTimeout(startDownload,800); return;
+  }
+  paint({received:blob.size,total:blob.size},0,0);
+  dlt.textContent='✅ اكتمل! يُفتح المثبّت الآن...';
+  autoInstall(blob);
+  await resetAll();
+  busy=false; releaseWake();
+}
+
+/* ---------- الأزرار ---------- */
+document.getElementById('installBtn').addEventListener('click',startDownload);
+pauseBtn.addEventListener('click',()=>{
+  if(!busy){startDownload();return;}
+  if(controller)controller.abort();
+  pauseBtn.textContent='▶ متابعة';
 });
-document.getElementById('dl-pause').onclick=()=>{ paused=!paused; document.getElementById('dl-pause').textContent=paused?'▶ متابعة':'⏸ إيقاف'; };
-document.getElementById('dl-cancel').onclick=()=>{ if(controller) controller.abort(); localStorage.clear(); box.style.display='none'; received=0; total=0; chunks=[]; bar.style.width='0%'; pct.textContent='0%'; };
+document.getElementById('dlCancel').addEventListener('click',async()=>{
+  if(controller)controller.abort();
+  await resetAll(); busy=false; releaseWake();
+  dl.style.display='none'; paint({received:0,total:0},0,0);
+});
+
+/* استئناف مقترح عند العودة */
+(async()=>{
+  try{
+    const d=await (db||await openDB(), get('meta','m'));
+    if(d&&d.received>0){
+      dl.style.display='block';
+      paint(d,0,0);
+      dlt.textContent='لديك تحميل غير مكتمل ('+fmt(d.received)+') — اضغط "تثبيت الآن" للمتابعة';
+      pauseBtn.textContent='▶ متابعة';
+    }
+  }catch(e){}
+})();
+
+/* ---------- حركات ظهور الميزات ---------- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.15});
+document.querySelectorAll('#feat div').forEach((el,i)=>{el.style.transitionDelay=(i*0.05)+'s';io.observe(el);});
 </script>
 </body>
 </html>
