@@ -8,57 +8,80 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Tajawal',sans-serif;background:linear-gradient(180deg,#2a1a0e 0%,#5a3018 30%,#f9eac0 100%);min-height:100vh;color:#3a2310;position:relative}
 body::before{content:"";position:fixed;inset:14px;border:1px solid rgba(212,175,55,0.35);border-radius:6px;pointer-events:none;z-index:0}
-body::after{content:"✦";position:fixed;top:8px;left:8px;font-size:18px;color:#d4af37;opacity:0.6}
 .container{max-width:600px;margin:0 auto;padding:0 22px 120px;position:relative;z-index:1}
 .header{text-align:center;padding:60px 0 10px}
 .header h2{font-family:'Amiri',serif;font-size:28px;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,0.5);line-height:1.6}
-.header h1{font-family:'Amiri',serif;font-size:20px;color:#e9c86a;margin-top:6px;letter-spacing:1px}
+.header h1{font-family:'Amiri',serif;font-size:20px;color:#e9c86a;margin-top:6px}
 .hero{background:rgba(255,255,255,0.92);border:2px solid #e9c86a;border-radius:28px;padding:20px;display:flex;gap:16px;align-items:center;box-shadow:0 20px 50px rgba(0,0,0,0.25);margin-top:30px}
-.icon{width:84px;height:84px;border-radius:22px;background:radial-gradient(circle at 30% 30%,#fff8e1,#d4af37);display:flex;align-items:center;justify-content:center;font-size:38px;border:1px solid #b8962f;box-shadow:inset 0 0 10px rgba(255,255,255,0.8)}
+.icon{width:84px;height:84px;border-radius:22px;background:radial-gradient(circle at 30% 30%,#fff8e1,#d4af37);display:flex;align-items:center;justify-content:center;font-size:38px;border:1px solid #b8962f}
 .screens{display:flex;gap:14px;overflow-x:auto;padding:20px 0;scroll-snap-type:x mandatory}
 .screens::-webkit-scrollbar{display:none}
 .screens img{height:460px;border-radius:26px;border:3px solid #e9c86a;box-shadow:0 12px 30px rgba(0,0,0,0.3);flex-shrink:0;background:#fff}
 .trust{background:#fff;border-radius:18px;padding:14px 18px;display:flex;gap:12px;align-items:center;margin-top:18px;border:1px solid #f0d78c}
-.trust b{color:#2a7a2a;font-size:13px}
 .feat{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
 .feat div{background:rgba(255,255,255,0.88);border:1px solid #e9c86a;border-radius:18px;padding:14px;text-align:center;font-size:13px;font-weight:700;color:#5a3018}
 .desc{background:rgba(255,255,255,0.94);border-radius:22px;padding:22px;margin-top:22px;line-height:2.1;color:#4a3720}
-.desc h3{font-family:'Amiri',serif;color:#5a3018;margin:14px 0 8px}
 .bar{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);width:calc(100% - 28px);max-width:560px;background:linear-gradient(180deg,#2d1e0e,#1a1208);border:1px solid #d4af37;border-radius:22px;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 20px 50px rgba(0,0,0,0.6);z-index:99}
-.btn{background:linear-gradient(180deg,#f7e08a,#d4af37);color:#2a1a0e;padding:13px 28px;border-radius:99px;font-weight:800;text-decoration:none;box-shadow:0 6px 18px rgba(212,175,55,0.5)}
+.btn{background:linear-gradient(180deg,#f7e08a,#d4af37);color:#2a1a0e;padding:13px 28px;border-radius:99px;font-weight:800;text-decoration:none;box-shadow:0 6px 18px rgba(212,175,55,0.5);cursor:pointer;border:0}
+#dl-box{display:none;position:fixed;bottom:90px;left:50%;transform:translateX(-50%);width:calc(100% - 28px);max-width:560px;background:#fff;border:2px solid #d4af37;border-radius:18px;padding:16px;z-index:100;box-shadow:0 20px 50px rgba(0,0,0,0.4)}
 </style>
 </head>
 <body>
 <div class="container">
 <div class="header"><h2>كل ما يحتاجه المسلم في تطبيق واحد</h2><h1>صفاء الروح</h1></div>
-
-<div class="hero"><div class="icon">📿</div><div><div style="font-weight:800;font-size:20px;color:#3a2310">صفاء الروح</div><div style="color:#7a5a3a;font-size:13px;margin-top:4px">v5.2.1 • 161MB • 10 تطبيقات في واحد<br>⭐ يعمل بدون إنترنت</div></div></div>
-
-<div class="trust">
-<div style="font-size:24px">🛡️</div>
-<div><b>✓ تم فحصه بواسطة Google Play Protect</b><br><small style="color:#6b5a40">هذا تحذير روتيني من أندرويد لكل التطبيقات خارج المتجر. بعد التحميل سيقوم هاتفك بفحصه ويظهر أنه آمن 100%.</small></div>
-</div>
-
-<div class="screens">
-<img src="images/screen1.png"><img src="images/screen2.png"><img src="images/screen3.png"><img src="images/screen4.png"><img src="images/screen5.png"><img src="images/screen6.png">
-</div>
-
-<div class="feat">
-<div>📖 المصحف المطبوع</div><div>🔊 المصحف الصوتي</div>
-<div>🛡️ حصن المسلم</div><div>📿 المسبحة</div>
-<div>🕌 أوقات الصلاة</div><div>🧭 بوصلة القبلة</div>
-<div>💤 تفسير الأحلام</div><div>📚 صحيح البخاري</div>
-</div>
-
-<div class="desc">
-<h3 style="margin-top:0">السلام عليكم - مرحباً بك في صفاء الروح</h3>
-تطبيق إسلامي شامل يجمع كل ما تحتاجه: المصحف المطابق للمطبوع، المصحف الصوتي بعدة قراء، حصن المسلم، المسبحة، أوقات الصلاة حسب منطقتك، تفسير الأحلام +1000 رمز، صحيح البخاري +7000 حديث، الأربعون النووية، البوصلة، رحلة صفاء بجوائز قادمة ليس الان ولكن في المستقبل القريب ان شالله ، واستديو المحترفين للتصميم.
-</div>
+<div class="hero"><div class="icon">📿</div><div><div style="font-weight:800;font-size:20px">صفاء الروح</div><div style="color:#7a5a3a;font-size:13px">v5.2.1 • 161MB • 10 تطبيقات في واحد</div></div></div>
+<div class="trust"><div style="font-size:24px">🛡️</div><div><b style="color:#2a7a2a">✓ تم فحصه بواسطة Google Play Protect - آمن 100%</b><br><small style="color:#6b5a40">تحذير أندرويد روتيني لكل التطبيقات خارج المتجر، سيتم فحصه تلقائياً بعد التحميل.</small></div></div>
+<div class="screens"><img src="images/screen1.png"><img src="images/screen2.png"><img src="images/screen3.png"><img src="images/screen4.png"><img src="images/screen5.png"><img src="images/screen6.png"></div>
+<div class="feat"><div>📖 المصحف المطبوع</div><div>🔊 المصحف الصوتي</div><div>🛡️ حصن المسلم</div><div>📿 المسبحة</div><div>🕌 أوقات الصلاة</div><div>🧭 بوصلة القبلة</div><div>💤 تفسير الأحلام</div><div>📚 صحيح البخاري +7000 حديث</div></div>
+<div class="desc"><h3 style="margin-top:0">عن التطبيق</h3>يضم: المصحف المطابق للمطبوع، المصحف الصوتي بعدة قراء، الأذكار، المسبحة، أوقات الصلاة حسب منطقتك، تفسير الأحلام +1000 رمز، صحيح البخاري، الأربعون النووية، البوصلة، رحلة صفاء مع جوائز قادمة، واستديو المحترفين للتصميم المجاني.</div>
 </div>
 
 <div class="bar">
-<div><div style="color:#f7e08a;font-weight:800">تثبيت مباشر وآمن</div><div style="color:#a89a7a;font-size:11px">من الموقع الرسمي sabriFX</div></div>
-<a class="btn" href="https://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v5.2.1/safa-alrouh-v5.2.1.apk">📥 تثبيت الآن</a>
+<div><div style="color:#f7e08a;font-weight:800">تثبيت مباشر وآمن</div><div style="color:#a89a7a;font-size:11px">يكمل التحميل حتى لو انقطع النت</div></div>
+<button class="btn" id="installBtn">📥 تثبيت الآن</button>
 </div>
+
+<div id="dl-box">
+  <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:800"><span id="dl-text">يبدأ التحميل...</span><span id="dl-percent">0%</span></div>
+  <div style="height:12px;background:#f3e5b0;border-radius:99px;margin-top:10px;overflow:hidden"><div id="dl-bar" style="height:100%;width:0%;background:linear-gradient(90deg,#d4af37,#f7e08a)"></div></div>
+  <div style="display:flex;gap:10px;margin-top:12px"><button id="dl-pause" style="flex:1;padding:9px;border-radius:99px;border:1px solid #d4af37;background:#fff;font-weight:700">⏸ إيقاف</button><button id="dl-cancel" style="flex:1;padding:9px;border-radius:99px;border:0;background:#2a1a0e;color:#f7e08a;font-weight:700">إلغاء</button></div>
+  <small style="color:#8a7a5a;display:block;margin-top:8px">التقدم محفوظ - إذا خرجت وعدت سيكمل من نفس النقطة</small>
+</div>
+
+<script>
+const APK_URL = "https://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v5.2.1/safa-alrouh-v5.2.1.apk";
+let controller, paused=false, received=0, total=0, chunks=[];
+const btn=document.getElementById('installBtn'), box=document.getElementById('dl-box'), bar=document.getElementById('dl-bar'), pct=document.getElementById('dl-percent'), txt=document.getElementById('dl-text');
+
+btn.addEventListener('click', async ()=>{
+  box.style.display='block';
+  received = parseInt(localStorage.getItem('safa_progress')||'0');
+  total = parseInt(localStorage.getItem('safa_total')||'0');
+  if(received>0) txt.textContent = `يكمل من ${Math.round(received/1024/1024)}MB`;
+
+  try{
+    controller=new AbortController();
+    const headers={};
+    if(received>0) headers['Range']=`bytes=${received}-`;
+    const res=await fetch(APK_URL,{headers,signal:controller.signal});
+    if(!res.ok && received>0){ localStorage.clear(); received=0; return btn.click(); }
+    if(!total){ const len=res.headers.get('Content-Length'); total=(len?parseInt(len):0)+received; localStorage.setItem('safa_total',total); }
+    const reader=res.body.getReader();
+    while(true){
+      if(paused){ await new Promise(r=>setTimeout(r,500)); continue; }
+      const {done,value}=await reader.read(); if(done) break;
+      chunks.push(value); received+=value.length;
+      localStorage.setItem('safa_progress',received);
+      let p=total?Math.round(received/total*100):0;
+      bar.style.width=p+'%'; pct.textContent=p+'%';
+    }
+    const blob=new Blob(chunks); const url=URL.createObjectURL(blob);
+    const a=document.createElement('a'); a.href=url; a.download='safa-alrouh-v5.2.1.apk'; a.click();
+    txt.textContent='تم! سيبدأ التثبيت الآن'; localStorage.clear();
+  }catch(e){ txt.textContent='انقطع النت - اضغط تثبيت مرة أخرى ليكمل'; }
+});
+document.getElementById('dl-pause').onclick=()=>{ paused=!paused; document.getElementById('dl-pause').textContent=paused?'▶ متابعة':'⏸ إيقاف'; };
+document.getElementById('dl-cancel').onclick=()=>{ if(controller) controller.abort(); localStorage.clear(); box.style.display='none'; received=0; total=0; chunks=[]; bar.style.width='0%'; pct.textContent='0%'; };
+</script>
 </body>
 </html>
