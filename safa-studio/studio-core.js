@@ -1,4 +1,4 @@
-<script>
+
 (function(){const p=new URLSearchParams(location.search).get('theme');const s=localStorage.getItem('theme');const t=p||s||'dark';if(t==='dark')document.body.classList.add('dark');})();
 /* ======================================================
    🎬 نظام إعلانات AdMob — جسر المكافآت
@@ -2493,9 +2493,9 @@ function buildCssFilter(o){
   if(o.invert) s += 'invert('+(o.invert||0)+'%) ';
   return s.trim() || 'none';
 }
-</script>
 
-<script>
+
+
 (function () {
 
     // إنشاء نقطة حماية خاصة باستوديو المحترفين فقط
@@ -2583,4 +2583,3 @@ function buildCssFilter(o){
     });
 
 })();
-</script>
