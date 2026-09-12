@@ -614,7 +614,7 @@ function starsHTML(n){
 function loadRealReviews(){
   const listEl = $("realReviewsList");
   if(!dbSite){ listEl.innerHTML = '<div class="rv-empty">التقييمات غير متاحة حالياً</div>'; return; }
-  dbSite.collection(REVIEWS_COL).where("app","==",APP_ID).orderBy("createdAt","desc").limit(30).get().then(snap=>{
+  dbSite.collection(REVIEWS_COL).where("app","==",APP_ID).limit(50).get().then(snap=>{
     if(snap.empty){
       listEl.innerHTML = '<div class="rv-empty">كن أول من يقيّم التطبيق من المتجر ✨</div>';
       $("realAvg").textContent = '—';
@@ -623,11 +623,16 @@ function loadRealReviews(){
     }
     let sum = 0; const rows = [];
     snap.forEach(d => { const r = d.data(); sum += Number(r.rating||0); rows.push(r); });
+    rows.sort((a,b)=>{
+      const ta = (a.createdAt && a.createdAt.seconds) ? a.createdAt.seconds : 0;
+      const tb = (b.createdAt && b.createdAt.seconds) ? b.createdAt.seconds : 0;
+      return tb - ta;
+    });
     const avg = sum / rows.length;
     $("realAvg").textContent = avg.toFixed(1);
     $("realStars").textContent = starsHTML(Math.round(avg));
     $("realCount").textContent = fmtNum(rows.length);
-    listEl.innerHTML = rows.map(r=>{
+    listEl.innerHTML = rows.slice(0,30).map(r=>{
       const date = (r.createdAt && r.createdAt.toDate) ? r.createdAt.toDate().toLocaleDateString('ar-EG',{year:'numeric',month:'long',day:'numeric'}) : '';
       return '<div class="review-card real">' +
         '<div class="review-header"><div class="reviewer-info">' +
