@@ -3,981 +3,449 @@
 <head>
 
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width,initial-scale=1,maximum-scale=1,
-               viewport-fit=cover,user-scalable=no">
-
-<meta name="theme-color" content="#0d0805">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#06040d">
 <meta name="color-scheme" content="dark">
 
-<!-- =========================================================
-     SEO — صفاء الروح
-========================================================= -->
+<title>Sabri-FX | المتجر الرسمي — صفاء الروح وتطبيقات المطور Ahmed Saleh Bahada</title>
 
-<title>صفاء الروح | الموقع الرسمي لتحميل التطبيق الإسلامي المتكامل للأندرويد</title>
-
-<meta name="description"
-      content="الموقع الرسمي لتحميل تطبيق صفاء الروح للأندرويد مجانًا برابط مباشر آمن وموثق. المصحف الشريف، الأذكار، الرقية الشرعية، مواقيت الصلاة، الأذان، القبلة، وتفسير الأحلام.">
-
-<meta name="keywords"
-      content="صفاء الروح, تطبيق صفاء الروح, صفاء الروح apk, تحميل صفاء الروح, تحميل تطبيق صفاء الروح, تطبيق إسلامي, قرآن, مصحف, أذكار, رقية شرعية, مواقيت الصلاة, القبلة">
-
+<meta name="description" content="متجر Sabri-FX الرسمي: حمّل تطبيق صفاء الروح للأندرويد مجانًا برابط مباشر آمن وموثق. المصحف، الأذكار، الرقية، مواقيت الصلاة، الأذان، القبلة، وتفسير الأحلام.">
+<meta name="keywords" content="Sabri-FX, صفاء الروح, تطبيق صفاء الروح, تحميل صفاء الروح, تطبيق إسلامي, قرآن, مصحف, أذكار, رقية شرعية, مواقيت الصلاة">
 <meta name="author" content="Ahmed Saleh Bahada · SabriFX">
-
-<meta name="robots"
-      content="index,follow,max-image-preview:large">
-
-<!-- Open Graph -->
+<meta name="robots" content="index,follow,max-image-preview:large">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ar_AR">
-<meta property="og:site_name" content="صفاء الروح">
+<meta property="og:site_name" content="Sabri-FX Store">
+<meta property="og:title" content="Sabri-FX — متجر التطبيقات الرسمي للمطور Ahmed Saleh Bahada">
+<meta property="og:description" content="حمّل تطبيق صفاء الروح الآن برابط مباشر ومحمي برقم إصدار موثق.">
+<meta property="og:image" content="images/screen7.png">
 
-<meta property="og:title"
-      content="صفاء الروح — التطبيق الإسلامي الشامل والأكثر أماناً">
-
-<meta property="og:description"
-      content="موقع المطور الرسمي. حمّل التطبيق الآن برابط مباشر ومحمي برقم إصدار موثق.">
-
-<meta property="og:image"
-      content="images/screen7.png">
-
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;800;900&family=Aref+Ruqaa:wght@400;700&display=swap"
-      rel="stylesheet">
-
-<!-- =========================================================
-     JSON-LD
-========================================================= -->
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;800;900&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@graph":[
-    {
-      "@type":"WebSite",
-      "name":"صفاء الروح",
-      "inLanguage":"ar"
-    },
+    {"@type":"WebSite","name":"Sabri-FX","inLanguage":"ar"},
     {
       "@type":"MobileApplication",
       "name":"صفاء الروح",
       "operatingSystem":"Android",
       "applicationCategory":"LifestyleApplication",
-      "offers":{
-        "@type":"Offer",
-        "price":"0",
-        "priceCurrency":"USD"
-      }
+      "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
     }
   ]
 }
 </script>
 
-
 <style>
 
 :root{
-  --bg-deep:#080503;
-  --bg-main:#0f0906;
-  --bg-card:#180f09;
-  --bg-glass:rgba(255, 255, 255, 0.04);
-  
-  --gold:#d4af37;
-  --gold-light:#ffea9f;
-  --gold-glow:rgba(212, 175, 55, 0.35);
-  
-  --cream:#fdf8e8;
-  --cream-muted:#d1c29e;
-  
+  --bg-deep:#06040d;
+  --bg-main:#0b0817;
+  --bg-card:#131028;
+  --bg-glass:rgba(255,255,255,0.045);
+
+  --gold:#8b5cf6;
+  --gold-light:#c4b5fd;
+  --gold-glow:rgba(139,92,246,0.38);
+
+  --star:#e7c873;
+
+  --cream:#f2f0fb;
+  --cream-muted:#b7b1d6;
+
   --emerald:#15803d;
   --emerald-light:#4ade80;
-  
-  --border-gold:rgba(212, 175, 55, 0.28);
-  --border-gold-strong:rgba(212, 175, 55, 0.6);
-  
-  --shadow-lux:0 25px 60px rgba(0, 0, 0, 0.85);
+
+  --border-gold:rgba(139,92,246,0.28);
+  --border-gold-strong:rgba(139,92,246,0.62);
+
+  --shadow-lux:0 25px 60px rgba(0,0,0,0.85);
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  -webkit-tap-highlight-color:transparent;
-}
-
-html{
-  scroll-behavior:smooth;
-  background:var(--bg-deep);
-}
-
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;background:var(--bg-deep);}
 body{
   font-family:'Tajawal',sans-serif;
   color:var(--cream);
   min-height:100vh;
   overflow-x:hidden;
   background:
-    radial-gradient(1000px 600px at 90% -10%, rgba(212,175,55,0.14), transparent 60%),
-    radial-gradient(800px 600px at 10% 100%, rgba(21,128,61,0.08), transparent 60%),
+    radial-gradient(1000px 600px at 90% -10%, rgba(139,92,246,0.16), transparent 60%),
+    radial-gradient(800px 600px at 10% 100%, rgba(45,212,191,0.07), transparent 60%),
     linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-main) 40%, var(--bg-card) 100%);
 }
-
 body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:0;
-  opacity:.035;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath fill='%23d4af37' d='M30 0L60 30L30 60L0 30Z' fill-opacity='.4'/%3E%3C/svg%3E");
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath fill='none' stroke='%238b5cf6' stroke-width='1' d='M30 2L58 30L30 58L2 30Z'/%3E%3Ccircle cx='30' cy='30' r='8' stroke='%23c4b5fd'/%3E%3C/svg%3E");
 }
 
-.wrap{
-  width:100%;
-  max-width:640px;
-  margin:0 auto;
-  padding:0 18px 190px;
-  position:relative;
-  z-index:1;
-}
+.wrap{width:100%;max-width:640px;margin:0 auto;padding:0 18px 190px;position:relative;z-index:1;}
 
-/* Header & Hero */
-.hero{
-  text-align:center;
-  padding:50px 0 10px;
-  position:relative;
-}
-
-.dev-tag{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  background:rgba(212,175,55,0.08);
+/* ===== Store Bar ===== */
+.store-bar{
+  display:flex;align-items:center;gap:12px;
+  margin-top:22px;padding:12px 16px;
+  background:linear-gradient(135deg, rgba(139,92,246,0.12), rgba(255,255,255,0.03));
   border:1px solid var(--border-gold);
-  padding:6px 16px;
-  border-radius:99px;
-  font-size:11.5px;
-  color:var(--gold-light);
-  margin-bottom:16px;
-  backdrop-filter:blur(10px);
+  border-radius:18px;backdrop-filter:blur(12px);
+}
+.store-logo{
+  width:44px;height:44px;border-radius:14px;flex:0 0 44px;
+  background:linear-gradient(135deg,#c4b5fd,#8b5cf6 60%,#6d28d9);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Aref Ruqaa',serif;font-size:24px;color:#140b2e;font-weight:700;
+  box-shadow:0 6px 20px rgba(139,92,246,0.45), inset 0 1px 0 rgba(255,255,255,0.5);
+}
+.store-name b{display:block;font-size:16px;color:#fff;letter-spacing:.5px;}
+.store-name span{font-size:10.5px;color:var(--cream-muted);}
+.store-badge{
+  margin-right:auto;font-size:10px;color:#86efac;
+  background:rgba(21,128,61,0.15);border:1px solid rgba(74,222,128,0.4);
+  padding:5px 12px;border-radius:99px;white-space:nowrap;
 }
 
-.hero h2{
-  font-family:'Amiri',serif;
-  font-size:26px;
-  line-height:1.6;
-  color:#fff;
-  text-shadow:0 2px 10px rgba(0,0,0,0.5);
+/* ===== Hero ===== */
+.hero{text-align:center;padding:44px 0 10px;position:relative;}
+.dev-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(139,92,246,0.1);border:1px solid var(--border-gold);
+  padding:6px 16px;border-radius:99px;font-size:11.5px;color:var(--gold-light);
+  margin-bottom:16px;backdrop-filter:blur(10px);
 }
-
+.hero h2{font-family:'Amiri',serif;font-size:26px;line-height:1.6;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,0.5);}
 .hero h1{
-  font-family:'Aref Ruqaa','Amiri',serif;
-  font-weight:700;
-  font-size:44px;
-  line-height:1.4;
-  margin-top:4px;
-  background:linear-gradient(120deg, #fff7d6 10%, var(--gold-light) 40%, #fff 70%, var(--gold) 100%);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  filter:drop-shadow(0 4px 20px rgba(212,175,55,0.4));
+  font-family:'Aref Ruqaa','Amiri',serif;font-weight:700;font-size:44px;line-height:1.4;margin-top:4px;
+  background:linear-gradient(120deg,#ffffff 10%,#c4b5fd 40%,#fff 70%,#8b5cf6 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 4px 20px rgba(139,92,246,0.45));
 }
+.hero .rule{width:140px;height:2px;margin:16px auto 0;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
 
-.hero .rule{
-  width:140px;
-  height:2px;
-  margin:16px auto 0;
-  background:linear-gradient(90deg, transparent, var(--gold), transparent);
-}
-
-/* App Icon Luxury Showcase */
-.appicon-container{
-  margin:32px auto 0;
-  display:flex;
-  justify-content:center;
-}
-
+.appicon-container{margin:32px auto 0;display:flex;justify-content:center;}
 .appicon{
-  width:130px;
-  height:130px;
-  border-radius:34px;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  width:130px;height:130px;border-radius:34px;position:relative;
+  display:flex;align-items:center;justify-content:center;
   box-shadow:
-    0 0 0 3px rgba(255,255,255,0.85),
-    0 0 0 7px rgba(212,175,55,0.4),
+    0 0 0 3px rgba(255,255,255,0.88),
+    0 0 0 7px rgba(139,92,246,0.45),
     0 20px 50px rgba(0,0,0,0.7),
-    0 0 50px var(--gold-glow);
+    0 0 55px var(--gold-glow);
   animation:floatIcon 4.5s ease-in-out infinite;
 }
+.appicon img{width:100%;height:100%;object-fit:cover;border-radius:inherit;display:block;}
+@keyframes floatIcon{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
 
-.appicon img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:inherit;
-  display:block;
-}
-
-@keyframes floatIcon{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-8px);}
-}
-
-/* Chips Info */
-.chips{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  justify-content:center;
-  margin-top:22px;
-}
-
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:22px;}
 .chip{
-  background:var(--bg-glass);
-  border:1px solid var(--border-gold);
-  color:var(--cream-muted);
-  font-size:11.5px;
-  font-weight:600;
-  padding:6px 14px;
-  border-radius:99px;
-  backdrop-filter:blur(8px);
+  background:var(--bg-glass);border:1px solid var(--border-gold);color:var(--cream-muted);
+  font-size:11.5px;font-weight:600;padding:6px 14px;border-radius:99px;backdrop-filter:blur(8px);
 }
+.chip.verified{background:rgba(21,128,61,0.12);border-color:rgba(74,222,128,0.4);color:#86efac;display:flex;align-items:center;gap:5px;}
 
-.chip.verified{
-  background:rgba(21,128,61,0.12);
-  border-color:rgba(74,222,128,0.4);
-  color:#86efac;
-  display:flex;
-  align-items:center;
-  gap:5px;
-}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:24px;}
+.stat{background:var(--bg-glass);border:1px solid var(--border-gold);border-radius:16px;padding:14px 6px;text-align:center;backdrop-filter:blur(8px);}
+.stat b{display:block;font-size:16px;color:var(--gold-light);font-weight:900;}
+.stat span{font-size:10px;color:var(--cream-muted);}
 
-/* Stats Row */
-.stats{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
-  margin-top:24px;
-}
+.sec{display:flex;align-items:center;gap:10px;margin:42px 0 16px;font-family:'Amiri',serif;font-size:22px;color:var(--gold-light);}
+.sec::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--border-gold-strong),transparent);}
 
-.stat{
-  background:var(--bg-glass);
-  border:1px solid var(--border-gold);
-  border-radius:16px;
-  padding:14px 6px;
-  text-align:center;
-  backdrop-filter:blur(8px);
-}
-
-.stat b{
-  display:block;
-  font-size:16px;
-  color:var(--gold-light);
-  font-weight:900;
-}
-
-.stat span{
-  font-size:10px;
-  color:var(--cream-muted);
-}
-
-/* Section Titles */
-.sec{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin:42px 0 16px;
-  font-family:'Amiri',serif;
-  font-size:22px;
-  color:var(--gold-light);
-}
-
-.sec::after{
-  content:"";
-  flex:1;
-  height:1px;
-  background:linear-gradient(90deg, var(--border-gold-strong), transparent);
-}
-
-/* Features Grid */
-.feat{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .feat div{
-  background:linear-gradient(150deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-  border:1px solid var(--border-gold);
-  border-radius:18px;
-  padding:18px 12px;
-  text-align:center;
-  backdrop-filter:blur(10px);
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-  align-items:center;
-  transition:transform 0.3s ease, border-color 0.3s ease;
+  background:linear-gradient(150deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02));
+  border:1px solid var(--border-gold);border-radius:18px;padding:18px 12px;text-align:center;
+  backdrop-filter:blur(10px);display:flex;flex-direction:column;gap:6px;align-items:center;
+  transition:transform .3s ease,border-color .3s ease;
 }
+.feat div:hover{border-color:var(--gold);transform:translateY(-3px);}
+.feat div span{font-size:28px;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.5));}
+.feat div b{font-size:13px;color:#fff;}
+.feat div small{font-size:10.5px;color:var(--cream-muted);line-height:1.5;}
 
-.feat div:hover{
-  border-color:var(--gold);
-  transform:translateY(-3px);
-}
-
-.feat div span{
-  font-size:28px;
-  filter:drop-shadow(0 4px 8px rgba(0,0,0,0.5));
-}
-
-.feat div b{
-  font-size:13px;
-  color:#fff;
-}
-
-.feat div small{
-  font-size:10.5px;
-  color:var(--cream-muted);
-  line-height:1.5;
-}
-
-/* Screenshots Showcase */
-.shots{
-  display:flex;
-  gap:16px;
-  overflow-x:auto;
-  padding:10px 4px 30px;
-  scroll-snap-type:x mandatory;
-  scrollbar-width:none;
-}
-
+.shots{display:flex;gap:16px;overflow-x:auto;padding:10px 4px 30px;scroll-snap-type:x mandatory;scrollbar-width:none;}
 .shots::-webkit-scrollbar{display:none;}
-
 .shots img{
-  height:420px;
-  border-radius:24px;
-  border:2px solid var(--border-gold-strong);
-  box-shadow:0 20px 40px rgba(0,0,0,0.6);
-  flex-shrink:0;
-  background:#111;
-  scroll-snap-align:center;
-  transition:transform 0.3s;
+  height:420px;border-radius:24px;border:2px solid var(--border-gold-strong);
+  box-shadow:0 20px 40px rgba(0,0,0,0.6);flex-shrink:0;background:#111;
+  scroll-snap-align:center;transition:transform .3s;
 }
+.shots img:hover{transform:scale(1.02);}
 
-.shots img:hover{
-  transform:scale(1.02);
-}
-
-/* Trust & Security Badge Banner */
 .trust-card{
-  background:linear-gradient(135deg, rgba(21,128,61,0.15), rgba(15,23,42,0.6));
-  border:1px solid rgba(74,222,128,0.35);
-  border-radius:20px;
-  padding:18px;
-  display:flex;
-  gap:14px;
-  align-items:flex-start;
-  backdrop-filter:blur(12px);
+  background:linear-gradient(135deg,rgba(21,128,61,0.15),rgba(15,23,42,0.6));
+  border:1px solid rgba(74,222,128,0.35);border-radius:20px;padding:18px;
+  display:flex;gap:14px;align-items:flex-start;backdrop-filter:blur(12px);
 }
+.trust-card .icon{font-size:32px;background:rgba(21,128,61,0.25);padding:10px;border-radius:14px;border:1px solid rgba(74,222,128,0.4);}
+.trust-card b{color:var(--emerald-light);font-size:14px;display:block;margin-bottom:4px;}
+.trust-card p{font-size:11.5px;color:#dcfce7;line-height:1.7;}
 
-.trust-card .icon{
-  font-size:32px;
-  background:rgba(21,128,61,0.25);
-  padding:10px;
-  border-radius:14px;
-  border:1px solid rgba(74,222,128,0.4);
-}
-
-.trust-card b{
-  color:var(--emerald-light);
-  font-size:14px;
-  display:block;
-  margin-bottom:4px;
-}
-
-.trust-card p{
-  font-size:11.5px;
-  color:#dcfce7;
-  line-height:1.7;
-}
-
-/* =========================================================
-   REVIEWS & TESTIMONIALS SECTION (Added for High Trust)
-========================================================= */
-.reviews-grid{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-
-.review-card{
-  background:var(--bg-glass);
-  border:1px solid var(--border-gold);
-  border-radius:16px;
-  padding:16px;
-  backdrop-filter:blur(10px);
-}
-
-.review-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:8px;
-}
-
-.reviewer-info{
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-
+/* ===== Reviews ===== */
+.rv-sub-title{font-size:14px;font-weight:800;color:var(--cream);margin:18px 0 10px;display:flex;align-items:center;gap:8px;}
+.reviews-grid{display:flex;flex-direction:column;gap:12px;}
+.review-card{background:var(--bg-glass);border:1px solid var(--border-gold);border-radius:16px;padding:16px;backdrop-filter:blur(10px);}
+.review-card.real{border-color:rgba(231,200,115,0.35);background:linear-gradient(150deg,rgba(231,200,115,0.06),rgba(255,255,255,0.02));}
+.review-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.reviewer-info{display:flex;align-items:center;gap:8px;}
 .reviewer-avatar{
-  width:34px;
-  height:34px;
-  border-radius:50%;
-  background:linear-gradient(135deg, var(--gold), #8a6f22);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:800;
-  font-size:13px;
-  color:#111;
+  width:34px;height:34px;border-radius:50%;
+  background:linear-gradient(135deg,#c4b5fd,#6d28d9);
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#fff;
 }
+.reviewer-name{font-weight:700;font-size:13px;color:#fff;}
+.reviewer-badge{font-size:9.5px;color:#86efac;background:rgba(21,128,61,0.2);padding:2px 8px;border-radius:99px;border:1px solid rgba(74,222,128,0.3);}
+.review-stars{color:var(--star);font-size:13px;letter-spacing:1px;text-shadow:0 0 8px rgba(231,200,115,0.4);}
+.review-text{font-size:12px;color:var(--cream-muted);line-height:1.7;}
+.review-date{font-size:9.5px;color:#8a84a8;margin-top:8px;}
+.rv-empty{text-align:center;padding:22px;font-size:12px;color:var(--cream-muted);background:var(--bg-glass);border:1px dashed var(--border-gold);border-radius:14px;}
 
-.reviewer-name{
-  font-weight:700;
-  font-size:13px;
-  color:#fff;
+.rv-summary{
+  display:flex;align-items:center;gap:14px;margin:14px 0;
+  background:linear-gradient(135deg,rgba(139,92,246,0.12),rgba(255,255,255,0.03));
+  border:1px solid var(--border-gold);border-radius:18px;padding:14px 18px;
 }
+.rv-avg{display:flex;flex-direction:column;align-items:center;gap:2px;min-width:70px;}
+.rv-avg b{font-size:26px;color:var(--star);font-weight:900;line-height:1;}
+.rv-avg small{font-size:10px;color:var(--cream-muted);}
+.rv-summary-text{font-size:11px;color:var(--cream-muted);line-height:1.7;}
 
-.reviewer-badge{
-  font-size:9.5px;
-  color:#86efac;
-  background:rgba(21,128,61,0.2);
-  padding:2px 8px;
-  border-radius:99px;
-  border:1px solid rgba(74,222,128,0.3);
+.rv-form{
+  background:var(--bg-glass);border:1px solid var(--border-gold);border-radius:18px;
+  padding:18px;margin-top:16px;backdrop-filter:blur(10px);
 }
-
-.review-stars{
-  color:#fbbf24;
-  font-size:13px;
-  letter-spacing:1px;
+.rv-form h4{font-size:14px;color:var(--gold-light);margin-bottom:12px;}
+.rv-form input,.rv-form textarea{
+  width:100%;background:rgba(0,0,0,0.35);border:1px solid var(--border-gold);
+  border-radius:12px;padding:12px;color:var(--cream);font-family:'Tajawal',sans-serif;
+  font-size:13px;outline:none;margin-bottom:10px;
 }
+.rv-form input:focus,.rv-form textarea:focus{border-color:var(--gold);}
+.rv-form textarea{min-height:80px;resize:vertical;line-height:1.7;}
+.star-row{display:flex;gap:6px;justify-content:center;margin-bottom:12px;direction:ltr;}
+.star-pick{font-size:30px;color:#4b4668;cursor:pointer;transition:transform .15s,color .15s;text-shadow:none;}
+.star-pick.on{color:var(--star);text-shadow:0 0 12px rgba(231,200,115,0.55);}
+.star-pick:active{transform:scale(1.25);}
+.rv-submit{width:100%;}
+.rv-msg{text-align:center;font-size:11.5px;margin-top:10px;min-height:16px;}
+.rv-msg.ok{color:#86efac;}
+.rv-msg.err{color:#fca5a5;}
 
-.review-text{
-  font-size:12px;
-  color:var(--cream-muted);
-  line-height:1.7;
-}
-
-/* FAQ Accordion */
-details{
-  background:var(--bg-glass);
-  border:1px solid var(--border-gold);
-  border-radius:14px;
-  margin-bottom:10px;
-  overflow:hidden;
-  transition:border-color 0.3s;
-}
-
-details[open]{
-  border-color:var(--gold);
-}
-
-summary{
-  padding:14px 16px;
-  font-weight:700;
-  font-size:13px;
-  color:var(--gold-light);
-  cursor:pointer;
-  list-style:none;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
+details{background:var(--bg-glass);border:1px solid var(--border-gold);border-radius:14px;margin-bottom:10px;overflow:hidden;transition:border-color .3s;}
+details[open]{border-color:var(--gold);}
+summary{padding:14px 16px;font-weight:700;font-size:13px;color:var(--gold-light);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;}
 summary::-webkit-details-marker{display:none;}
 summary::after{content:"+";font-size:16px;color:var(--gold);}
 details[open] summary::after{content:"-";}
+details p{padding:0 16px 16px;font-size:12px;line-height:1.9;color:var(--cream-muted);}
 
-details p{
-  padding:0 16px 16px;
-  font-size:12px;
-  line-height:1.9;
-  color:var(--cream-muted);
-}
+.desc-box{background:var(--bg-glass);border:1px solid var(--border-gold);border-radius:20px;padding:22px;line-height:2.2;font-size:13.5px;color:var(--cream);backdrop-filter:blur(10px);}
+.desc-box h3{font-family:'Aref Ruqaa','Amiri',serif;color:var(--gold-light);font-size:22px;margin-bottom:10px;}
 
-/* About Section */
-.desc-box{
-  background:var(--bg-glass);
-  border:1px solid var(--border-gold);
-  border-radius:20px;
-  padding:22px;
-  line-height:2.2;
-  font-size:13.5px;
-  color:var(--cream);
-  backdrop-filter:blur(10px);
-}
+footer{text-align:center;color:#8a84a8;font-size:11.5px;line-height:2.2;margin-top:40px;padding-top:20px;border-top:1px solid rgba(139,92,246,0.18);}
+footer b{color:var(--gold-light);}
 
-.desc-box h3{
-  font-family:'Aref Ruqaa','Amiri',serif;
-  color:var(--gold-light);
-  font-size:22px;
-  margin-bottom:10px;
-}
-
-/* Footer */
-footer{
-  text-align:center;
-  color:#9c8a5f;
-  font-size:11.5px;
-  line-height:2.2;
-  margin-top:40px;
-  padding-top:20px;
-  border-top:1px solid rgba(212,175,55,0.15);
-}
-
-/* Fixed Install Bottom Bar */
 .bar{
-  position:fixed;
-  bottom:calc(14px + env(safe-area-inset-bottom));
-  left:50%;
-  transform:translateX(-50%);
-  width:calc(100% - 24px);
-  max-width:620px;
-  background:linear-gradient(180deg, rgba(30,18,10,0.96), rgba(12,7,4,0.99));
-  border:1px solid var(--border-gold-strong);
-  border-radius:22px;
-  padding:14px 16px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
-  box-shadow:var(--shadow-lux);
-  backdrop-filter:blur(18px);
-  z-index:99;
+  position:fixed;bottom:calc(14px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);
+  width:calc(100% - 24px);max-width:620px;
+  background:linear-gradient(180deg,rgba(24,16,44,0.96),rgba(8,5,16,0.99));
+  border:1px solid var(--border-gold-strong);border-radius:22px;padding:14px 16px;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  box-shadow:var(--shadow-lux);backdrop-filter:blur(18px);z-index:99;
 }
-
-.bar-copy .bar-title{
-  color:var(--gold-light);
-  font-weight:900;
-  font-size:14px;
-  display:flex;
-  align-items:center;
-  gap:6px;
-}
-
-.bar-copy .bar-sub{
-  color:#a89768;
-  font-size:11px;
-  margin-top:3px;
-}
+.bar-copy .bar-title{color:var(--gold-light);font-weight:900;font-size:14px;display:flex;align-items:center;gap:6px;}
+.bar-copy .bar-sub{color:#8a84a8;font-size:11px;margin-top:3px;}
 
 .btn{
-  background:linear-gradient(180deg, var(--gold-light), var(--gold));
-  color:#1c1005;
-  border:0;
-  border-radius:99px;
-  padding:13px 24px;
-  font-family:'Tajawal',sans-serif;
-  font-weight:900;
-  font-size:14px;
-  cursor:pointer;
-  white-space:nowrap;
-  box-shadow:0 8px 25px rgba(212,175,55,0.45), inset 0 1px 0 rgba(255,255,255,0.6);
-  position:relative;
-  overflow:hidden;
-  transition:transform 0.2s;
+  background:linear-gradient(180deg,#c4b5fd,#8b5cf6);
+  color:#140b2e;border:0;border-radius:99px;padding:13px 24px;
+  font-family:'Tajawal',sans-serif;font-weight:900;font-size:14px;cursor:pointer;white-space:nowrap;
+  box-shadow:0 8px 25px rgba(139,92,246,0.5), inset 0 1px 0 rgba(255,255,255,0.6);
+  position:relative;overflow:hidden;transition:transform .2s;
 }
-
 .btn:active{transform:scale(0.96);}
+.btn:disabled{opacity:.6;cursor:not-allowed;}
 
-/* Download Panel Modal */
 #dl{
-  display:none;
-  position:fixed;
-  bottom:calc(96px + env(safe-area-inset-bottom));
-  left:50%;
-  transform:translateX(-50%);
-  width:calc(100% - 24px);
-  max-width:620px;
-  background:linear-gradient(145deg, rgba(24,15,8,0.98), rgba(10,6,3,0.99));
-  border:1px solid var(--border-gold-strong);
-  border-radius:24px;
-  padding:20px;
-  z-index:100;
-  box-shadow:0 30px 90px rgba(0,0,0,0.9);
-  backdrop-filter:blur(20px);
+  display:none;position:fixed;bottom:calc(96px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);
+  width:calc(100% - 24px);max-width:620px;
+  background:linear-gradient(145deg,rgba(24,16,44,0.98),rgba(8,5,16,0.99));
+  border:1px solid var(--border-gold-strong);border-radius:24px;padding:20px;z-index:100;
+  box-shadow:0 30px 90px rgba(0,0,0,0.9);backdrop-filter:blur(20px);
 }
-
-.dl-top{
-  display:flex;
-  align-items:center;
-  gap:16px;
-}
-
+.dl-top{display:flex;align-items:center;gap:16px;}
 .ring{
-  width:72px;
-  height:72px;
-  border-radius:50%;
-  flex:0 0 72px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  width:72px;height:72px;border-radius:50%;flex:0 0 72px;
+  display:flex;align-items:center;justify-content:center;
   background:conic-gradient(var(--gold) 0%, rgba(255,255,255,0.08) 0);
-  position:relative;
-  box-shadow:0 0 25px rgba(212,175,55,0.2);
+  position:relative;box-shadow:0 0 25px rgba(139,92,246,0.25);
 }
-
-.ring::before{
-  content:"";
-  position:absolute;
-  inset:6px;
-  border-radius:50%;
-  background:#140c06;
+.ring::before{content:"";position:absolute;inset:6px;border-radius:50%;background:#120b26;}
+.ring b{position:relative;font-size:14px;color:var(--gold-light);font-weight:900;}
+.dl-icon-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:2;}
+.dl-icon{width:28px;height:28px;color:var(--gold-light);filter:drop-shadow(0 0 8px var(--gold-glow));animation:iconBounce 2s ease-in-out infinite;}
+@keyframes iconBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}
+.dl-ring-glow{
+  position:absolute;inset:0;border-radius:50%;
+  background:conic-gradient(from 0deg,transparent 0%,rgba(139,92,246,0.45) 50%,transparent 100%);
+  animation:ringRotate 3s linear infinite;filter:blur(4px);opacity:.6;pointer-events:none;
 }
-
-.ring b{
-  position:relative;
-  font-size:14px;
-  color:var(--gold-light);
-  font-weight:900;
-}
-
-.dl-info{
-  flex:1;
-  min-width:0;
-}
-
-.dl-info .t{
-  font-size:14px;
-  font-weight:900;
-  color:#fff;
-}
-
-.dl-info .s{
-  font-size:11px;
-  color:var(--cream-muted);
-  margin-top:4px;
-  line-height:1.6;
-}
-
-.progress-line{
-  width:100%;
-  height:6px;
-  background:rgba(255,255,255,0.07);
-  border-radius:99px;
-  margin-top:16px;
-  overflow:hidden;
-}
-
-.progress-line i{
-  display:block;
-  height:100%;
-  width:0%;
-  background:linear-gradient(90deg, var(--gold), var(--gold-light));
-  border-radius:inherit;
-  transition:width 0.25s ease;
-}
-
-.download-status{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  margin-top:14px;
-  color:#86efac;
-  font-size:11px;
-}
-
-.download-status .mini-dot{
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:#4ade80;
-  box-shadow:0 0 10px #4ade80;
-}
-
-.dl-btns{
-  display:flex;
-  gap:10px;
-  margin-top:16px;
-}
-
-.dl-btns button{
-  flex:1;
-  padding:12px;
-  border-radius:99px;
-  font-family:'Tajawal',sans-serif;
-  font-weight:800;
-  font-size:12.5px;
-  cursor:pointer;
-  transition:background 0.2s;
-}
-
-#dlPause{
-  border:1px solid var(--border-gold-strong);
-  background:rgba(212,175,55,0.06);
-  color:var(--gold-light);
-}
-
-#dlDirect{
-  border:1px solid rgba(74,222,128,0.5);
-  background:rgba(21,128,61,0.12);
-  color:#86efac;
-  display:none;
-}
-
-#dlFallback{
-  border:1px solid rgba(59,130,246,0.5);
-  background:rgba(30,58,138,0.2);
-  color:#93c5fd;
-  display:none;
-}
-
-#dlCancel{
-  border:0;
-  background:rgba(255,255,255,0.08);
-  color:var(--cream);
-}
-
-.dl-note{
-  font-size:10px;
-  color:#9c8a5f;
-  margin-top:12px;
-  line-height:1.8;
-  text-align:center;
-}
+@keyframes ringRotate{to{transform:rotate(360deg);}}
+.dl-info{flex:1;min-width:0;}
+.dl-info .t{font-size:14px;font-weight:900;color:#fff;}
+.dl-info .s{font-size:11px;color:var(--cream-muted);margin-top:4px;line-height:1.6;}
+.progress-line{width:100%;height:6px;background:rgba(255,255,255,0.07);border-radius:99px;margin-top:16px;overflow:hidden;}
+.progress-line i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:inherit;transition:width .25s ease;}
+.download-status{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;color:#86efac;font-size:11px;}
+.download-status .mini-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 10px #4ade80;}
+.dl-btns{display:flex;gap:10px;margin-top:16px;}
+.dl-btns button{flex:1;padding:12px;border-radius:99px;font-family:'Tajawal',sans-serif;font-weight:800;font-size:12.5px;cursor:pointer;transition:background .2s;}
+#dlPause{border:1px solid var(--border-gold-strong);background:rgba(139,92,246,0.08);color:var(--gold-light);}
+#dlDirect{border:1px solid rgba(74,222,128,0.5);background:rgba(21,128,61,0.12);color:#86efac;display:none;}
+#dlCancel{border:0;background:rgba(255,255,255,0.08);color:var(--cream);}
+.dl-note{font-size:10px;color:#8a84a8;margin-top:12px;line-height:1.8;text-align:center;}
 
 </style>
 </head>
-
 
 <body>
 
 <div class="wrap">
 
-<!-- =========================================================
-     HERO SECTION
-========================================================= -->
-
-<div class="hero">
-
-  <div class="dev-tag">
-    <span>✨</span> المطور الرسمي: Ahmed Saleh Bahada (sabriFX)
+<!-- ===== STORE BAR ===== -->
+<div class="store-bar">
+  <div class="store-logo">S</div>
+  <div class="store-name">
+    <b>Sabri-FX</b>
+    <span>المتجر الرسمي لتطبيقات المطور</span>
   </div>
+  <span class="store-badge">متجر موثّق ✓</span>
+</div>
 
-  <h2>
-    كل ما يحتاجه المسلم في تطبيق واحد
-  </h2>
-
-  <h1>
-    صفاء الروح
-  </h1>
-
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="dev-tag"><span>✨</span> تطبيق مميز من متجر Sabri-FX — المطور: Ahmed Saleh Bahada</div>
+  <h2>كل ما يحتاجه المسلم في تطبيق واحد</h2>
+  <h1>صفاء الروح</h1>
   <div class="rule"></div>
 
   <div class="appicon-container">
-    <div class="appicon">
-      <img src="images/screen7.png" alt="تطبيق صفاء الروح" loading="eager">
-    </div>
+    <div class="appicon"><img src="images/screen7.png" alt="تطبيق صفاء الروح" loading="eager"></div>
   </div>
 
   <div class="chips">
-    <span class="chip verified">
-      <span>🛡️</span> آمن وموثق رسمياً
-    </span>
-    <span class="chip">الإصدار v5.2.1</span>
+    <span class="chip verified"><span>🛡️</span> آمن وموثق رسمياً</span>
+    <span class="chip">الإصدار v5.1.5</span>
     <span class="chip">161 ميجابايت</span>
     <span class="chip">مجاني بدون إعلانات مزعجة</span>
   </div>
 
   <div class="stats">
-    <div class="stat">
-      <b>+7,000</b>
-      <span>حديث شريف</span>
-    </div>
-    <div class="stat">
-      <b>+1,000</b>
-      <span>رمز تفسير</span>
-    </div>
-    <div class="stat">
-      <b>7 أصوات</b>
-      <span>لمؤذنين عالميين</span>
-    </div>
-    <div class="stat">
-      <b>100%</b>
-      <span>مجاني بالكامل</span>
-    </div>
+    <div class="stat"><b>+7,000</b><span>حديث شريف</span></div>
+    <div class="stat"><b>+1,000</b><span>رمز تفسير</span></div>
+    <div class="stat"><b>7 أصوات</b><span>لمؤذنين عالميين</span></div>
+    <div class="stat"><b>100%</b><span>مجاني بالكامل</span></div>
   </div>
-
 </div>
 
-
-<!-- =========================================================
-     SECURITY TRUST BANNER
-========================================================= -->
-
-<div class="sec">
-  🔒 الأمان والثقة الرسمية
-</div>
-
+<!-- ===== SECURITY ===== -->
+<div class="sec">🔒 الأمان والثقة الرسمية</div>
 <div class="trust-card">
   <div class="icon">🛡️</div>
   <div>
     <b>فحص أمني دقيق ومضمون</b>
-    <p>
-      التطبيق موقّع برقم مشفر للمطور ومفحوص تماماً عبر أدوات Google Play Protect. يمكنك تثبيته بكل اطمئنان وثقة تامة، فهو يخلو تماماً من أي ملفات ضارة أو برمجيات خبيثة.
-    </p>
+    <p>التطبيق موقّع برقم مشفر للمطور ومفحوص تماماً عبر أدوات Google Play Protect. يمكنك تثبيته بكل اطمئنان وثقة تامة، فهو يخلو تماماً من أي ملفات ضارة أو برمجيات خبيثة.</p>
   </div>
 </div>
 
-
-<!-- =========================================================
-     FEATURES SECTION
-========================================================= -->
-
-<div class="sec">
-  🌟 مميزات التطبيق الاحترافية
-</div>
-
+<!-- ===== FEATURES ===== -->
+<div class="sec">🌟 مميزات التطبيق الاحترافية</div>
 <div class="feat" id="feat">
-  <div>
-    <span>📖</span>
-    <b>المصحف المطبوع</b>
-    <small>مطابق للمصحف الورقي صفحة بصفحة</small>
-  </div>
-  <div>
-    <span>🎧</span>
-    <b>المصحف الصوتي</b>
-    <small>استماع لتلاوات نخبة القراء</small>
-  </div>
-  <div>
-    <span>🛡️</span>
-    <b>الرقية الشرعية</b>
-    <small>من الكتاب والسنة الصحيحة</small>
-  </div>
-  <div>
-    <span>📿</span>
-    <b>مسبحة إلكترونية</b>
-    <small>عداد ذكي لحفظ أعداد التسبيح</small>
-  </div>
-  <div>
-    <span>🕌</span>
-    <b>مواقيت الصلاة</b>
-    <small>تحديد دقيق حسب موقعك الحالي</small>
-  </div>
-  <div>
-    <span>🎙️</span>
-    <b>الأذان المتكامل</b>
-    <small>تنبيهات وأصوات مؤذنين خاشعة</small>
-  </div>
-  <div>
-    <span>🧭</span>
-    <b>بوصلة القبلة</b>
-    <small>تحديد اتجاه القبلة لحظياً بدقة</small>
-  </div>
-  <div>
-    <span>🕋</span>
-    <b>دليل العمرة</b>
-    <small>خطوات مناسك العمرة مصورة ومبسطة</small>
-  </div>
-  <div>
-    <span>💤</span>
-    <b>تفسير الأحلام</b>
-    <small>قاموس موسع لأكثر من 1000 رمز</small>
-  </div>
-  <div>
-    <span>📚</span>
-    <b>صحيح البخاري</b>
-    <small>أكثر من 7000 حديث مع محرك بحث</small>
-  </div>
-  <div>
-    <span>🌙</span>
-    <b>تذكير ليلة الجمعة</b>
-    <small>تنبيهات خاصة بالصلاة على النبي ﷺ</small>
-  </div>
-  <div>
-    <span>🎨</span>
-    <b>استديو البطاقات</b>
-    <small>تصميم بطاقات إسلامية مميزة باسمك</small>
-  </div>
+  <div><span>📖</span><b>المصحف المطبوع</b><small>مطابق للمصحف الورقي صفحة بصفحة</small></div>
+  <div><span>🎧</span><b>المصحف الصوتي</b><small>استماع لتلاوات نخبة القراء</small></div>
+  <div><span>🛡️</span><b>الرقية الشرعية</b><small>من الكتاب والسنة الصحيحة</small></div>
+  <div><span>📿</span><b>مسبحة إلكترونية</b><small>عداد ذكي لحفظ أعداد التسبيح</small></div>
+  <div><span>🕌</span><b>مواقيت الصلاة</b><small>تحديد دقيق حسب موقعك الحالي</small></div>
+  <div><span>🎙️</span><b>الأذان المتكامل</b><small>تنبيهات وأصوات مؤذنين خاشعة</small></div>
+  <div><span>🧭</span><b>بوصلة القبلة</b><small>تحديد اتجاه القبلة لحظياً بدقة</small></div>
+  <div><span>🕋</span><b>دليل العمرة</b><small>خطوات مناسك العمرة مصورة ومبسطة</small></div>
+  <div><span>💤</span><b>تفسير الأحلام</b><small>قاموس موسع لأكثر من 1000 رمز</small></div>
+  <div><span>📚</span><b>صحيح البخاري</b><small>أكثر من 7000 حديث مع محرك بحث</small></div>
+  <div><span>🌙</span><b>تذكير ليلة الجمعة</b><small>تنبيهات خاصة بالصلاة على النبي ﷺ</small></div>
+  <div><span>🎨</span><b>استديو البطاقات</b><small>تصميم بطاقات إسلامية مميزة باسمك</small></div>
 </div>
 
+<!-- ===== REVIEWS ===== -->
+<div class="sec">💬 آراء وتقييمات المستخدمين</div>
 
-<!-- =========================================================
-     REVIEWS & TESTIMONIALS (Trust Building)
-========================================================= -->
-
-<div class="sec">
-  💬 آراء وتقييمات المستخدمين
-</div>
-
+<div class="rv-sub-title">⭐ آراء مميزة من المجتمع</div>
 <div class="reviews-grid">
   <div class="review-card">
     <div class="review-header">
       <div class="reviewer-info">
         <div class="reviewer-avatar">ع</div>
-        <div>
-          <div class="reviewer-name">عبدالله باوزير</div>
-          <span class="reviewer-badge">✓ مستخدم معتمد</span>
-        </div>
+        <div><div class="reviewer-name">عبدالله باوزير</div><span class="reviewer-badge">✓ مستخدم معتمد</span></div>
       </div>
       <div class="review-stars">★★★★★</div>
     </div>
-    <div class="review-text">
-      "تطبيق جبار ومبارك! كل ما يحتاجه المسلم في حياته اليومية موجود هنا وبدون إعلانات مزعجة. جزا الله المطور خير الجزاء على هذا الإتقان."
-    </div>
+    <div class="review-text">"تطبيق جبار ومبارك! كل ما يحتاجه المسلم في حياته اليومية موجود هنا وبدون إعلانات مزعجة. جزا الله المطور خير الجزاء على هذا الإتقان."</div>
   </div>
-
   <div class="review-card">
     <div class="review-header">
       <div class="reviewer-info">
         <div class="reviewer-avatar">م</div>
-        <div>
-          <div class="reviewer-name">محمد العولقي</div>
-          <span class="reviewer-badge">✓ مستخدم معتمد</span>
-        </div>
+        <div><div class="reviewer-name">محمد العولقي</div><span class="reviewer-badge">✓ مستخدم معتمد</span></div>
       </div>
       <div class="review-stars">★★★★★</div>
     </div>
-    <div class="review-text">
-      "التصميم راقي جداً وواجهة المستخدم تريح القلب. المصحف ومواقيت الصلاة دقيقة للغاية. أنصح الجميع بتحميله."
-    </div>
+    <div class="review-text">"التصميم راقي جداً وواجهة المستخدم تريح القلب. المصحف ومواقيت الصلاة دقيقة للغاية. أنصح الجميع بتحميله."</div>
   </div>
-
   <div class="review-card">
     <div class="review-header">
       <div class="reviewer-info">
         <div class="reviewer-avatar">س</div>
-        <div>
-          <div class="reviewer-name">سعيد القحطاني</div>
-          <span class="reviewer-badge">✓ مستخدم معتمد</span>
-        </div>
+        <div><div class="reviewer-name">سعيد القحطاني</div><span class="reviewer-badge">✓ مستخدم معتمد</span></div>
       </div>
       <div class="review-stars">★★★★★</div>
     </div>
-    <div class="review-text">
-      "أفضل تطبيق إسلامي استخدمته على الأندرويد حتى الآن. قسم المسابقات اليومية (رحلة صفاء) ممتع جداً ومفيد للعائلة."
-    </div>
+    <div class="review-text">"أفضل تطبيق إسلامي استخدمته على الأندرويد حتى الآن. قسم المسابقات اليومية (رحلة صفاء) ممتع جداً ومفيد للعائلة."</div>
   </div>
 </div>
 
-
-<!-- =========================================================
-     SCREENSHOTS
-========================================================= -->
-
-<div class="sec">
-  📱 لقطات من واجهات التطبيق
+<div class="rv-sub-title">🛒 تقييمات موثقة من المتجر (حقيقية)</div>
+<div class="rv-summary">
+  <div class="rv-avg">
+    <b id="realAvg">—</b>
+    <span class="review-stars" id="realStars"></span>
+    <small><span id="realCount">0</span> تقييم</small>
+  </div>
+  <div class="rv-summary-text">متوسط تقييمات المستخدمين الحقيقيين المُرسلة عبر متجر Sabri-FX — بدون بريد إلكتروني، فقط اسمك ورأيك.</div>
+</div>
+<div class="reviews-grid" id="realReviewsList">
+  <div class="rv-empty">جارٍ تحميل التقييمات الحقيقية...</div>
 </div>
 
+<div class="rv-form">
+  <h4>✍️ أضف تقييمك للتطبيق</h4>
+  <input id="rvName" maxlength="30" placeholder="اسمك (بدون بريد إلكتروني)">
+  <div class="star-row">
+    <span class="star-pick" data-v="1">★</span>
+    <span class="star-pick" data-v="2">★</span>
+    <span class="star-pick" data-v="3">★</span>
+    <span class="star-pick" data-v="4">★</span>
+    <span class="star-pick" data-v="5">★</span>
+  </div>
+  <textarea id="rvComment" maxlength="500" placeholder="شاركنا رأيك بالتطبيق..."></textarea>
+  <button class="btn rv-submit" id="submitReview" type="button">🚀 نشر التقييم</button>
+  <div class="rv-msg" id="rvMsg"></div>
+</div>
+
+<!-- ===== SCREENSHOTS ===== -->
+<div class="sec">📱 لقطات من واجهات التطبيق</div>
 <div class="shots">
   <img src="images/screen1.png" alt="الشاشة الرئيسية" loading="lazy">
   <img src="images/screen2.png" alt="المصحف الشريف" loading="lazy">
@@ -987,46 +455,31 @@ footer{
   <img src="images/screen6.png" alt="مسابقات رحلة صفاء" loading="lazy">
 </div>
 
-
-<!-- =========================================================
-     FAQ SECTION
-========================================================= -->
-
-<div class="sec">
-  ❓ الأسئلة الشائعة
-</div>
-
+<!-- ===== FAQ ===== -->
+<div class="sec">❓ الأسئلة الشائعة</div>
 <details>
   <summary>لماذا يظهر تحذير أمني عند تثبيت ملف APK؟</summary>
   <p>هذا تحذير اعتيادي يظهر في نظام أندرويد عند تثبيت أي تطبيق من خارج متجر Google Play (المصادر الخارجية). التطبيق مفحوص وآمن تماماً وموقّع برقم المطور الرسمي، ويمكنك المتابعة والتثبيت باطمئنان.</p>
 </details>
-
 <details>
   <summary>هل التطبيق مجاني بالكامل؟</summary>
   <p>نعم، تطبيق صفاء الروح مجاني بالكامل ولا يحتوي على أي رسوم اشتراك أو إعلانات تجارية مزعجة، وهو صدقة جارية.</p>
 </details>
-
 <details>
   <summary>ماذا أفعل إن واجهني بطء في التحميل؟</summary>
-  <p>يمكنك التبديل فوراً بين رابط التحميل الأساسي (GitHub) ورابط النسخ الاحتياطي (Archive.org) المتاحين داخل نافذة التحميل المتقدمة.</p>
+  <p>يمكنك استخدام زر (التحميل المباشر من GitHub) المتاح داخل نافذة التحميل المتقدمة إذا لم يبدأ التنزيل التلقائي.</p>
 </details>
 
-
-<!-- =========================================================
-     ABOUT
-========================================================= -->
-
-<div class="sec">
-  🕌 عن التطبيق
-</div>
-
+<!-- ===== ABOUT ===== -->
+<div class="sec">🕌 عن التطبيق</div>
 <div class="desc-box">
   <h3>رفيقك اليومي نحو الطمأنينة واليقين</h3>
   صُمم تطبيق "صفاء الروح" ليكون المرجع الرقمي المتكامل لكل مسلم. يضم باقة غنية تشمل المصحف المطبوع، التلاوات الصوتية، حصن المسلم، مواقيت الصلاة الدقيقة، الأذان، بوصلة القبلة، تفسير الأحلام، صحيح البخاري، ودليل العمرة، لتقدم لك تجربة إيمانية فريدة ومميزة.
 </div>
 
-
 <footer>
+  <b>Sabri-FX</b> © 2026 — متجر التطبيقات الرسمي
+  <br>
   تصميم وتطوير: Ahmed Saleh Bahada · SabriFX
   <br>
   صدقة جارية — انشره ولك الأجر بإذن الله 🤍
@@ -1034,120 +487,78 @@ footer{
 
 </div>
 
-
-<!-- =========================================================
-     FIXED BOTTOM INSTALL BAR
-========================================================= -->
-
+<!-- ===== INSTALL BAR ===== -->
 <div class="bar">
   <div class="bar-copy">
-    <div class="bar-title">
-      <span>⬇️</span> صفاء الروح (v5.2.1)
-    </div>
-    <div class="bar-sub">
-      انضم إلى <span id="barCount">+10,000</span> مستخدم
-    </div>
+    <div class="bar-title"><span>✨</span> صفاء الروح (v5.1.5)</div>
+    <div class="bar-sub">انضم إلى <span id="barCount">+10,000</span> مستخدم</div>
   </div>
-  <button class="btn" id="installBtn" type="button">
-    ⬇️ تثبيت الآن
-  </button>
+  <button class="btn" id="installBtn" type="button">⬇️ تثبيت الآن</button>
 </div>
 
-
-<!-- =========================================================
-     DOWNLOAD MODAL / PANEL
-========================================================= -->
-
+<!-- ===== DOWNLOAD PANEL ===== -->
 <div id="dl">
   <div class="dl-top">
     <div class="ring" id="ring">
-      <b id="pct">0%</b>
+      <div class="dl-ring-glow"></div>
+      <div class="dl-icon-wrap">
+        <svg class="dl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+      </div>
+      <b id="pct" style="opacity:0;pointer-events:none">0%</b>
     </div>
     <div class="dl-info">
       <div class="t" id="dlt">جارٍ تجهيز التحميل...</div>
       <div class="s" id="dls"></div>
     </div>
   </div>
-
-  <div class="progress-line">
-    <i id="progress"></i>
-  </div>
-
-  <div class="download-status">
-    <span class="mini-dot"></span>
-    <span id="statusText">التحميل يعمل عبر الخادم الرسمي</span>
-  </div>
-
+  <div class="progress-line"><i id="progress"></i></div>
+  <div class="download-status"><span class="mini-dot"></span><span id="statusText">التحميل يعمل عبر الخادم الرسمي</span></div>
   <div class="dl-btns">
     <button id="dlPause" type="button">⏸ إيقاف مؤقت</button>
-    <button id="dlDirect" type="button">⬇️ تحميل مباشر (GitHub)</button>
-    <button id="dlFallback" type="button">🌐 خادم احتياطي (Archive)</button>
+    <button id="dlDirect" type="button">⬇️ تحميل مباشر من GitHub</button>
     <button id="dlCancel" type="button">✖ إلغاء</button>
   </div>
-
-  <div class="dl-note">
-    💾 يتم حفظ تقدم التحميل محلياً على جهازك. في حال واجهتك أي عقوبة شبكة، استخدم زر التحميل المباشر أو الخادم الاحتياطي.
-  </div>
+  <div class="dl-note">💾 يتم حفظ تقدم التحميل محلياً على جهازك. في حال واجهتك أي عقبة شبكة، استخدم زر التحميل المباشر.</div>
 </div>
 
-
-<!-- =========================================================
-     FIREBASE
-========================================================= -->
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
-
 
 <script>
 "use strict";
 
-/* =========================================================
-   1. APP CONFIGURATION & DUAL LINKS (GitHub & Archive)
-========================================================= */
+/* ===== 1. CONFIG ===== */
 const APP = {
-  version: "5.2.1",
+  version: "5.1.5",
   sizeMB: 161,
-  fileName: "safa-alrouh-v5.2.1.apk",
-  
-  // Primary Link: GitHub Releases
-  apkURL: "https://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v5.2.1/safa-alrouh-v5.2.1.apk",
-  
-  // Secondary / Backup Link: Archive.org
-  fallbackURL: "https://archive.org/download/safa-alrouh-v5.2.1/safa-alrouh-v5.2.1.apk",
-  
+  fileName: "safa-alrouh-v5.1.5.apk",
+  apkURL: "https://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v5.1.5/safa-alrouh-v5.1.5.apk",
   baseDownloads: 10000
 };
 
 const $ = id => document.getElementById(id);
-const dl = $("dl");
-const ring = $("ring");
-const pct = $("pct");
-const dlt = $("dlt");
-const dls = $("dls");
-const progress = $("progress");
-const statusText = $("statusText");
-const pauseBtn = $("dlPause");
-const directBtn = $("dlDirect");
-const fallbackBtn = $("dlFallback");
+const dl = $("dl"), ring = $("ring"), pct = $("pct"), dlt = $("dlt"), dls = $("dls");
+const progress = $("progress"), statusText = $("statusText");
+const pauseBtn = $("dlPause"), directBtn = $("dlDirect");
 
-/* =========================================================
-   2. DOWNLOAD COUNTER (LocalStorage & Firebase)
-========================================================= */
+function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+
+/* ===== 2. COUNTER ===== */
 let realDL = parseInt(localStorage.getItem("safa_site_dl") || "0", 10);
 if(!Number.isFinite(realDL) || realDL < 0) realDL = 0;
 
-function fmtNum(n){
-  return Math.max(0, Number(n) || 0).toLocaleString("en-US");
-}
+function fmtNum(n){ return Math.max(0, Number(n) || 0).toLocaleString("en-US"); }
 
-function paintCount(animate=false){
+function paintCount(){
   const target = APP.baseDownloads + realDL;
-  const el = $("dlCount");
   const bar = $("barCount");
-  if(el) el.textContent = fmtNum(target);
   if(bar) bar.textContent = "+" + fmtNum(target);
 }
-paintCount(true);
+paintCount();
 
 let dbSite = null;
 function initFirebaseCounter(){
@@ -1171,29 +582,105 @@ function initFirebaseCounter(){
           localStorage.setItem("safa_site_dl", String(realDL));
         }
       }
-      paintCount(true);
+      paintCount();
     }).catch(() => {});
+    loadRealReviews();
   }catch(e){}
 }
 
 function bumpCounter(){
   realDL++;
   localStorage.setItem("safa_site_dl", String(realDL));
-  paintCount(false);
+  paintCount();
   try{
     if(dbSite){
-      dbSite.collection("site_stats").doc("downloads").set({
-        real: firebase.firestore.FieldValue.increment(1)
-      }, {merge:true}).catch(() => {});
+      dbSite.collection("site_stats").doc("downloads").set({ real: firebase.firestore.FieldValue.increment(1) }, {merge:true}).catch(() => {});
     }
   }catch(e){}
 }
-
 window.addEventListener("load", initFirebaseCounter);
 
-/* =========================================================
-   3. DOWNLOAD HELPERS & GITHUB / ARCHIVE ROUTING
-========================================================= */
+/* ===== 3. REAL REVIEWS (Firebase) ===== */
+const REVIEWS_COL = "store_reviews";
+const APP_ID = "safa-alrouh";
+let myRating = 0;
+
+function starsHTML(n){
+  let h = '';
+  for(let i=1;i<=5;i++) h += (i<=n ? '★' : '☆');
+  return h;
+}
+
+function loadRealReviews(){
+  const listEl = $("realReviewsList");
+  if(!dbSite){ listEl.innerHTML = '<div class="rv-empty">التقييمات غير متاحة حالياً</div>'; return; }
+  dbSite.collection(REVIEWS_COL).where("app","==",APP_ID).orderBy("createdAt","desc").limit(30).get().then(snap=>{
+    if(snap.empty){
+      listEl.innerHTML = '<div class="rv-empty">كن أول من يقيّم التطبيق من المتجر ✨</div>';
+      $("realAvg").textContent = '—';
+      $("realCount").textContent = '0';
+      return;
+    }
+    let sum = 0; const rows = [];
+    snap.forEach(d => { const r = d.data(); sum += Number(r.rating||0); rows.push(r); });
+    const avg = sum / rows.length;
+    $("realAvg").textContent = avg.toFixed(1);
+    $("realStars").textContent = starsHTML(Math.round(avg));
+    $("realCount").textContent = fmtNum(rows.length);
+    listEl.innerHTML = rows.map(r=>{
+      const date = (r.createdAt && r.createdAt.toDate) ? r.createdAt.toDate().toLocaleDateString('ar-EG',{year:'numeric',month:'long',day:'numeric'}) : '';
+      return '<div class="review-card real">' +
+        '<div class="review-header"><div class="reviewer-info">' +
+        '<div class="reviewer-avatar">' + esc(String(r.name||'م').trim().charAt(0)) + '</div>' +
+        '<div><div class="reviewer-name">' + esc(r.name) + '</div><span class="reviewer-badge">✓ تقييم موثق من المتجر</span></div></div>' +
+        '<div class="review-stars">' + starsHTML(Number(r.rating||0)) + '</div></div>' +
+        '<div class="review-text">' + esc(r.comment) + '</div>' +
+        (date ? '<div class="review-date">' + date + '</div>' : '') +
+      '</div>';
+    }).join('');
+  }).catch(()=>{ listEl.innerHTML = '<div class="rv-empty">تعذر تحميل التقييمات</div>'; });
+}
+
+document.querySelectorAll('.star-pick').forEach(st=>{
+  st.addEventListener('click', ()=>{
+    myRating = Number(st.dataset.v);
+    document.querySelectorAll('.star-pick').forEach(s=> s.classList.toggle('on', Number(s.dataset.v) <= myRating));
+  });
+});
+
+$("submitReview").addEventListener('click', ()=>{
+  const name = $("rvName").value.trim();
+  const comment = $("rvComment").value.trim();
+  const msg = $("rvMsg");
+  const btn = $("submitReview");
+
+  if(localStorage.getItem('safa_reviewed') === '1'){ msg.textContent='⭐ شكراً! لقد أرسلت تقييمك مسبقاً.'; msg.className='rv-msg err'; return; }
+  if(name.length < 2 || name.length > 30){ msg.textContent='✍️ الرجاء كتابة اسم صحيح (2-30 حرف).'; msg.className='rv-msg err'; return; }
+  if(!myRating){ msg.textContent='⭐ الرجاء اختيار عدد النجوم.'; msg.className='rv-msg err'; return; }
+  if(comment.length < 5 || comment.length > 500){ msg.textContent='💬 الرجاء كتابة تعليق من 5-500 حرف.'; msg.className='rv-msg err'; return; }
+  if(!dbSite){ msg.textContent='⚠️ تعذر الاتصال بالخادم.'; msg.className='rv-msg err'; return; }
+
+  btn.disabled = true; btn.textContent = '⏳ جارٍ الإرسال...';
+  dbSite.collection(REVIEWS_COL).add({
+    app: APP_ID,
+    name: name,
+    rating: myRating,
+    comment: comment,
+    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+  }).then(()=>{
+    localStorage.setItem('safa_reviewed','1');
+    msg.textContent = '✅ شكراً لك! تم نشر تقييمك.'; msg.className = 'rv-msg ok';
+    $("rvName").value = ''; $("rvComment").value = ''; myRating = 0;
+    document.querySelectorAll('.star-pick').forEach(s=>s.classList.remove('on'));
+    loadRealReviews();
+  }).catch(()=>{
+    msg.textContent = '⚠️ تعذر الإرسال، حاول لاحقاً.'; msg.className = 'rv-msg err';
+  }).finally(()=>{
+    btn.disabled = false; btn.textContent = '🚀 نشر التقييم';
+  });
+});
+
+/* ===== 4. DOWNLOAD (نفس النظام السريع) ===== */
 let busy = false;
 let countedThisAttempt = false;
 
@@ -1204,51 +691,26 @@ function setStatus(title, sub, status){
 }
 
 function triggerBrowserDownload(url){
-  if(!countedThisAttempt){
-    countedThisAttempt = true;
-    bumpCounter();
-  }
-  
+  if(!countedThisAttempt){ countedThisAttempt = true; bumpCounter(); }
   if(directBtn) directBtn.style.display = "block";
-  if(fallbackBtn) fallbackBtn.style.display = "block";
-
   try{
     const link = document.createElement("a");
-    link.href = url;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    link.style.display = "none";
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
+    link.href = url; link.target = "_blank"; link.rel = "noopener noreferrer"; link.style.display = "none";
+    document.body.appendChild(link); link.click(); link.remove();
     return true;
   }catch(e){
-    try{
-      window.open(url, "_blank", "noopener,noreferrer");
-      return true;
-    }catch(err){
-      return false;
-    }
+    try{ window.open(url, "_blank", "noopener,noreferrer"); return true; }catch(err){ return false; }
   }
 }
 
 function startDownloadSequence(){
   if(busy) return;
-  busy = true;
-  countedThisAttempt = false;
-
+  busy = true; countedThisAttempt = false;
   if(dl) dl.style.display = "block";
   if(directBtn) directBtn.style.display = "none";
-  if(fallbackBtn) fallbackBtn.style.display = "none";
   if(pauseBtn) pauseBtn.textContent = "⏸ إيقاف مؤقت";
+  setStatus("جاري بدء التحميل...", "التصال بمستودع GitHub الرسمي (v5.1.5)", "يرجى الانتظار قليلاً...");
 
-  setStatus(
-    "جاري بدء التحميل...",
-    "التصال بمستودع GitHub الرسمي (v5.2.1)",
-    "يرجى الانتظار قليلاً..."
-  );
-
-  // Animate progress ring mock for immediate feedback
   let p = 0;
   const interval = setInterval(() => {
     p += 15;
@@ -1263,54 +725,21 @@ function startDownloadSequence(){
     if(ring) ring.style.background = `conic-gradient(var(--gold) 100%, rgba(255,255,255,0.08) 100%)`;
     if(pct) pct.textContent = "100%";
     if(progress) progress.style.width = "100%";
-
-    setStatus(
-      "✓ تم إرسال طلب التحميل",
-      "حجم الملف: 161 ميجابايت",
-      "إذا لم تبدأ التنزيل التلقائي، استخدم أزرار الخيارات أدناه"
-    );
-
+    setStatus("✓ تم إرسال طلب التحميل", "حجم الملف: 161 ميجابايت", "إذا لم يبدأ التنزيل التلقائي، استخدم أزرار الخيارات أدناه");
     triggerBrowserDownload(APP.apkURL);
     busy = false;
   }, 1200);
 }
 
-/* =========================================================
-   4. EVENT LISTENERS
-========================================================= */
-
-$("installBtn").addEventListener("click", () => {
-  startDownloadSequence();
-});
-
-if(directBtn){
-  directBtn.addEventListener("click", () => {
-    triggerBrowserDownload(APP.apkURL);
-  });
-}
-
-if(fallbackBtn){
-  fallbackBtn.addEventListener("click", () => {
-    setStatus("جاري التحميل عبر الخادم الاحتياطي", "Archive.org Mirror", "جاري فتح التحميل...");
-    triggerBrowserDownload(APP.fallbackURL);
-  });
-}
-
-if(pauseBtn){
-  pauseBtn.addEventListener("click", () => {
-    busy = false;
-    if(dl) dl.style.display = "none";
-  });
-}
-
+$("installBtn").addEventListener("click", () => startDownloadSequence());
+if(directBtn) directBtn.addEventListener("click", () => triggerBrowserDownload(APP.apkURL));
+if(pauseBtn) pauseBtn.addEventListener("click", () => { busy = false; if(dl) dl.style.display = "none"; });
 $("dlCancel").addEventListener("click", () => {
-  busy = false;
-  countedThisAttempt = false;
+  busy = false; countedThisAttempt = false;
   if(dl) dl.style.display = "none";
   if(progress) progress.style.width = "0%";
   if(pct) pct.textContent = "0%";
 });
-
 </script>
 
 </body>
