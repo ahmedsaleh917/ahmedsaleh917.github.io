@@ -362,6 +362,44 @@ footer b{color:var(--gold-light);}
   </div>
 </div>
 
+<!-- ===== بصمة الملف (SHA-256) ===== -->
+<div style="margin-top:14px;padding:14px 18px;background:rgba(139,92,246,0.06);border:1px dashed var(--border-gold);border-radius:16px;backdrop-filter:blur(10px)">
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;color:var(--gold-light);font-size:12px;font-weight:700">
+    <span>🔏</span>
+    <span>بصمة الملف الرقمية (SHA-256)</span>
+  </div>
+  <div style="font-size:10px;color:var(--cream-muted);line-height:1.6;margin-bottom:8px">
+    استخدم هذه البصمة للتأكد أن الملف الذي حمّلته هو الملف الأصلي دون أي تعديل.
+  </div>
+  <div id="sha256Box" style="display:flex;align-items:center;gap:8px;padding:10px 12px;background:rgba(0,0,0,0.35);border-radius:10px;border:1px solid var(--border-gold)">
+    <code id="sha256Text" style="flex:1;font-family:'Courier New',monospace;font-size:10.5px;color:var(--gold-light);direction:ltr;text-align:left;word-break:break-all;line-height:1.7">2a0af504edeb0cce598bb2f7db192977e13c74fadfbcd5bf0e36f3bd4f4807f9</code>
+    <button id="copySha" type="button" style="flex:0 0 auto;background:rgba(139,92,246,0.15);border:1px solid var(--border-gold);color:var(--gold-light);padding:7px 12px;border-radius:10px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Tajawal',sans-serif;white-space:nowrap">📋 نسخ</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var shaBtn=document.getElementById('copySha');
+  if(!shaBtn)return;
+  shaBtn.addEventListener('click',function(){
+    var txt=document.getElementById('sha256Text').textContent;
+    try{
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(function(){
+          shaBtn.textContent='✓ تم النسخ';
+          setTimeout(function(){shaBtn.textContent='📋 نسخ'},1800);
+        });
+      }else{
+        var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+        document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();
+        shaBtn.textContent='✓ تم النسخ';
+        setTimeout(function(){shaBtn.textContent='📋 نسخ'},1800);
+      }
+    }catch(e){}
+  });
+})();
+</script>
+
 <!-- ===== FEATURES ===== -->
 <div class="sec">🌟 مميزات التطبيق الاحترافية</div>
 <div class="feat" id="feat">
@@ -523,6 +561,13 @@ footer b{color:var(--gold-light);}
     <button id="dlCancel" type="button">✖ إلغاء</button>
   </div>
   <div class="dl-note">💾 يتم حفظ تقدم التحميل محلياً على جهازك. في حال واجهتك أي عقبة شبكة، استخدم زر التحميل المباشر.</div>
+  <div style="margin-top:12px;padding:10px 14px;background:rgba(0,0,0,0.3);border-radius:12px;border:1px solid var(--border-gold)">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+      <span style="font-size:10.5px;color:var(--cream-muted)">🔏 بصمة SHA-256</span>
+      <button id="copyShaDl" type="button" style="background:rgba(139,92,246,0.15);border:1px solid var(--border-gold);color:var(--gold-light);padding:5px 11px;border-radius:8px;font-size:10.5px;font-weight:700;cursor:pointer;font-family:'Tajawal',sans-serif">📋 نسخ</button>
+    </div>
+    <code id="sha256TextDl" style="display:block;margin-top:8px;font-family:'Courier New',monospace;font-size:10px;color:var(--gold-light);direction:ltr;text-align:left;word-break:break-all;line-height:1.6;opacity:.85">2a0af504edeb0cce598bb2f7db192977e13c74fadfbcd5bf0e36f3bd4f4807f9</code>
+  </div>
 </div>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
