@@ -561,7 +561,10 @@ footer b{color:var(--gold-light);}
     <button id="dlDirect" type="button">⬇️ تحميل مباشر من GitHub</button>
     <button id="dlCancel" type="button">✖ إلغاء</button>
   </div>
-  <div class="dl-note">💾 يتم حفظ تقدم التحميل محلياً على جهازك. في حال واجهتك أي عقبة شبكة، استخدم زر التحميل المباشر.<br>⏸ إذا وصل العداد إلى 100% وبقي التحميل نشطًا: اضغط إيقاف ثم استئناف مرة واحدة ليكتمل الحفظ.</div>
+  <div class="dl-note">
+    📥 <b>طريقة التثبيت:</b> ١) يبدأ التنزيل في شريط الإشعارات تلقائيًا ← ٢) عند الاكتمال انقر على إشعار «اكتمل التنزيل» ← ٣) اضغط «تثبيت» واسمح بالمصدر مرة واحدة.<br>
+    ⏸ إن بقي التنزيل عالقًا عند 100%: افتح قائمة التنزيلات في المتصفح وانقر على الملف مرة واحدة ليكتمل الحفظ فورًا.
+  </div>
   <div style="margin-top:12px;padding:10px 14px;background:rgba(0,0,0,0.3);border-radius:12px;border:1px solid var(--border-gold)">
     <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
       <span style="font-size:10.5px;color:var(--cream-muted)">🔏 بصمة SHA-256</span>
@@ -767,26 +770,23 @@ function startDownloadSequence(){
   if(dl) dl.style.display = "block";
   if(directBtn) directBtn.style.display = "none";
   if(pauseBtn) pauseBtn.textContent = "⏸ إيقاف مؤقت";
-  setStatus("جاري بدء التحميل...", "التصال بمستودع GitHub الرسمي (v5.1.5)", "يرجى الانتظار قليلاً...");
+  setStatus("جاري تسليم الملف لمدير التنزيلات...", "GitHub الرسمي (v5.1.5) — الحجم 161 ميجابايت", "لحظة واحدة...");
+  /* ✅ التحميل يبدأ فورًا داخل نفس نقرة المستخدم = سلوك أثبت في كروم */
+  triggerBrowserDownload(APP.apkURL);
 
   let p = 0;
   const interval = setInterval(() => {
-    p += 15;
-    if(p > 90) clearInterval(interval);
-    if(ring) ring.style.background = `conic-gradient(var(--gold) ${p}%, rgba(255,255,255,0.08) ${p}%)`;
-    if(pct) pct.textContent = p + "%";
-    if(progress) progress.style.width = p + "%";
+    p += 25;
+    const v = Math.min(p, 100);
+    if(ring) ring.style.background = `conic-gradient(var(--gold) ${v}%, rgba(255,255,255,0.08) ${v}%)`;
+    if(progress) progress.style.width = v + "%";
+    if(p >= 100){
+      clearInterval(interval);
+      if(pct) pct.textContent = "✓";
+      setStatus("✓ الملف الآن في مدير التنزيلات بالنظام", "راقب شريط الإشعارات: عند الاكتمال انقر على الإشعار ليبدأ التثبيت مباشرة", "إن بقي عالقًا عند 100%: افتح قائمة التنزيلات وانقر على الملف مرة واحدة");
+      busy = false;
+    }
   }, 120);
-
-  setTimeout(() => {
-    clearInterval(interval);
-    if(ring) ring.style.background = `conic-gradient(var(--gold) 100%, rgba(255,255,255,0.08) 100%)`;
-    if(pct) pct.textContent = "100%";
-    if(progress) progress.style.width = "100%";
-    setStatus("✓ تم تنزيل الملف بنجاح", "افتح إشعار التنزيل أو مجلد (Downloads) لتثبيت APK", "حجم الملف: 161 ميجابايت");
-    triggerBrowserDownload(APP.apkURL);
-    busy = false;
-  }, 1200);
 }
 
 $("installBtn").addEventListener("click", () => startDownloadSequence());
