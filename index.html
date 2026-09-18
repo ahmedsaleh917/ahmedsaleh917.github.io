@@ -340,7 +340,7 @@ footer b{color:var(--gold-light);}
 
   <div class="chips">
     <span class="chip verified"><span>🛡️</span> موثوق من المطوّر</span>
-    <span class="chip">الإصدار v5.1.6</span>
+    <span class="chip">الإصدار v5.1.5</span>
     <span class="chip">161 ميجابايت</span>
     <span class="chip">مجاني بدون إعلانات مزعجة</span>
   </div>
@@ -373,7 +373,7 @@ footer b{color:var(--gold-light);}
     استخدم هذه البصمة للتأكد أن الملف الذي حمّلته هو الملف الأصلي دون أي تعديل.
   </div>
   <div id="sha256Box" style="display:flex;align-items:center;gap:8px;padding:10px 12px;background:rgba(0,0,0,0.35);border-radius:10px;border:1px solid var(--border-gold)">
-    <code id="sha256Text" style="flex:1;font-family:'Courier New',monospace;font-size:10.5px;color:var(--gold-light);direction:ltr;text-align:left;word-break:break-all;line-height:1.7">602c8934d055dde82b143c3b97b9f6bcf0d0bdf14765741b609628d2417b96e1</code>
+    <code id="sha256Text" style="flex:1;font-family:'Courier New',monospace;font-size:10.5px;color:var(--gold-light);direction:ltr;text-align:left;word-break:break-all;line-height:1.7">2a0af504edeb0cce598bb2f7db192977e13c74fadfbcd5bf0e36f3bd4f4807f9</code>
     <button id="copySha" type="button" style="flex:0 0 auto;background:rgba(214,181,109,0.15);border:1px solid var(--border-gold);color:var(--gold-light);padding:7px 12px;border-radius:10px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Tajawal',sans-serif;white-space:nowrap">📋 نسخ</button>
   </div>
 </div>
@@ -529,7 +529,7 @@ footer b{color:var(--gold-light);}
 <!-- ===== INSTALL BAR ===== -->
 <div class="bar">
   <div class="bar-copy">
-    <div class="bar-title"><span>✨</span> صفاء الروح (v5.1.6)</div>
+    <div class="bar-title"><span>✨</span> صفاء الروح (v5.1.5)</div>
     <div class="bar-sub">انضم إلى <span id="barCount">+10,000</span> مستخدم</div>
   </div>
   <button class="btn" id="installBtn" type="button">⬇️ تثبيت الآن</button>
@@ -582,10 +582,10 @@ footer b{color:var(--gold-light);}
 
 /* ===== 1. CONFIG ===== */
 const APP = {
-  version: "5.1.6",
+  version: "5.1.5",
   sizeMB: 161,
-  fileName: "safa-alrouh-v5.1.6.apk",
-  apkURL: "https://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v5.1.6/safa-alrouh-v5.1.6.apk",
+  fileName: "safa-alrouh-v5.1.5.apk",
+  apkURL: "https://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v5.1.5/safa-alrouh-v5.1.5.apk",
   baseDownloads: 10000
 };
 
@@ -770,7 +770,7 @@ function startDownloadSequence(){
   if(dl) dl.style.display = "block";
   if(directBtn) directBtn.style.display = "none";
   if(pauseBtn) pauseBtn.textContent = "⏸ إيقاف مؤقت";
-  setStatus("جاري تسليم الملف لمدير التنزيلات...", "GitHub الرسمي (v5.1.6) — الحجم 161 ميجابايت", "لحظة واحدة...");
+  setStatus("جاري تسليم الملف لمدير التنزيلات...", "GitHub الرسمي (v5.1.5) — الحجم 161 ميجابايت", "لحظة واحدة...");
   /* ✅ التحميل يبدأ فورًا داخل نفس نقرة المستخدم = سلوك أثبت في كروم */
   triggerBrowserDownload(APP.apkURL);
 
