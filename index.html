@@ -561,7 +561,7 @@ footer b{color:var(--gold-light);}
     <button id="dlDirect" type="button">⬇️ تحميل مباشر من GitHub</button>
     <button id="dlCancel" type="button">✖ إلغاء</button>
   </div>
-  <div class="dl-note">💾 يتم حفظ تقدم التحميل محلياً على جهازك. في حال واجهتك أي عقبة شبكة، استخدم زر التحميل المباشر.</div>
+  <div class="dl-note">💾 يتم حفظ تقدم التحميل محلياً على جهازك. في حال واجهتك أي عقبة شبكة، استخدم زر التحميل المباشر.<br>⏸ إذا وصل العداد إلى 100% وبقي التحميل نشطًا: اضغط إيقاف ثم استئناف مرة واحدة ليكتمل الحفظ.</div>
   <div style="margin-top:12px;padding:10px 14px;background:rgba(0,0,0,0.3);border-radius:12px;border:1px solid var(--border-gold)">
     <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
       <span style="font-size:10.5px;color:var(--cream-muted)">🔏 بصمة SHA-256</span>
@@ -744,10 +744,17 @@ function setStatus(title, sub, status){
 function triggerBrowserDownload(url){
   if(!countedThisAttempt){ countedThisAttempt = true; bumpCounter(); }
   if(directBtn) directBtn.style.display = "block";
+  /* كسر كاش CDN لضمان بيانات حجم جديدة بعد أي استبدال للملف */
+  url += (url.indexOf('?') === -1 ? '?' : '&') + 'dl=' + Date.now();
   try{
     const link = document.createElement("a");
-    link.href = url; link.target = "_blank"; link.rel = "noopener noreferrer"; link.style.display = "none";
-    document.body.appendChild(link); link.click(); link.remove();
+    link.href = url;
+    link.download = APP.fileName;
+    link.rel = "noopener noreferrer";
+    link.style.display = "none";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
     return true;
   }catch(e){
     try{ window.open(url, "_blank", "noopener,noreferrer"); return true; }catch(err){ return false; }
@@ -776,7 +783,7 @@ function startDownloadSequence(){
     if(ring) ring.style.background = `conic-gradient(var(--gold) 100%, rgba(255,255,255,0.08) 100%)`;
     if(pct) pct.textContent = "100%";
     if(progress) progress.style.width = "100%";
-    setStatus("✓ تم إرسال طلب التحميل", "حجم الملف: 161 ميجابايت", "إذا لم يبدأ التنزيل التلقائي، استخدم أزرار الخيارات أدناه");
+    setStatus("✓ تم تنزيل الملف بنجاح", "افتح إشعار التنزيل أو مجلد (Downloads) لتثبيت APK", "حجم الملف: 161 ميجابايت");
     triggerBrowserDownload(APP.apkURL);
     busy = false;
   }, 1200);
