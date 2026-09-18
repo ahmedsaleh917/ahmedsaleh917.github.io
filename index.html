@@ -747,20 +747,20 @@ function setStatus(title, sub, status){
 function triggerBrowserDownload(url){
   if(!countedThisAttempt){ countedThisAttempt = true; bumpCounter(); }
   if(directBtn) directBtn.style.display = "block";
-  /* كسر كاش CDN لضمان بيانات حجم جديدة بعد أي استبدال للملف */
-  url += (url.indexOf('?') === -1 ? '?' : '&') + 'dl=' + Date.now();
+  /* ✅ رابط GitHub Release الأصلي يكفي — لا نضيف attributes تكسر سلوكه */
   try{
     const link = document.createElement("a");
     link.href = url;
-    link.download = APP.fileName;
-    link.rel = "noopener noreferrer";
-    link.style.display = "none";
+    link.type = "application/vnd.android.package-archive";
     document.body.appendChild(link);
     link.click();
-    link.remove();
+    setTimeout(() => link.remove(), 200);
     return true;
   }catch(e){
-    try{ window.open(url, "_blank", "noopener,noreferrer"); return true; }catch(err){ return false; }
+    try{
+      window.location.href = url;
+      return true;
+    }catch(err){ return false; }
   }
 }
 
