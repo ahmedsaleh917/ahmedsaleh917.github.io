@@ -310,66 +310,10 @@ footer b{color:var(--gold-light);}
 #dlCancel{border:0;background:rgba(255,255,255,0.08);color:var(--cream);}
 .dl-note{font-size:10px;color:#8a84a8;margin-top:12px;line-height:1.8;text-align:center;}
 
-/* ===== Toast Notification ===== */
-.toast{
-  position:fixed;top:calc(20px + env(safe-area-inset-top));left:50%;transform:translateX(-50%) translateY(-120%);
-  background:linear-gradient(135deg,rgba(21,128,61,0.95),rgba(6,78,59,0.98));
-  border:1px solid rgba(74,222,128,0.6);border-radius:16px;padding:14px 22px;
-  color:#dcfce7;font-size:13px;font-weight:700;z-index:999;
-  box-shadow:0 15px 40px rgba(0,0,0,0.7);backdrop-filter:blur(12px);
-  transition:transform .4s cubic-bezier(0.34,1.56,0.64,1);
-  display:flex;align-items:center;gap:10px;white-space:nowrap;
-}
-.toast.show{transform:translateX(-50%) translateY(0);}
-.toast .toast-icon{font-size:20px;}
-
-/* ===== Full Screen Overlay ===== */
-.overlay{
-  display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);
-  z-index:998;backdrop-filter:blur(8px);
-  align-items:center;justify-content:center;flex-direction:column;gap:20px;
-}
-.overlay.show{display:flex;}
-.overlay-content{
-  background:linear-gradient(145deg,#131028,#0b0817);
-  border:2px solid var(--border-gold-strong);border-radius:24px;
-  padding:30px;text-align:center;max-width:340px;
-  box-shadow:0 30px 80px rgba(0,0,0,0.9);
-}
-.overlay-icon{font-size:48px;margin-bottom:16px;animation:bounce 1.5s ease-in-out infinite;}
-@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
-.overlay-title{font-size:18px;color:var(--gold-light);font-weight:900;margin-bottom:10px;}
-.overlay-text{font-size:13px;color:var(--cream-muted);line-height:1.8;margin-bottom:20px;}
-.overlay-btn{
-  background:linear-gradient(180deg,#f5df9b,#b8863b);
-  color:#140b2e;border:0;border-radius:99px;padding:12px 28px;
-  font-family:'Tajawal',sans-serif;font-weight:900;font-size:14px;cursor:pointer;
-  box-shadow:0 8px 25px rgba(214,181,109,0.5);
-}
-
 </style>
 </head>
 
 <body>
-
-<!-- ===== TOAST ===== -->
-<div class="toast" id="toast">
-  <span class="toast-icon">✅</span>
-  <span id="toastText">جارٍ فتح Chrome...</span>
-</div>
-
-<!-- ===== OVERLAY ===== -->
-<div class="overlay" id="overlay">
-  <div class="overlay-content">
-    <div class="overlay-icon">🚀</div>
-    <div class="overlay-title">جارٍ فتح Google Chrome</div>
-    <div class="overlay-text">
-      سيتم نقلك إلى المتصفح الرسمي لتحميل وتثبيت التطبيق.<br>
-      <small>إذا لم تفتح Chrome تلقائياً، اضغط الزر أدناه:</small>
-    </div>
-    <button class="overlay-btn" id="overlayBtn" type="button">فتح Chrome الآن</button>
-  </div>
-</div>
 
 <div class="wrap">
 
@@ -646,7 +590,6 @@ const $ = id => document.getElementById(id);
 const dl = $("dl"), ring = $("ring"), pct = $("pct"), dlt = $("dlt"), dls = $("dls");
 const progress = $("progress"), statusText = $("statusText");
 const pauseBtn = $("dlPause"), directBtn = $("dlDirect");
-const overlay = $("overlay"), overlayBtn = $("overlayBtn");
 
 function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 
@@ -788,31 +731,20 @@ $("submitReview").addEventListener('click', ()=>{
   });
 });
 
-/* ===== 4. TOAST & OVERLAY ===== */
-function showToast(text, duration){
-  duration = duration || 3500;
-  var toast = $("toast");
-  var toastText = $("toastText");
-  if(!toast || !toastText) return;
-  toastText.textContent = text;
-  toast.classList.add("show");
-  clearTimeout(toast._timer);
-  toast._timer = setTimeout(function(){
-    toast.classList.remove("show");
-  }, duration);
-}
-
-function showOverlay(){
-  if(overlay) overlay.classList.add("show");
-}
-
-function hideOverlay(){
-  if(overlay) overlay.classList.remove("show");
-}
-
-/* ===== 5. DOWNLOAD — FORCE CHROME OFFICIAL ===== */
+/* ===== 4. DOWNLOAD — FINAL FIX =====
+   لا يوجد window.open ولا target=_blank ولا مؤقت 0%-100%.
+   الرابط المباشر يُسلَّم للمتصفح/Android كما هو.
+*/
 let countedThisAttempt = false;
 let downloadStarted = false;
+
+function showDownloadPanel(){
+  if(dl) dl.style.display = "block";
+  if(progress) progress.style.width = "0%";
+  if(pct) pct.textContent = "";
+  if(ring) ring.style.background = "conic-gradient(var(--gold) 0%, rgba(255,255,255,0.08) 0)";
+  setStatus("جاري فتح التنزيل...", `الملف: ${APP.fileName} — ${APP.sizeMB} ميجابايت`, "سيتم تسليم الملف إلى مدير التنزيل في جهازك");
+}
 
 function countDownloadOnce(){
   if(countedThisAttempt) return;
@@ -820,169 +752,63 @@ function countDownloadOnce(){
   bumpCounter();
 }
 
-/* كشف WebView داخل تطبيقات أندرويد */
 function isAndroidWebView(){
-  var ua = navigator.userAgent || "";
-  var isAndroid = /Android/i.test(ua);
-  var hasWebView = /;\s*wv\)/i.test(ua) || /\bwv\b/i.test(ua);
-  var hasOldVersion = /Version\/[\d.]+.*Chrome/i.test(ua);
-  return isAndroid && (hasWebView || hasOldVersion);
+  const ua = navigator.userAgent || "";
+  return /Android/i.test(ua) && (/;\s*wv\)/i.test(ua) || /\bwv\b/i.test(ua));
 }
 
-/*
-  بناء intent:// URL لفتح Chrome الرسمي
-  هذا هو المفتاح: إجبار WebView على الخروج وفتح Chrome
-*/
-function buildChromeIntent(url){
-  var clean = url.replace(/^https?:\/\//i, "");
-  
-  return "intent://" + clean +
-    "#Intent;" +
-    "scheme=https;" +
-    "package=com.android.chrome;" +                    /* إجبار Chrome الرسمي */
-    "action=android.intent.action.VIEW;" +             /* فتح كرابط */
-    "category=android.intent.category.BROWSABLE;" +    /* قابل للتصفح */
-    "S.browser_fallback_url=" + encodeURIComponent(url) + ";" +  /* fallback إذا فشل Chrome */
-    "end";
-}
-
-/*
-  الدالة الأساسية: إجبار فتح Chrome الرسمي
-  - في WebView: نستخدم intent:// الذي يفتح Chrome كمستقل
-  - في Chrome: نستخدم window.location.href مباشرة
-  - في متصفحات أخرى: ننشئ رابط ونضغطه برمجياً
-*/
-function forceChromeDownload(url){
+function startRealDownload(url){
   if(downloadStarted) return;
   downloadStarted = true;
   countDownloadOnce();
 
-  /* === السيناريو 1: داخل WebView === */
+  /*
+    داخل WebView: intent يطلب Chrome الرسمي فقط.
+    لا نستخدم window.open ولا target=_blank.
+  */
   if(isAndroidWebView()){
-    var intentUrl = buildChromeIntent(url);
-    
-    showToast("🚀 جارٍ فتح Google Chrome...");
-    
-    /* محاولة فتح Chrome عبر Intent */
+    const clean = url.replace(/^https?:\/\//i, "");
+    const intentUrl = "intent://" + clean +
+      "#Intent;scheme=https;package=com.android.chrome;end";
     try{
       window.location.href = intentUrl;
-      
-      /* بعد 1.5 ثانية، إذا لم يحدث شيء، نعرض الـ overlay */
-      setTimeout(function(){
-        showOverlay();
-      }, 1500);
-      
-    }catch(e){
-      /* فشل Intent، نعرض overlay مباشرة */
-      showOverlay();
-      overlayBtn.onclick = function(){
-        hideOverlay();
-        window.location.href = url;
-      };
-    }
-    
-    updatePanelStatus(
-      "✓ تم فتح Chrome الرسمي",
-      "صفاء الروح v" + APP.version + " — " + APP.sizeMB + " ميجابايت",
-      "أكمل التنزيل والتثبيت من Chrome"
-    );
-    return;
+      setStatus("✓ تم تسليم الملف إلى Chrome", "صفاء الروح v" + APP.version, "أكمل التنزيل من إشعارات Chrome");
+      return;
+    }catch(e){}
   }
 
-  /* === السيناريو 2: Chrome عادي (ليس WebView) === */
-  var ua = navigator.userAgent || "";
-  var isChrome = /Chrome\/[\d.]+/i.test(ua) && !/Edg\//i.test(ua) && !/OPR\//i.test(ua);
-  
-  if(isChrome){
-    showToast("✅ بدأ التحميل عبر Chrome...");
-    window.location.href = url;
-    
-    updatePanelStatus(
-      "✓ بدأ التحميل عبر Chrome",
-      "صفاء الروح v" + APP.version + " — " + APP.sizeMB + " ميجابايت",
-      "تابع التنزيل من شريط الإشعارات"
-    );
-    return;
-  }
-
-  /* === السيناريو 3: متصفح آخر (Firefox, Samsung, إلخ) === */
-  showToast("✅ جارٍ بدء التحميل...");
-  
+  /* Chrome/Firefox/Edge: التنزيل الطبيعي، بدون فتح تبويب جديد */
   try{
-    var a = document.createElement("a");
-    a.href = url;
-    a.download = APP.fileName;
-    a.rel = "noopener";
-    a.style.display = "none";
-    document.body.appendChild(a);
-    a.click();
-    setTimeout(function(){ a.remove(); }, 500);
-    
-    updatePanelStatus(
-      "✓ بدأ التحميل",
-      "صفاء الروح v" + APP.version + " — " + APP.sizeMB + " ميجابايت",
-      "تابع التنزيل من متصفحك"
-    );
-  }catch(e){
     window.location.href = url;
-    updatePanelStatus(
-      "✓ جارٍ التحميل...",
-      "صفاء الروح v" + APP.version,
-      "تابع التنزيل"
-    );
+    setStatus("✓ بدأ التنزيل", "صفاء الروح v" + APP.version, "يمكنك متابعة التنزيل من شريط/إشعارات المتصفح");
+  }catch(e){
+    setStatus("تعذر بدء التنزيل", "حاول مرة أخرى", "استخدم زر التنزيل المباشر");
+    if(directBtn) directBtn.style.display = "block";
+    downloadStarted = false;
   }
 }
 
-function updatePanelStatus(title, sub, status){
-  if(dlt) dlt.textContent = title;
-  if(dls) dls.textContent = sub;
-  if(statusText) statusText.textContent = status;
-  if(progress) progress.style.width = "100%";
-}
-
-function showDownloadPanel(){
-  if(dl) dl.style.display = "block";
-  if(progress) progress.style.width = "0%";
-  if(pct) pct.textContent = "";
-  if(ring) ring.style.background = "conic-gradient(var(--gold) 0%, rgba(255,255,255,0.08) 0)";
-}
-
-/* تسلسل النقر على "تثبيت الآن" */
 function startDownloadSequence(){
   if(downloadStarted) return;
   countedThisAttempt = false;
-  
-  /* عرض اللوحة الإعلامية */
   showDownloadPanel();
-  updatePanelStatus(
-    "جارٍ فتح Google Chrome...",
-    "الملف: " + APP.fileName + " — " + APP.sizeMB + " ميجابايت",
-    "سيتم فتح Chrome الرسمي لتحميل وتثبيت التطبيق"
-  );
-  
-  /* إجبار فتح Chrome فوراً — بدون أي تأخير */
-  forceChromeDownload(APP.apkURL);
+  setTimeout(function(){ startRealDownload(APP.apkURL); }, 180);
 }
 
-/* زر "تثبيت الآن" */
 $("installBtn").addEventListener("click", function(e){
   e.preventDefault();
   startDownloadSequence();
 });
 
-/* زر التحميل المباشر (احتياطي) */
 if(directBtn){
   directBtn.style.display = "flex";
   directBtn.textContent = "⬇️ تنزيل APK مباشرة";
   directBtn.addEventListener("click", function(e){
     e.preventDefault();
-    downloadStarted = false;
-    countedThisAttempt = false;
-    forceChromeDownload(APP.apkURL);
+    startRealDownload(APP.apkURL);
   });
 }
 
-/* زر إلغاء اللوحة */
 $("dlCancel").addEventListener("click", function(){
   if(dl) dl.style.display = "none";
   downloadStarted = false;
@@ -991,24 +817,6 @@ $("dlCancel").addEventListener("click", function(){
   if(pct) pct.textContent = "";
 });
 
-/* إيقاف مؤقت */
-if(pauseBtn){
-  pauseBtn.addEventListener("click", function(){
-    if(dl) dl.style.display = "none";
-    showToast("⏸ اللوحة مخفية — التحميل مستمر في Chrome", 2500);
-  });
-}
-
-/* زر overlay */
-if(overlayBtn){
-  overlayBtn.addEventListener("click", function(){
-    hideOverlay();
-    /* محاولة أخيرة لفتح Chrome */
-    window.location.href = APP.apkURL;
-  });
-}
-
-/* نسخ بصمة SHA-256 من اللوحة */
 (function(){
   var btn=document.getElementById('copyShaDl');
   if(!btn)return;
