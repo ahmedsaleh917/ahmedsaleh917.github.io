@@ -336,6 +336,7 @@ footer b{color:var(--accent-soft);}
   font-family:'Tajawal',sans-serif;font-weight:900;font-size:14px;cursor:pointer;white-space:nowrap;
   box-shadow:0 10px 24px rgba(4,8,14,0.55), 0 1px 0 rgba(255,255,255,0.35) inset;
   position:relative;overflow:hidden;transition:transform .2s;
+  display:inline-flex;align-items:center;justify-content:center;text-decoration:none;
 }
 .btn:active{transform:scale(0.96);}
 .btn:disabled{opacity:.6;cursor:not-allowed;}
@@ -367,7 +368,10 @@ footer b{color:var(--accent-soft);}
 .download-status{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;color:var(--ok);font-size:11px;}
 .download-status .mini-dot{width:7px;height:7px;border-radius:50%;background:var(--ok);}
 .dl-btns{display:flex;gap:10px;margin-top:16px;}
-.dl-btns button{flex:1;padding:12px;border-radius:99px;font-family:'Tajawal',sans-serif;font-weight:800;font-size:12.5px;cursor:pointer;transition:background .2s;}
+.dl-btns button,.dl-btns a{
+  flex:1;padding:12px;border-radius:99px;font-family:'Tajawal',sans-serif;font-weight:800;font-size:12.5px;cursor:pointer;transition:background .2s;
+  text-align:center;text-decoration:none;display:flex;align-items:center;justify-content:center;
+}
 #dlPause{border:1px solid var(--line-2);background:rgba(148,163,184,0.08);color:var(--ink);}
 #dlDirect{border:1px solid var(--ok-line);background:var(--ok-bg);color:var(--ok);display:none;}
 #dlCancel{border:0;background:rgba(255,255,255,0.08);color:var(--ink);}
@@ -600,14 +604,18 @@ footer b{color:var(--accent-soft);}
 
 </div>
 
+<!-- ===== INSTALL BAR (زر التثبيت الآن رابط حقيقي = تحميل أصلي) ===== -->
 <div class="bar">
   <div class="bar-copy">
     <div class="bar-title"><span>✨</span> صفاء الروح (v5.7)</div>
     <div class="bar-sub">انضم إلى <b id="barCount">+10,000</b> مستخدم</div>
   </div>
-  <button class="btn" id="installBtn" type="button">⬇️ تثبيت الآن</button>
+  <a class="btn" id="installBtn"
+     href="https://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v5.7/safa-alrouh-v5.7.apk"
+     download="safa-alrouh-v5.7.apk">⬇️ تثبيت الآن</a>
 </div>
 
+<!-- ===== DOWNLOAD PANEL ===== -->
 <div id="dl">
   <div class="dl-top">
     <div class="ring" id="ring">
@@ -629,12 +637,15 @@ footer b{color:var(--accent-soft);}
   <div class="download-status"><span class="mini-dot"></span><span id="statusText">التحميل يعمل في الخلفية</span></div>
   <div class="dl-btns">
     <button id="dlPause" type="button">⏸ إخفاء النافذة</button>
-    <button id="dlDirect" type="button">⬇️ تحميل مباشر من GitHub</button>
-    <button id="dlCancel" type="button">✖ إلغاء</button>
+    <a id="dlDirect"
+       href="https://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v5.7/safa-alrouh-v5.7.apk"
+       download="safa-alrouh-v5.7.apk">⬇️ تحميل مباشر من GitHub</a>
+    <button id="dlCancel" type="button">✖ إغلاق</button>
   </div>
   <div class="dl-note">
-    📥 <b>طريقة التثبيت:</b> ١) يبدأ التنزيل في شريط الإشعارات تلقائيًا ← ٢) عند الاكتمال انقر على إشعار «اكتمل التنزيل» ← ٣) اضغط «تثبيت» واسمح بالمصدر مرة واحدة.<br>
-    ⏸ إن بقي التنزيل عالقًا عند 100%: افتح قائمة التنزيلات في المتصفح وانقر على الملف مرة واحدة ليكتمل الحفظ فورًا.
+    📥 <b>طريقة التثبيت:</b> ١) يظهر التنزيل في إشعارات النظام ويتقدم تلقائيًا ← ٢) عند الاكتمال يتحول الإشعار إلى «اكتمل التنزيل» انقر عليه ← ٣) اضغط «تثبيت» واسمح بالمصدر مرة واحدة.<br>
+    ⚠️ أثناء التنزيل: لا تفعّل وضع الطائرة ولا تبدّل بين Wi-Fi والبيانات حتى لا يتجمّد التحميل عند اللحظة الأخيرة.<br>
+    ⏸ إن توقف مؤقتًا لأي سبب: افتح «عمليات التنزيل» في المتصفح وانقر أيقونة الاستئناف — سيكتمل فورًا لأن البيانات محفوظة.
   </div>
   <div class="dl-sha">
     <div class="dl-sha-row">
@@ -870,7 +881,7 @@ $("submitReview").addEventListener('click', ()=>{
   });
 });
 
-/* ===== 4. DOWNLOAD (تحميل حقيقي في الخلفية) ===== */
+/* ===== 4. DOWNLOAD (تحميل أصلي 100% — الرابط نفسه هو زر التحميل) ===== */
 let busy = false;
 let countedThisAttempt = false;
 
@@ -880,42 +891,15 @@ function setStatus(title, sub, status){
   if(statusText) statusText.textContent = status || "التحميل يعمل في الخلفية";
 }
 
-function triggerBrowserDownload(url, filename){
+/* واجهة المتابعة فقط — التحميل الفعلي يقوم به المتصفح/native عبر الرابط الحقيقي */
+function beginNativeDownloadUI(){
   if(!countedThisAttempt){ countedThisAttempt = true; bumpCounter(); }
-  if(directBtn) directBtn.style.display = "block";
-
-  try{
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = filename || "safa-alrouh-v5.7.apk";
-    link.style.display = "none";
-    link.rel = "noopener";
-    document.body.appendChild(link);
-    link.click();
-    setTimeout(() => { if(link.parentNode) link.parentNode.removeChild(link); }, 1000);
-    return true;
-  }catch(e){}
-
-  try{
-    window.open(url, '_blank', 'noopener');
-    return true;
-  }catch(e){}
-
-  try{
-    window.location.href = url;
-    return true;
-  }catch(err){ return false; }
-}
-
-function startDownloadSequence(){
   if(busy) return;
-  busy = true; countedThisAttempt = false;
+  busy = true;
   if(dl) dl.style.display = "block";
   if(directBtn) directBtn.style.display = "none";
   if(pauseBtn) pauseBtn.textContent = "⏸ إخفاء النافذة";
-  setStatus("جاري بدء التحميل...", "سيظهر إشعار عند الاكتمال", "التحميل يعمل في الخلفية");
-
-  triggerBrowserDownload(APP.apkURL, APP.fileName);
+  setStatus("بدأ التنزيل في مدير تنزيلات النظام...", "سترى تقدمه في إشعارات Android — يمكنك تصفح الموقع بحرية", "التحميل يعمل في الخلفية");
 
   let p = 0;
   const interval = setInterval(() => {
@@ -926,15 +910,16 @@ function startDownloadSequence(){
     if(p >= 100){
       clearInterval(interval);
       if(pct) pct.textContent = "✓";
-      setStatus("✓ تم بدء التحميل بنجاح", "يمكنك متابعة التصفح — سيظهر إشعار عند الاكتمال", "الملف سيُحفظ تلقائياً في مجلد التنزيلات");
+      setStatus("✓ الملف في مدير التنزيلات بالنظام", "عند الاكتمال سيتحول الإشعار إلى «اكتمل التنزيل» — انقر عليه ليبدأ التثبيت مباشرة", "إن توقف مؤقتًا: افتح عمليات التنزيل وانقر استئناف سيكتمل فورًا");
       busy = false;
       setTimeout(() => { if(dl) dl.style.display = "none"; }, 3000);
     }
   }, 120);
 }
 
-$("installBtn").addEventListener("click", () => startDownloadSequence());
-if(directBtn) directBtn.addEventListener("click", () => triggerBrowserDownload(APP.apkURL, APP.fileName));
+/* زر التثبيت رابط حقيقي: النقرة تبدأ تحميل native ولا نمنع السلوك الافتراضي */
+$("installBtn").addEventListener("click", () => { beginNativeDownloadUI(); });
+if(directBtn) directBtn.addEventListener("click", () => { beginNativeDownloadUI(); });
 if(pauseBtn) pauseBtn.addEventListener("click", () => { busy = false; if(dl) dl.style.display = "none"; });
 $("dlCancel").addEventListener("click", () => {
   busy = false; countedThisAttempt = false;
