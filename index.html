@@ -354,6 +354,7 @@ footer b{color:var(--accent-soft);}
   display:flex;align-items:center;justify-content:center;
   background:conic-gradient(var(--accent) 100%, rgba(255,255,255,0.07) 0);
   position:relative;box-shadow:0 10px 24px rgba(4,8,14,0.5);
+  transition:background .25s ease;
 }
 .ring::before{content:"";position:absolute;inset:6px;border-radius:50%;background:#101826;}
 .ring b{position:relative;font-size:16px;color:var(--accent-soft);font-weight:900;}
@@ -364,7 +365,7 @@ footer b{color:var(--accent-soft);}
 .dl-info .t{font-size:14px;font-weight:900;color:#fff;}
 .dl-info .s{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.6;}
 .progress-line{width:100%;height:6px;background:rgba(255,255,255,0.07);border-radius:99px;margin-top:16px;overflow:hidden;}
-.progress-line i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--accent),var(--accent-soft));border-radius:inherit;transition:width .25s ease;}
+.progress-line i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent-soft));border-radius:inherit;transition:width .25s ease;}
 .download-status{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;color:var(--ok);font-size:11px;}
 .download-status .mini-dot{width:7px;height:7px;border-radius:50%;background:var(--ok);}
 .dl-btns{display:flex;gap:10px;margin-top:16px;}
@@ -372,7 +373,7 @@ footer b{color:var(--accent-soft);}
   flex:1;padding:12px;border-radius:99px;font-family:'Tajawal',sans-serif;font-weight:800;font-size:12.5px;cursor:pointer;transition:background .2s;
   text-align:center;text-decoration:none;display:flex;align-items:center;justify-content:center;
 }
-#dlDirect{border:1px solid var(--ok-line);background:var(--ok-bg);color:var(--ok);display:inline-flex;}
+#dlDirect{border:1px solid var(--ok-line);background:var(--ok-bg);color:var(--ok);}
 #dlCancel{border:0;background:rgba(255,255,255,0.08);color:var(--ink);}
 .dl-note{font-size:10px;color:var(--faint);margin-top:12px;line-height:1.8;text-align:center;}
 .dl-sha{margin-top:12px;padding:10px 14px;background:rgba(6,10,16,0.5);border-radius:12px;border:1px solid var(--line);}
@@ -603,32 +604,32 @@ footer b{color:var(--accent-soft);}
 
 </div>
 
-<!-- ===== INSTALL BAR (رابط مجبر على فتح Google Chrome مباشرة) ===== -->
+<!-- ===== INSTALL BAR (رابط تحميل مباشر يعمل ويثبت) ===== -->
 <div class="bar">
   <div class="bar-copy">
     <div class="bar-title"><span>✨</span> صفاء الروح (v5.7)</div>
     <div class="bar-sub">انضم إلى <b id="barCount">+10,000</b> مستخدم</div>
   </div>
   <a class="btn" id="installBtn"
-     href="intent://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v5.7/safa-alrouh-v5.7.apk#Intent;scheme=https;package=com.android.chrome;end">⬇️ تثبيت الآن</a>
+     href="https://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v5.7/safa-alrouh-v5.7.apk">⬇️ تثبيت الآن</a>
 </div>
 
 <!-- ===== DOWNLOAD PANEL ===== -->
 <div id="dl">
   <div class="dl-top">
     <div class="ring" id="ring">
-      <b id="pct">✓</b>
+      <b id="pct">0%</b>
     </div>
     <div class="dl-info">
-      <div class="t" id="dlt">بدأ التنزيل المباشر...</div>
-      <div class="s" id="dls">استلم مدير تنزيلات أندرويد الملف بنجاح</div>
+      <div class="t" id="dlt">جارٍ التحضير...</div>
+      <div class="s" id="dls">الاتصال بالخادم الرسمي</div>
     </div>
   </div>
   <div class="progress-line"><i id="progress"></i></div>
-  <div class="download-status"><span class="mini-dot"></span><span id="statusText">التحميل يعمل في شريط الإشعارات</span></div>
+  <div class="download-status"><span class="mini-dot"></span><span id="statusText">التحميل يعمل عبر الخادم الرسمي</span></div>
   <div class="dl-btns">
     <a id="dlDirect"
-       href="intent://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v5.7/safa-alrouh-v5.7.apk#Intent;scheme=https;package=com.android.chrome;end">⬇️ تنزيل مباشر مكرر</a>
+       href="https://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v5.7/safa-alrouh-v5.7.apk">⬇️ تنزيل مباشر مكرر</a>
     <button id="dlCancel" type="button">✖ إغلاق النافذة</button>
   </div>
   <div class="dl-note">
@@ -654,7 +655,7 @@ const APP = {
   version: "5.7",
   sizeMB: 161,
   fileName: "safa-alrouh-v5.7.apk",
-  apkURL: "intent://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v5.7/safa-alrouh-v5.7.apk#Intent;scheme=https;package=com.android.chrome;end",
+  apkURL: "https://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v5.7/safa-alrouh-v5.7.apk",
   baseDownloads: 10000
 };
 
@@ -868,42 +869,103 @@ $("submitReview").addEventListener('click', ()=>{
   });
 });
 
-/* ===== 4. DOWNLOAD LOGIC ===== */
+/* ===== 4. DOWNLOAD LOGIC (المنطق القديم الذي يعمل ويثبت) ===== */
+let busy = false;
 let countedThisAttempt = false;
 
 function setStatus(title, sub, status){
   if(dlt) dlt.textContent = title || "";
   if(dls) dls.textContent = sub || "";
-  if(statusText) statusText.textContent = status || "التحميل يعمل في الخلفية";
+  if(statusText) statusText.textContent = status || "التحميل يعمل عبر الخادم الرسمي";
 }
 
-function handleNativeDownloadClick(){
-  if(!countedThisAttempt){ 
-    countedThisAttempt = true; 
-    bumpCounter(); 
+// إطلاق التحميل الفوري عبر المتصفح (يمنع التعليق ويسمح بفتح المُثبِّت تلقائياً)
+function triggerBrowserDownload(url){
+  if(!countedThisAttempt){
+    countedThisAttempt = true;
+    bumpCounter();
   }
-  
-  if(dl) dl.style.display = "block";
-  if(ring) ring.style.background = `conic-gradient(var(--accent) 100%, rgba(255,255,255,0.07) 0)`;
-  if(progress) progress.style.width = "100%";
-  if(pct) pct.textContent = "✓";
-  
-  setStatus("بدأ التنزيل المباشر بنجاح", "تم تسليم الطلب إلى تطبيق Google Chrome مباشرة", "تابع التقدم في شريط الإشعارات العلوي لهاتفك");
+
+  try{
+    const link = document.createElement("a");
+    link.href = url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.style.display = "none";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    return true;
+  }catch(e){
+    try{
+      window.open(url, "_blank", "noopener,noreferrer");
+      return true;
+    }catch(err){
+      return false;
+    }
+  }
 }
 
+// انيميشن البدء ثم توجيه الملف بعد 1.2 ثانية
+function startDownloadSequence(){
+  if(busy) return;
+  busy = true;
+  countedThisAttempt = false;
+
+  if(dl) dl.style.display = "block";
+  if(directBtn) directBtn.style.display = "none";
+
+  setStatus("جاري بدء التحميل...", `الاتصال بمستودع GitHub الرسمي (v${APP.version})`, "يرجى الانتظار قليلاً...");
+
+  let p = 0;
+  const interval = setInterval(() => {
+    p += 15;
+    if(p > 90){ p = 90; clearInterval(interval); }
+    if(ring) ring.style.background = `conic-gradient(var(--accent) ${p}%, rgba(255,255,255,0.08) ${p}%)`;
+    if(pct) pct.textContent = p + "%";
+    if(progress) progress.style.width = p + "%";
+  }, 120);
+
+  setTimeout(() => {
+    clearInterval(interval);
+    if(ring) ring.style.background = `conic-gradient(var(--accent) 100%, rgba(255,255,255,0.08) 100%)`;
+    if(pct) pct.textContent = "100%";
+    if(progress) progress.style.width = "100%";
+
+    setStatus("✓ تم إرسال طلب التحميل", `الملف: ${APP.fileName}`, "إذا لم يبدأ التنزيل التلقائي، استخدم زر التحميل المباشر");
+
+    // إطلاق التحميل مباشرة إلى المتصفح/مدير التنزيلات (بدون intent حتى لا يعلق التثبيت)
+    triggerBrowserDownload(APP.apkURL);
+
+    if(directBtn) directBtn.style.display = "flex";
+    busy = false;
+  }, 1200);
+}
+
+// ربط الأزرار
 const installBtn = $("installBtn");
 if(installBtn){
-  installBtn.addEventListener("click", handleNativeDownloadClick);
+  installBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    startDownloadSequence();
+  });
 }
 
 if(directBtn){
-  directBtn.addEventListener("click", handleNativeDownloadClick);
+  directBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    triggerBrowserDownload(APP.apkURL);
+  });
 }
 
 const dlCancel = $("dlCancel");
 if(dlCancel){
   dlCancel.addEventListener("click", () => {
+    busy = false;
+    countedThisAttempt = false;
     if(dl) dl.style.display = "none";
+    if(progress) progress.style.width = "0%";
+    if(pct) pct.textContent = "0%";
   });
 }
 
