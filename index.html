@@ -271,45 +271,6 @@ footer b{color:var(--gold-light);}
 .btn:active{transform:scale(0.96);}
 .btn:disabled{opacity:.6;cursor:not-allowed;}
 
-#dl{
-  display:none;position:fixed;bottom:calc(96px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);
-  width:calc(100% - 24px);max-width:620px;
-  background:linear-gradient(145deg,rgba(24,16,44,0.98),rgba(8,5,16,0.99));
-  border:1px solid var(--border-gold-strong);border-radius:24px;padding:20px;z-index:100;
-  box-shadow:0 30px 90px rgba(0,0,0,0.9);backdrop-filter:blur(20px);
-}
-.dl-top{display:flex;align-items:center;gap:16px;}
-.ring{
-  width:72px;height:72px;border-radius:50%;flex:0 0 72px;
-  display:flex;align-items:center;justify-content:center;
-  background:conic-gradient(var(--gold) 0%, rgba(255,255,255,0.08) 0);
-  position:relative;box-shadow:0 0 25px rgba(214,181,109,0.25);
-}
-.ring::before{content:"";position:absolute;inset:6px;border-radius:50%;background:#120b26;}
-.ring b{position:relative;font-size:14px;color:var(--gold-light);font-weight:900;}
-.dl-icon-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:2;}
-.dl-icon{width:28px;height:28px;color:var(--gold-light);filter:drop-shadow(0 0 8px var(--gold-glow));animation:iconBounce 2s ease-in-out infinite;}
-@keyframes iconBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}
-.dl-ring-glow{
-  position:absolute;inset:0;border-radius:50%;
-  background:conic-gradient(from 0deg,transparent 0%,rgba(214,181,109,0.45) 50%,transparent 100%);
-  animation:ringRotate 3s linear infinite;filter:blur(4px);opacity:.6;pointer-events:none;
-}
-@keyframes ringRotate{to{transform:rotate(360deg);}}
-.dl-info{flex:1;min-width:0;}
-.dl-info .t{font-size:14px;font-weight:900;color:#fff;}
-.dl-info .s{font-size:11px;color:var(--cream-muted);margin-top:4px;line-height:1.6;}
-.progress-line{width:100%;height:6px;background:rgba(255,255,255,0.07);border-radius:99px;margin-top:16px;overflow:hidden;}
-.progress-line i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:inherit;transition:width .25s ease;}
-.download-status{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;color:#86efac;font-size:11px;}
-.download-status .mini-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 10px #4ade80;}
-.dl-btns{display:flex;gap:10px;margin-top:16px;}
-.dl-btns button{flex:1;padding:12px;border-radius:99px;font-family:'Tajawal',sans-serif;font-weight:800;font-size:12.5px;cursor:pointer;transition:background .2s;}
-#dlPause{border:1px solid var(--border-gold-strong);background:rgba(214,181,109,0.08);color:var(--gold-light);}
-#dlDirect{border:1px solid rgba(74,222,128,0.5);background:rgba(21,128,61,0.12);color:#86efac;display:none;}
-#dlCancel{border:0;background:rgba(255,255,255,0.08);color:var(--cream);}
-.dl-note{font-size:10px;color:#8a84a8;margin-top:12px;line-height:1.8;text-align:center;}
-
 </style>
 </head>
 
@@ -359,7 +320,7 @@ footer b{color:var(--gold-light);}
   <div class="icon">🛡️</div>
   <div>
     <b>معلومات الأمان والتحقق</b>
-    <p>حمّل النسخة المنشورة من رابط المطوّر الرسمي، وقارن بصمة SHA-256 الظاهرة أدناه للتحقق من تطابق الملف بعد التنزيل.</p>
+    <p>حمّل النسخة المنشورة من رابط المطوّر الرسمي على ميديا فاير، وقارن بصمة SHA-256 الظاهرة أدناه للتحقق من تطابق الملف بعد التنزيل.</p>
   </div>
 </div>
 
@@ -377,29 +338,6 @@ footer b{color:var(--gold-light);}
     <button id="copySha" type="button" style="flex:0 0 auto;background:rgba(214,181,109,0.15);border:1px solid var(--border-gold);color:var(--gold-light);padding:7px 12px;border-radius:10px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Tajawal',sans-serif;white-space:nowrap">📋 نسخ</button>
   </div>
 </div>
-
-<script>
-(function(){
-  var shaBtn=document.getElementById('copySha');
-  if(!shaBtn)return;
-  shaBtn.addEventListener('click',function(){
-    var txt=document.getElementById('sha256Text').textContent;
-    try{
-      if(navigator.clipboard&&navigator.clipboard.writeText){
-        navigator.clipboard.writeText(txt).then(function(){
-          shaBtn.textContent='✓ تم النسخ';
-          setTimeout(function(){shaBtn.textContent='📋 نسخ'},1800);
-        });
-      }else{
-        var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
-        document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();
-        shaBtn.textContent='✓ تم النسخ';
-        setTimeout(function(){shaBtn.textContent='📋 نسخ'},1800);
-      }
-    }catch(e){}
-  });
-})();
-</script>
 
 <!-- ===== FEATURES ===== -->
 <div class="sec">🌟 مميزات التطبيق الاحترافية</div>
@@ -505,8 +443,8 @@ footer b{color:var(--gold-light);}
   <p>نعم، تطبيق صفاء الروح مجاني بالكامل ولا يحتوي على أي رسوم اشتراك أو إعلانات تجارية مزعجة، وهو صدقة جارية.</p>
 </details>
 <details>
-  <summary>ماذا أفعل إن واجهني بطء في التحميل؟</summary>
-  <p>يمكنك استخدام زر (التحميل المباشر) المتاح داخل نافذة التحميل المتقدمة إذا لم يبدأ التنزيل التلقائي.</p>
+  <summary>كيف أحمّل التطبيق؟</summary>
+  <p>اضغط على زر "تثبيت الآن" في الأسفل، وسينقلك مباشرة إلى صفحة التحميل على ميديا فاير. اضغط على زر Download الأخضر لبدء تنزيل ملف APK.</p>
 </details>
 
 <!-- ===== ABOUT ===== -->
@@ -535,42 +473,6 @@ footer b{color:var(--gold-light);}
   <button class="btn" id="installBtn" type="button">⬇️ تثبيت الآن</button>
 </div>
 
-<!-- ===== DOWNLOAD PANEL ===== -->
-<div id="dl">
-  <div class="dl-top">
-    <div class="ring" id="ring">
-      <div class="dl-ring-glow"></div>
-      <div class="dl-icon-wrap">
-        <svg class="dl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-          <polyline points="7 10 12 15 17 10"/>
-          <line x1="12" y1="15" x2="12" y2="3"/>
-        </svg>
-      </div>
-      <b id="pct" style="opacity:0;pointer-events:none">0%</b>
-    </div>
-    <div class="dl-info">
-      <div class="t" id="dlt">جارٍ تجهيز التحميل...</div>
-      <div class="s" id="dls"></div>
-    </div>
-  </div>
-  <div class="progress-line"><i id="progress"></i></div>
-  <div class="download-status"><span class="mini-dot"></span><span id="statusText">التحميل يعمل عبر خادم ميديا فاير الرسمي</span></div>
-  <div class="dl-btns">
-    <button id="dlPause" type="button">⏸ إيقاف مؤقت</button>
-    <button id="dlDirect" type="button">⬇️ تنزيل APK مباشرة</button>
-    <button id="dlCancel" type="button">✖ إلغاء</button>
-  </div>
-  <div class="dl-note">💾 يتم حفظ تقدم التحميل محلياً على جهازك. في حال واجهتك أي عقبة شبكة، استخدم زر التحميل المباشر.</div>
-  <div style="margin-top:12px;padding:10px 14px;background:rgba(0,0,0,0.3);border-radius:12px;border:1px solid var(--border-gold)">
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
-      <span style="font-size:10.5px;color:var(--cream-muted)">🔏 بصمة SHA-256</span>
-      <button id="copyShaDl" type="button" style="background:rgba(214,181,109,0.15);border:1px solid var(--border-gold);color:var(--gold-light);padding:5px 11px;border-radius:8px;font-size:10.5px;font-weight:700;cursor:pointer;font-family:'Tajawal',sans-serif">📋 نسخ</button>
-    </div>
-    <code id="sha256TextDl" style="display:block;margin-top:8px;font-family:'Courier New',monospace;font-size:10px;color:var(--gold-light);direction:ltr;text-align:left;word-break:break-all;line-height:1.6;opacity:.85">2a0af504edeb0cce598bb2f7db192977e13c74fadfbcd5bf0e36f3bd4f4807f9</code>
-  </div>
-</div>
-
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 
@@ -587,9 +489,6 @@ const APP = {
 };
 
 const $ = id => document.getElementById(id);
-const dl = $("dl"), ring = $("ring"), pct = $("pct"), dlt = $("dlt"), dls = $("dls");
-const progress = $("progress"), statusText = $("statusText");
-const pauseBtn = $("dlPause"), directBtn = $("dlDirect");
 
 function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 
@@ -731,97 +630,48 @@ $("submitReview").addEventListener('click', ()=>{
   });
 });
 
-/* ===== 4. DOWNLOAD — FINAL FIX =====
-   لا يوجد window.open ولا target=_blank ولا مؤقت 0%-100%.
-   الرابط المباشر يُسلَّم للمتصفح/Android كما هو.
-*/
-let countedThisAttempt = false;
-let downloadStarted = false;
-
-function showDownloadPanel(){
-  if(dl) dl.style.display = "block";
-  if(progress) progress.style.width = "0%";
-  if(pct) pct.textContent = "";
-  if(ring) ring.style.background = "conic-gradient(var(--gold) 0%, rgba(255,255,255,0.08) 0)";
-  setStatus("جاري فتح التنزيل...", `الملف: ${APP.fileName} — ${APP.sizeMB} ميجابايت`, "سيتم تسليم الملف إلى مدير التنزيل في جهازك");
-}
-
-function countDownloadOnce(){
-  if(countedThisAttempt) return;
-  countedThisAttempt = true;
-  bumpCounter();
-}
+/* ===== 4. DIRECT DOWNLOAD TO MEDIAFIRE ===== */
 
 function isAndroidWebView(){
   const ua = navigator.userAgent || "";
   return /Android/i.test(ua) && (/;\s*wv\)/i.test(ua) || /\bwv\b/i.test(ua));
 }
 
-function startRealDownload(url){
-  if(downloadStarted) return;
-  downloadStarted = true;
-  countDownloadOnce();
+function isAndroid(){
+  return /Android/i.test(navigator.userAgent || "");
+}
 
-  /*
-    داخل WebView: intent يطلب Chrome الرسمي فقط.
-    لا نستخدم window.open ولا target=_blank.
-  */
+function goToDownload(){
+  bumpCounter();
+
+  const url = APP.apkURL;
+
+  /* داخل WebView على أندرويد: افتح الرابط في Chrome عبر intent:// */
   if(isAndroidWebView()){
     const clean = url.replace(/^https?:\/\//i, "");
     const intentUrl = "intent://" + clean +
       "#Intent;scheme=https;package=com.android.chrome;end";
     try{
       window.location.href = intentUrl;
-      setStatus("✓ تم تسليم الملف إلى Chrome", "صفاء الروح v" + APP.version, "أكمل التنزيل من إشعارات Chrome");
       return;
     }catch(e){}
   }
 
-  /* Chrome/Firefox/Edge: التنزيل الطبيعي، بدون فتح تبويب جديد */
-  try{
-    window.location.href = url;
-    setStatus("✓ بدأ التنزيل", "صفاء الروح v" + APP.version, "يمكنك متابعة التنزيل من شريط/إشعارات المتصفح");
-  }catch(e){
-    setStatus("تعذر بدء التنزيل", "حاول مرة أخرى", "استخدم زر التنزيل المباشر");
-    if(directBtn) directBtn.style.display = "block";
-    downloadStarted = false;
-  }
-}
-
-function startDownloadSequence(){
-  if(downloadStarted) return;
-  countedThisAttempt = false;
-  showDownloadPanel();
-  setTimeout(function(){ startRealDownload(APP.apkURL); }, 180);
+  /* كل المتصفحات الأخرى (Chrome, Firefox, Safari, Samsung…) */
+  window.location.href = url;
 }
 
 $("installBtn").addEventListener("click", function(e){
   e.preventDefault();
-  startDownloadSequence();
+  goToDownload();
 });
 
-if(directBtn){
-  directBtn.style.display = "flex";
-  directBtn.textContent = "⬇️ تنزيل APK مباشرة";
-  directBtn.addEventListener("click", function(e){
-    e.preventDefault();
-    startRealDownload(APP.apkURL);
-  });
-}
-
-$("dlCancel").addEventListener("click", function(){
-  if(dl) dl.style.display = "none";
-  downloadStarted = false;
-  countedThisAttempt = false;
-  if(progress) progress.style.width = "0%";
-  if(pct) pct.textContent = "";
-});
-
+/* ===== 5. COPY SHA-256 BUTTONS ===== */
 (function(){
-  var btn=document.getElementById('copyShaDl');
+  var btn=document.getElementById('copySha');
   if(!btn)return;
   btn.addEventListener('click',function(){
-    var txt=document.getElementById('sha256TextDl').textContent;
+    var txt=document.getElementById('sha256Text').textContent;
     try{
       if(navigator.clipboard&&navigator.clipboard.writeText){
         navigator.clipboard.writeText(txt).then(function(){
@@ -837,6 +687,7 @@ $("dlCancel").addEventListener("click", function(){
     }catch(e){}
   });
 })();
+
 </script>
 
 </body>
