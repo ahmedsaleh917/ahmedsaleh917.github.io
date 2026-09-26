@@ -705,9 +705,9 @@ function initFirebaseCounter(){
         }
       }
       paintCount();
-    }).catch(() => {});
+    }).catch((e) => { console.error("Counter read error:", e && e.code); });
     loadRealReviews();
-  }catch(e){}
+  }catch(e){ console.error("Firebase init error:", e); }
 }
 
 function bumpCounter(){
@@ -716,15 +716,16 @@ function bumpCounter(){
   paintCount();
   try{
     if(dbSite){
-      dbSite.collection("site_stats").doc("downloads").set({ real: firebase.firestore.FieldValue.increment(1) }, {merge:true}).catch(() => {});
+      dbSite.collection("site_stats").doc("downloads").set({ real: firebase.firestore.FieldValue.increment(1) }, {merge:true}).catch((e)=>{ console.error("Counter write error:", e && e.code); });
     }
   }catch(e){}
 }
 window.addEventListener("load", initFirebaseCounter);
 
-/* ===== 3. REAL REVIEWS (Firebase) ===== */
+/* ===== 3. REAL REVIEWS (Firestore + نسخة احتياطية محلية) ===== */
 const REVIEWS_COL = "store_reviews";
 const APP_ID = "safa-alrouh";
+const REVIEWS_CACHE_KEY = "safa_reviews_cache";
 let myRating = 0;
 
 function starsHTML(n){
@@ -733,39 +734,99 @@ function starsHTML(n){
   return h;
 }
 
+function sortByDateDesc(rows){
+  rows.sort((a,b)=>{
+    const ta = (a.createdAt && a.createdAt.seconds) ? a.createdAt.seconds : 0;
+    const tb = (b.createdAt && b.createdAt.seconds) ? b.createdAt.seconds : 0;
+    return tb - ta;
+  });
+  return rows;
+}
+
+function paintReviews(rows){
+  const listEl = $("realReviewsList");
+  if(!rows || !rows.length){
+    listEl.innerHTML = '<div class="rv-empty">كن أول من يقيّم التطبيق من المتجر ✨</div>';
+    $("realAvg").textContent = '—';
+    $("realStars").textContent = '';
+    $("realCount").textContent = '0';
+    return;
+  }
+  let sum = 0;
+  rows.forEach(r => { sum += Number(r.rating||0); });
+  const avg = sum / rows.length;
+  $("realAvg").textContent = avg.toFixed(1);
+  $("realStars").textContent = starsHTML(Math.round(avg));
+  $("realCount").textContent = fmtNum(rows.length);
+  listEl.innerHTML = rows.slice(0,30).map(r=>{
+    const date = (r.createdAt && r.createdAt.toDate) ? r.createdAt.toDate().toLocaleDateString('ar-EG',{year:'numeric',month:'long',day:'numeric'}) : (r.dateStr || '');
+    return '<div class="review-card real">' +
+      '<div class="review-header"><div class="reviewer-info">' +
+      '<div class="reviewer-avatar">' + esc(String(r.name||'م').trim().charAt(0)) + '</div>' +
+      '<div><div class="reviewer-name">' + esc(r.name) + '</div><span class="reviewer-badge">✓ تقييم موثق من المتجر</span></div></div>' +
+      '<div class="review-stars">' + starsHTML(Number(r.rating||0)) + '</div></div>' +
+      '<div class="review-text">' + esc(r.comment) + '</div>' +
+      (date ? '<div class="review-date">' + date + '</div>' : '') +
+    '</div>';
+  }).join('');
+}
+
+function saveReviewsCache(rows){
+  try{
+    const plain = rows.slice(0,30).map(r=>{
+      return {
+        name: r.name,
+        rating: r.rating,
+        comment: r.comment,
+        dateStr: (r.createdAt && r.createdAt.toDate) ? r.createdAt.toDate().toLocaleDateString('ar-EG',{year:'numeric',month:'long',day:'numeric'}) : '',
+        seconds: (r.createdAt && r.createdAt.seconds) ? r.createdAt.seconds : 0
+      };
+    });
+    localStorage.setItem(REVIEWS_CACHE_KEY, JSON.stringify(plain));
+  }catch(e){}
+}
+
+function loadCachedReviews(){
+  try{
+    const raw = localStorage.getItem(REVIEWS_CACHE_KEY);
+    if(!raw) return false;
+    const rows = JSON.parse(raw);
+    if(Array.isArray(rows) && rows.length){
+      rows.sort((a,b)=>(b.seconds||0)-(a.seconds||0));
+      paintReviews(rows);
+      return true;
+    }
+  }catch(e){}
+  return false;
+}
+
 function loadRealReviews(){
   const listEl = $("realReviewsList");
-  if(!dbSite){ listEl.innerHTML = '<div class="rv-empty">التقييمات غير متاحة حالياً</div>'; return; }
-  dbSite.collection(REVIEWS_COL).where("app","==",APP_ID).limit(50).get().then(snap=>{
-    if(snap.empty){
-      listEl.innerHTML = '<div class="rv-empty">كن أول من يقيّم التطبيق من المتجر ✨</div>';
-      $("realAvg").textContent = '—';
-      $("realCount").textContent = '0';
-      return;
-    }
-    let sum = 0; const rows = [];
-    snap.forEach(d => { const r = d.data(); sum += Number(r.rating||0); rows.push(r); });
-    rows.sort((a,b)=>{
-      const ta = (a.createdAt && a.createdAt.seconds) ? a.createdAt.seconds : 0;
-      const tb = (b.createdAt && b.createdAt.seconds) ? b.createdAt.seconds : 0;
-      return tb - ta;
+  if(!dbSite){
+    if(!loadCachedReviews()) listEl.innerHTML = '<div class="rv-empty">التقييمات غير متاحة حالياً</div>';
+    return;
+  }
+  dbSite.collection(REVIEWS_COL).where("app","==",APP_ID).limit(100).get().then(snap=>{
+    const rows = [];
+    snap.forEach(d => rows.push(d.data()));
+    sortByDateDesc(rows);
+    saveReviewsCache(rows);
+    paintReviews(rows);
+  }).catch(err=>{
+    console.error("Reviews query error:", err && err.code, err && err.message);
+    dbSite.collection(REVIEWS_COL).limit(100).get().then(snap=>{
+      const rows = [];
+      snap.forEach(d => { const r = d.data(); if(!r.app || r.app === APP_ID) rows.push(r); });
+      sortByDateDesc(rows);
+      saveReviewsCache(rows);
+      paintReviews(rows);
+    }).catch(err2=>{
+      console.error("Reviews fallback error:", err2 && err2.code);
+      if(!loadCachedReviews()){
+        listEl.innerHTML = '<div class="rv-empty">تعذر تحميل التقييمات — رمز الخطأ: ' + esc(String((err2 && err2.code) || 'unknown')) + '</div>';
+      }
     });
-    const avg = sum / rows.length;
-    $("realAvg").textContent = avg.toFixed(1);
-    $("realStars").textContent = starsHTML(Math.round(avg));
-    $("realCount").textContent = fmtNum(rows.length);
-    listEl.innerHTML = rows.slice(0,30).map(r=>{
-      const date = (r.createdAt && r.createdAt.toDate) ? r.createdAt.toDate().toLocaleDateString('ar-EG',{year:'numeric',month:'long',day:'numeric'}) : '';
-      return '<div class="review-card real">' +
-        '<div class="review-header"><div class="reviewer-info">' +
-        '<div class="reviewer-avatar">' + esc(String(r.name||'م').trim().charAt(0)) + '</div>' +
-        '<div><div class="reviewer-name">' + esc(r.name) + '</div><span class="reviewer-badge">✓ تقييم موثق من المتجر</span></div></div>' +
-        '<div class="review-stars">' + starsHTML(Number(r.rating||0)) + '</div></div>' +
-        '<div class="review-text">' + esc(r.comment) + '</div>' +
-        (date ? '<div class="review-date">' + date + '</div>' : '') +
-      '</div>';
-    }).join('');
-  }).catch(()=>{ listEl.innerHTML = '<div class="rv-empty">تعذر تحميل التقييمات</div>'; });
+  });
 }
 
 document.querySelectorAll('.star-pick').forEach(st=>{
@@ -800,14 +861,16 @@ $("submitReview").addEventListener('click', ()=>{
     $("rvName").value = ''; $("rvComment").value = ''; myRating = 0;
     document.querySelectorAll('.star-pick').forEach(s=>s.classList.remove('on'));
     loadRealReviews();
-  }).catch(()=>{
-    msg.textContent = '⚠️ تعذر الإرسال، حاول لاحقاً.'; msg.className = 'rv-msg err';
+  }).catch((e)=>{
+    console.error("Review submit error:", e && e.code, e && e.message);
+    msg.textContent = '⚠️ تعذر الإرسال (رمز: ' + String((e && e.code) || 'خطأ') + ') — تحقق من قواعد Firestore.';
+    msg.className = 'rv-msg err';
   }).finally(()=>{
     btn.disabled = false; btn.textContent = '🚀 نشر التقييم';
   });
 });
 
-/* ===== 4. DOWNLOAD (محسّن - تحميل حقيقي في الخلفية) ===== */
+/* ===== 4. DOWNLOAD (تحميل حقيقي في الخلفية) ===== */
 let busy = false;
 let countedThisAttempt = false;
 
@@ -820,7 +883,7 @@ function setStatus(title, sub, status){
 function triggerBrowserDownload(url, filename){
   if(!countedThisAttempt){ countedThisAttempt = true; bumpCounter(); }
   if(directBtn) directBtn.style.display = "block";
-  
+
   try{
     const link = document.createElement("a");
     link.href = url;
@@ -829,19 +892,15 @@ function triggerBrowserDownload(url, filename){
     link.rel = "noopener";
     document.body.appendChild(link);
     link.click();
-    
-    setTimeout(() => {
-      if(link.parentNode) link.parentNode.removeChild(link);
-    }, 1000);
-    
+    setTimeout(() => { if(link.parentNode) link.parentNode.removeChild(link); }, 1000);
     return true;
   }catch(e){}
-  
+
   try{
     window.open(url, '_blank', 'noopener');
     return true;
   }catch(e){}
-  
+
   try{
     window.location.href = url;
     return true;
@@ -855,7 +914,7 @@ function startDownloadSequence(){
   if(directBtn) directBtn.style.display = "none";
   if(pauseBtn) pauseBtn.textContent = "⏸ إخفاء النافذة";
   setStatus("جاري بدء التحميل...", "سيظهر إشعار عند الاكتمال", "التحميل يعمل في الخلفية");
-  
+
   triggerBrowserDownload(APP.apkURL, APP.fileName);
 
   let p = 0;
@@ -869,10 +928,7 @@ function startDownloadSequence(){
       if(pct) pct.textContent = "✓";
       setStatus("✓ تم بدء التحميل بنجاح", "يمكنك متابعة التصفح — سيظهر إشعار عند الاكتمال", "الملف سيُحفظ تلقائياً في مجلد التنزيلات");
       busy = false;
-      
-      setTimeout(() => {
-        if(dl) dl.style.display = "none";
-      }, 3000);
+      setTimeout(() => { if(dl) dl.style.display = "none"; }, 3000);
     }
   }, 120);
 }
