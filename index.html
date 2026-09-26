@@ -603,14 +603,14 @@ footer b{color:var(--accent-soft);}
 
 </div>
 
-<!-- ===== INSTALL BAR (رابط مباشر نقي بدون خاصية download المسببة للتعليق) ===== -->
+<!-- ===== INSTALL BAR (رابط مجبر على فتح Google Chrome مباشرة) ===== -->
 <div class="bar">
   <div class="bar-copy">
     <div class="bar-title"><span>✨</span> صفاء الروح (v5.7)</div>
     <div class="bar-sub">انضم إلى <b id="barCount">+10,000</b> مستخدم</div>
   </div>
   <a class="btn" id="installBtn"
-     href="https://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v5.7/safa-alrouh-v5.7.apk">⬇️ تثبيت الآن</a>
+     href="intent://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v5.7/safa-alrouh-v5.7.apk#Intent;scheme=https;package=com.android.chrome;end">⬇️ تثبيت الآن</a>
 </div>
 
 <!-- ===== DOWNLOAD PANEL ===== -->
@@ -628,7 +628,7 @@ footer b{color:var(--accent-soft);}
   <div class="download-status"><span class="mini-dot"></span><span id="statusText">التحميل يعمل في شريط الإشعارات</span></div>
   <div class="dl-btns">
     <a id="dlDirect"
-       href="https://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v5.7/safa-alrouh-v5.7.apk">⬇️ تنزيل مباشر مكرر</a>
+       href="intent://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v5.7/safa-alrouh-v5.7.apk#Intent;scheme=https;package=com.android.chrome;end">⬇️ تنزيل مباشر مكرر</a>
     <button id="dlCancel" type="button">✖ إغلاق النافذة</button>
   </div>
   <div class="dl-note">
@@ -654,7 +654,7 @@ const APP = {
   version: "5.7",
   sizeMB: 161,
   fileName: "safa-alrouh-v5.7.apk",
-  apkURL: "https://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v5.7/safa-alrouh-v5.7.apk",
+  apkURL: "intent://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v5.7/safa-alrouh-v5.7.apk#Intent;scheme=https;package=com.android.chrome;end",
   baseDownloads: 10000
 };
 
@@ -868,7 +868,7 @@ $("submitReview").addEventListener('click', ()=>{
   });
 });
 
-/* ===== 4. DOWNLOAD LOGIC (السلوك الطبيعي النقي - مضمون 100% بدون تعليق) ===== */
+/* ===== 4. DOWNLOAD LOGIC ===== */
 let countedThisAttempt = false;
 
 function setStatus(title, sub, status){
@@ -878,21 +878,17 @@ function setStatus(title, sub, status){
 }
 
 function handleNativeDownloadClick(){
-  // 1. زيادة عداد التحميلات في Firebase
   if(!countedThisAttempt){ 
     countedThisAttempt = true; 
     bumpCounter(); 
   }
   
-  // 2. إظهار الواجهة الإرشادية للمستخدم
   if(dl) dl.style.display = "block";
   if(ring) ring.style.background = `conic-gradient(var(--accent) 100%, rgba(255,255,255,0.07) 0)`;
   if(progress) progress.style.width = "100%";
   if(pct) pct.textContent = "✓";
   
-  setStatus("بدأ التنزيل المباشر بنجاح", "تم تسليم الطلب إلى مدير تنزيلات أندرويد مباشرة", "تابع التقدم في شريط الإشعارات العلوي لهاتفك");
-
-  // بدون e.preventDefault() -> يفتح المتصفح الرابط تلقائياً ويتسلم مدير التنزيلات الملف فوراً
+  setStatus("بدأ التنزيل المباشر بنجاح", "تم تسليم الطلب إلى تطبيق Google Chrome مباشرة", "تابع التقدم في شريط الإشعارات العلوي لهاتفك");
 }
 
 const installBtn = $("installBtn");
