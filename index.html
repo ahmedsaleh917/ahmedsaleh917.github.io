@@ -98,7 +98,6 @@ body::before{
   box-shadow:var(--sh-2);
 }
 
-/* ===== Store Bar ===== */
 .store-bar{
   display:flex;align-items:center;gap:12px;
   margin-top:22px;padding:12px 16px;
@@ -123,7 +122,6 @@ body::before{
   padding:5px 12px;border-radius:99px;white-space:nowrap;
 }
 
-/* ===== Hero ===== */
 .hero{text-align:center;padding:42px 0 8px;position:relative;}
 .dev-tag{
   display:inline-flex;align-items:center;gap:6px;
@@ -162,7 +160,6 @@ body::before{
 .chip b{color:var(--accent-soft);font-weight:800;}
 .chip.verified{background:var(--ok-bg);border-color:var(--ok-line);color:var(--ok);display:flex;align-items:center;gap:5px;}
 
-/* ===== سجل التحميلات (الأعلى) ===== */
 .record{
   margin-top:22px;padding:16px 18px;
   display:flex;align-items:center;gap:14px;
@@ -212,7 +209,6 @@ body::before{
 .feat div b{font-size:13px;color:#fff;}
 .feat div small{font-size:10.5px;color:var(--muted);line-height:1.5;}
 
-/* ===== NEW: تحدي المعرفة highlight ===== */
 .feat div.new-feature{
   background:linear-gradient(180deg, rgba(249,115,22,0.08), rgba(249,115,22,0.02));
   border-color:var(--line-accent);
@@ -260,7 +256,6 @@ body::before{
 }
 .copy-btn:active{background:rgba(148,163,184,0.18);}
 
-/* ===== Reviews ===== */
 .rv-sub-title{font-size:14px;font-weight:800;color:var(--ink);margin:18px 0 10px;display:flex;align-items:center;gap:8px;}
 .reviews-grid{display:flex;flex-direction:column;gap:12px;}
 .review-card{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--sh-1);}
@@ -361,7 +356,7 @@ footer b{color:var(--accent-soft);}
 }
 .ring::before{content:"";position:absolute;inset:6px;border-radius:50%;background:#101826;}
 .ring b{position:relative;font-size:14px;color:var(--accent-soft);font-weight:900;}
-.dl-iconWrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:2;}
+.dl-icon-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:2;}
 .dl-icon{width:28px;height:28px;color:var(--accent-soft);animation:iconBounce 2s ease-in-out infinite;}
 @keyframes iconBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}
 .dl-info{flex:1;min-width:0;}
@@ -389,7 +384,6 @@ footer b{color:var(--accent-soft);}
 
 <div class="wrap">
 
-<!-- ===== STORE BAR ===== -->
 <div class="store-bar">
   <div class="store-logo">S</div>
   <div class="store-name">
@@ -399,7 +393,6 @@ footer b{color:var(--accent-soft);}
   <span class="store-badge">متجر المطوّر الرسمي ✓</span>
 </div>
 
-<!-- ===== HERO ===== -->
 <div class="hero">
   <div class="dev-tag"><span>✨</span> تطبيق مميز من متجر Sabri-FX — المطور: Ahmed Saleh Bahada</div>
   <h2>كل ما يحتاجه المسلم في تطبيق واحد</h2>
@@ -418,7 +411,6 @@ footer b{color:var(--accent-soft);}
   </div>
 </div>
 
-<!-- ===== سجل التحميلات (الأعلى) ===== -->
 <div class="record">
   <div class="record-ico">📥</div>
   <div class="record-copy">
@@ -435,7 +427,6 @@ footer b{color:var(--accent-soft);}
   <div class="stat"><b>100%</b><span>مجاني بالكامل</span></div>
 </div>
 
-<!-- ===== SECURITY ===== -->
 <div class="sec">الأمان والثقة الرسمية</div>
 <div class="trust-card">
   <div class="icon">🛡️</div>
@@ -445,7 +436,6 @@ footer b{color:var(--accent-soft);}
   </div>
 </div>
 
-<!-- ===== بصمة الملف (SHA-256) ===== -->
 <div class="panel sha-panel">
   <div class="sha-head">
     <span>🔏</span>
@@ -483,7 +473,6 @@ footer b{color:var(--accent-soft);}
 })();
 </script>
 
-<!-- ===== FEATURES ===== -->
 <div class="sec">مميزات التطبيق الاحترافية</div>
 <div class="feat" id="feat">
   <div class="new-feature"><span>🧠</span><b>تحدي المعرفة</b><small>مباريات تنافسية مباشرة بين المستخدمين بنظام الفوز والخسارة</small></div>
@@ -503,7 +492,6 @@ footer b{color:var(--accent-soft);}
   <div><span>🎨</span><b>استديو البطاقات</b><small>تصميم بطاقات إسلامية مميزة باسمك</small></div>
 </div>
 
-<!-- ===== REVIEWS ===== -->
 <div class="sec">آراء وتقييمات المستخدمين</div>
 
 <div class="rv-sub-title">⭐ آراء مميزة من المجتمع</div>
@@ -568,7 +556,6 @@ footer b{color:var(--accent-soft);}
   <div class="rv-msg" id="rvMsg"></div>
 </div>
 
-<!-- ===== SCREENSHOTS ===== -->
 <div class="sec">لقطات من واجهات التطبيق</div>
 <div class="shots">
   <img src="images/screen1.png" alt="الشاشة الرئيسية" loading="lazy">
@@ -579,7 +566,6 @@ footer b{color:var(--accent-soft);}
   <img src="images/screen6.png" alt="مسابقات رحلة صفاء" loading="lazy">
 </div>
 
-<!-- ===== FAQ ===== -->
 <div class="sec">الأسئلة الشائعة</div>
 <details>
   <summary>ما هو قسم تحدي المعرفة الجديد؟</summary>
@@ -598,7 +584,6 @@ footer b{color:var(--accent-soft);}
   <p>يمكنك استخدام زر (التحميل المباشر من GitHub) المتاح داخل نافذة التحميل المتقدمة إذا لم يبدأ التنزيل التلقائي.</p>
 </details>
 
-<!-- ===== ABOUT ===== -->
 <div class="sec">عن التطبيق</div>
 <div class="panel desc-box">
   <h3>رفيقك اليومي نحو الطمأنينة واليقين</h3>
@@ -615,7 +600,6 @@ footer b{color:var(--accent-soft);}
 
 </div>
 
-<!-- ===== INSTALL BAR ===== -->
 <div class="bar">
   <div class="bar-copy">
     <div class="bar-title"><span>✨</span> صفاء الروح (v5.7)</div>
@@ -624,7 +608,6 @@ footer b{color:var(--accent-soft);}
   <button class="btn" id="installBtn" type="button">⬇️ تثبيت الآن</button>
 </div>
 
-<!-- ===== DOWNLOAD PANEL ===== -->
 <div id="dl">
   <div class="dl-top">
     <div class="ring" id="ring">
@@ -643,9 +626,9 @@ footer b{color:var(--accent-soft);}
     </div>
   </div>
   <div class="progress-line"><i id="progress"></i></div>
-  <div class="download-status"><span class="mini-dot"></span><span id="statusText">التحميل يعمل عبر الخادم الرسمي</span></div>
+  <div class="download-status"><span class="mini-dot"></span><span id="statusText">التحميل يعمل في الخلفية</span></div>
   <div class="dl-btns">
-    <button id="dlPause" type="button">⏸ إيقاف مؤقت</button>
+    <button id="dlPause" type="button">⏸ إخفاء النافذة</button>
     <button id="dlDirect" type="button">⬇️ تحميل مباشر من GitHub</button>
     <button id="dlCancel" type="button">✖ إلغاء</button>
   </div>
@@ -684,7 +667,7 @@ const pauseBtn = $("dlPause"), directBtn = $("dlDirect");
 
 function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 
-/* ===== 2. COUNTER (نفس النظام + نسخة علوية) ===== */
+/* ===== 2. COUNTER ===== */
 let realDL = parseInt(localStorage.getItem("safa_site_dl") || "0", 10);
 if(!Number.isFinite(realDL) || realDL < 0) realDL = 0;
 
@@ -824,33 +807,45 @@ $("submitReview").addEventListener('click', ()=>{
   });
 });
 
-/* ===== 4. DOWNLOAD (نفس النظام السريع) ===== */
+/* ===== 4. DOWNLOAD (محسّن - تحميل حقيقي في الخلفية) ===== */
 let busy = false;
 let countedThisAttempt = false;
 
 function setStatus(title, sub, status){
   if(dlt) dlt.textContent = title || "";
   if(dls) dls.textContent = sub || "";
-  if(statusText) statusText.textContent = status || "التحميل يعمل عبر الخادم الرسمي";
+  if(statusText) statusText.textContent = status || "التحميل يعمل في الخلفية";
 }
 
-function triggerBrowserDownload(url){
+function triggerBrowserDownload(url, filename){
   if(!countedThisAttempt){ countedThisAttempt = true; bumpCounter(); }
   if(directBtn) directBtn.style.display = "block";
+  
   try{
     const link = document.createElement("a");
     link.href = url;
-    link.type = "application/vnd.android.package-archive";
+    link.download = filename || "safa-alrouh-v5.7.apk";
+    link.style.display = "none";
+    link.rel = "noopener";
     document.body.appendChild(link);
     link.click();
-    setTimeout(() => link.remove(), 200);
+    
+    setTimeout(() => {
+      if(link.parentNode) link.parentNode.removeChild(link);
+    }, 1000);
+    
     return true;
-  }catch(e){
-    try{
-      window.location.href = url;
-      return true;
-    }catch(err){ return false; }
-  }
+  }catch(e){}
+  
+  try{
+    window.open(url, '_blank', 'noopener');
+    return true;
+  }catch(e){}
+  
+  try{
+    window.location.href = url;
+    return true;
+  }catch(err){ return false; }
 }
 
 function startDownloadSequence(){
@@ -858,9 +853,10 @@ function startDownloadSequence(){
   busy = true; countedThisAttempt = false;
   if(dl) dl.style.display = "block";
   if(directBtn) directBtn.style.display = "none";
-  if(pauseBtn) pauseBtn.textContent = "⏸ إيقاف مؤقت";
-  setStatus("جاري تسليم الملف لمدير التنزيلات...", "GitHub الرسمي (v5.7) — الحجم 161 ميجابايت", "لحظة واحدة...");
-  triggerBrowserDownload(APP.apkURL);
+  if(pauseBtn) pauseBtn.textContent = "⏸ إخفاء النافذة";
+  setStatus("جاري بدء التحميل...", "سيظهر إشعار عند الاكتمال", "التحميل يعمل في الخلفية");
+  
+  triggerBrowserDownload(APP.apkURL, APP.fileName);
 
   let p = 0;
   const interval = setInterval(() => {
@@ -871,14 +867,18 @@ function startDownloadSequence(){
     if(p >= 100){
       clearInterval(interval);
       if(pct) pct.textContent = "✓";
-      setStatus("✓ الملف الآن في مدير التنزيلات بالنظام", "راقب شريط الإشعارات: عند الاكتمال انقر على الإشعار ليبدأ التثبيت مباشرة", "إن بقي عالقًا عند 100%: افتح قائمة التنزيلات وانقر على الملف مرة واحدة");
+      setStatus("✓ تم بدء التحميل بنجاح", "يمكنك متابعة التصفح — سيظهر إشعار عند الاكتمال", "الملف سيُحفظ تلقائياً في مجلد التنزيلات");
       busy = false;
+      
+      setTimeout(() => {
+        if(dl) dl.style.display = "none";
+      }, 3000);
     }
   }, 120);
 }
 
 $("installBtn").addEventListener("click", () => startDownloadSequence());
-if(directBtn) directBtn.addEventListener("click", () => triggerBrowserDownload(APP.apkURL));
+if(directBtn) directBtn.addEventListener("click", () => triggerBrowserDownload(APP.apkURL, APP.fileName));
 if(pauseBtn) pauseBtn.addEventListener("click", () => { busy = false; if(dl) dl.style.display = "none"; });
 $("dlCancel").addEventListener("click", () => {
   busy = false; countedThisAttempt = false;
