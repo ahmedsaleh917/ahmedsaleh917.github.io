@@ -10,8 +10,8 @@
 
 <title>Sabri-FX | المتجر الرسمي — صفاء الروح وتطبيقات المطور Ahmed Saleh Bahada</title>
 
-<meta name="description" content="متجر Sabri-FX الرسمي: تحميل تطبيق صفاء الروح للأندرويد مجانًا من رابط المطوّر. المصحف الشريف كاملاً، مصحف القيام، القرآن الصوتي، الأذكار، الرقية، مواقيت الصلاة، الأذان، القبلة، وتفسير الأحلام.">
-<meta name="keywords" content="Sabri-FX, صفاء الروح, تطبيق صفاء الروح, تحميل صفاء الروح, تطبيق إسلامي, قرآن, مصحف كامل, مصحف القيام, سورة البقرة, سورة آل عمران, قرآن صوتي, أذكار, رقية شرعية, مواقيت الصلاة, الأذان, القبلة">
+<meta name="description" content="متجر Sabri-FX الرسمي: تحميل تطبيق صفاء الروح للأندرويد مجانًا من رابط المطوّر. المصحف الشريف كاملاً، مصحف القيام، القرآن الصوتي، الأذكار، الرقية، مواقيت الصلاة، الأذان، القبلة، وتفسير الأحلام، وتحدي المعرفة.">
+<meta name="keywords" content="Sabri-FX, صفاء الروح, تطبيق صفاء الروح, تحميل صفاء الروح, تطبيق إسلامي, قرآن, مصحف كامل, مصحف القيام, سورة البقرة, سورة آل عمران, قرآن صوتي, أذكار, رقية شرعية, مواقيت الصلاة, الأذان, القبلة, تحدي المعرفة">
 <meta name="author" content="Ahmed Saleh Bahada · SabriFX">
 <meta name="robots" content="index,follow,max-image-preview:large">
 
@@ -212,6 +212,20 @@ body::before{
 .feat div b{font-size:13px;color:#fff;}
 .feat div small{font-size:10.5px;color:var(--muted);line-height:1.5;}
 
+/* ===== NEW: تحدي المعرفة highlight ===== */
+.feat div.new-feature{
+  background:linear-gradient(180deg, rgba(249,115,22,0.08), rgba(249,115,22,0.02));
+  border-color:var(--line-accent);
+  position:relative;
+}
+.feat div.new-feature::before{
+  content:"جديد";
+  position:absolute;top:-8px;right:10px;
+  background:linear-gradient(180deg,var(--accent-2),var(--accent));
+  color:#1c0a02;font-size:9px;font-weight:900;padding:3px 10px;border-radius:99px;
+  box-shadow:0 4px 10px rgba(249,115,22,0.35);
+}
+
 .shots{display:flex;gap:16px;overflow-x:auto;padding:10px 4px 30px;scroll-snap-type:x mandatory;scrollbar-width:none;}
 .shots::-webkit-scrollbar{display:none;}
 .shots img{
@@ -347,7 +361,7 @@ footer b{color:var(--accent-soft);}
 }
 .ring::before{content:"";position:absolute;inset:6px;border-radius:50%;background:#101826;}
 .ring b{position:relative;font-size:14px;color:var(--accent-soft);font-weight:900;}
-.dl-icon-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:2;}
+.dl-iconWrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:2;}
 .dl-icon{width:28px;height:28px;color:var(--accent-soft);animation:iconBounce 2s ease-in-out infinite;}
 @keyframes iconBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}
 .dl-info{flex:1;min-width:0;}
@@ -398,7 +412,7 @@ footer b{color:var(--accent-soft);}
 
   <div class="chips">
     <span class="chip verified"><span>🛡️</span> موثوق من المطوّر</span>
-    <span class="chip">الإصدار <b>v5.6</b></span>
+    <span class="chip">الإصدار <b>v5.7</b></span>
     <span class="chip">161 ميجابايت</span>
     <span class="chip">مجاني بدون إعلانات مزعجة</span>
   </div>
@@ -441,7 +455,7 @@ footer b{color:var(--accent-soft);}
     استخدم هذه البصمة للتأكد أن الملف الذي حمّلته هو الملف الأصلي دون أي تعديل.
   </div>
   <div class="sha-box">
-    <code id="sha256Text">2f70027cde085d57fccfd24d6d5166e193472d886503b0704f2e26daf9c3d917</code>
+    <code id="sha256Text">e7f9dd0f5b5b7b57966bf89690e6122a1a37a47f4ef6708938f8a4d37a56feea</code>
     <button id="copySha" type="button" class="copy-btn">📋 نسخ</button>
   </div>
 </div>
@@ -472,7 +486,10 @@ footer b{color:var(--accent-soft);}
 <!-- ===== FEATURES ===== -->
 <div class="sec">مميزات التطبيق الاحترافية</div>
 <div class="feat" id="feat">
-  <div><span>📖</span><b>المصحف الشريف كاملاً</b><small>مطابق للمصحف المطبوع صفحة بصفحة</small></div><div><span>🌙</span><b>مصحف القيام</b><small>سورتا البقرة وآل عمران في 15 صفحة ميسّرة للقيام والورد اليومي</small></div>
+  <div class="new-feature"><span>🧠</span><b>تحدي المعرفة</b><small>مباريات تنافسية مباشرة بين المستخدمين بنظام الفوز والخسارة</small></div>
+  <div class="new-feature"><span>⚔️</span><b>منافسات الأسئلة</b><small>تحدَّ أصدقاءك واعرف من الأكثر ثقافة ومعرفة</small></div>
+  <div><span>📖</span><b>المصحف الشريف كاملاً</b><small>مطابق للمصحف المطبوع صفحة بصفحة</small></div>
+  <div><span>🌙</span><b>مصحف القيام</b><small>سورتا البقرة وآل عمران في 15 صفحة ميسّرة للقيام والورد اليومي</small></div>
   <div><span>🎧</span><b>المصحف الصوتي</b><small>استماع لتلاوات نخبة القراء</small></div>
   <div><span>🛡️</span><b>الرقية الشرعية</b><small>من الكتاب والسنة الصحيحة</small></div>
   <div><span>📿</span><b>مسبحة إلكترونية</b><small>عداد ذكي لحفظ أعداد التسبيح</small></div>
@@ -519,7 +536,7 @@ footer b{color:var(--accent-soft);}
       </div>
       <div class="review-stars">★★★★★</div>
     </div>
-    <div class="review-text">"أفضل تطبيق إسلامي استخدمته على الأندرويد حتى الآن. قسم المسابقات اليومية (رحلة صفاء) ممتع جداً ومفيد للعائلة."</div>
+    <div class="review-text">"أفضل تطبيق إسلامي استخدمته على الأندرويد حتى الآن. قسم تحدي المعرفة الجديد ممتع جداً ومفيد للعائلة."</div>
   </div>
 </div>
 
@@ -565,6 +582,10 @@ footer b{color:var(--accent-soft);}
 <!-- ===== FAQ ===== -->
 <div class="sec">الأسئلة الشائعة</div>
 <details>
+  <summary>ما هو قسم تحدي المعرفة الجديد؟</summary>
+  <p>قسم تنافسي تفاعلي يتيح لك لعب مباريات أسئلة مباشرة ضد مستخدمين آخرين، مع نظام فوز وخسارة يحدد من الأكثر ثقافة ومعرفة. تحدَّ أصدقاءك واستمتع بوقت مفيد!</p>
+</details>
+<details>
   <summary>لماذا يظهر تحذير أمني عند تثبيت ملف APK؟</summary>
   <p>هذا تحذير اعتيادي يظهر في نظام أندرويد عند تثبيت أي تطبيق من خارج متجر Google Play (المصادر الخارجية). التطبيق مفحوص وآمن تماماً وموقّع برقم المطور الرسمي، ويمكنك المتابعة والتثبيت باطمئنان.</p>
 </details>
@@ -581,7 +602,7 @@ footer b{color:var(--accent-soft);}
 <div class="sec">عن التطبيق</div>
 <div class="panel desc-box">
   <h3>رفيقك اليومي نحو الطمأنينة واليقين</h3>
-  صُمم تطبيق "صفاء الروح" ليكون المرجع الرقمي المتكامل لكل مسلم. يضم باقة غنية تشمل المصحف الشريف كاملاً المطابق للمصحف المطبوع، ومصحف القيام لسورتي البقرة وآل عمران في 15 صفحة، والتلاوات الصوتية، وحصن المسلم، مواقيت الصلاة الدقيقة، الأذان، بوصلة القبلة، تفسير الأحلام، صحيح البخاري، ودليل العمرة، لتقدم لك تجربة إيمانية فريدة ومميزة.
+  صُمم تطبيق "صفاء الروح" ليكون المرجع الرقمي المتكامل لكل مسلم. يضم باقة غنية تشمل المصحف الشريف كاملاً المطابق للمصحف المطبوع، ومصحف القيام لسورتي البقرة وآل عمران في 15 صفحة، والتلاوات الصوتية، وحصن المسلم، مواقيت الصلاة الدقيقة، الأذان، بوصلة القبلة، تفسير الأحلام، صحيح البخاري، ودليل العمرة، وقسم "تحدي المعرفة" الجديد للمنافسات التفاعلية، لتقدم لك تجربة إيمانية فريدة ومميزة.
 </div>
 
 <footer>
@@ -597,7 +618,7 @@ footer b{color:var(--accent-soft);}
 <!-- ===== INSTALL BAR ===== -->
 <div class="bar">
   <div class="bar-copy">
-    <div class="bar-title"><span>✨</span> صفاء الروح (v5.6)</div>
+    <div class="bar-title"><span>✨</span> صفاء الروح (v5.7)</div>
     <div class="bar-sub">انضم إلى <b id="barCount">+10,000</b> مستخدم</div>
   </div>
   <button class="btn" id="installBtn" type="button">⬇️ تثبيت الآن</button>
@@ -637,7 +658,7 @@ footer b{color:var(--accent-soft);}
       <span>🔏 بصمة SHA-256</span>
       <button id="copyShaDl" type="button" class="copy-btn">📋 نسخ</button>
     </div>
-    <code id="sha256TextDl">2f70027cde085d57fccfd24d6d5166e193472d886503b0704f2e26daf9c3d917</code>
+    <code id="sha256TextDl">e7f9dd0f5b5b7b57966bf89690e6122a1a37a47f4ef6708938f8a4d37a56feea</code>
   </div>
 </div>
 
@@ -649,10 +670,10 @@ footer b{color:var(--accent-soft);}
 
 /* ===== 1. CONFIG ===== */
 const APP = {
-  version: "5.6",
+  version: "5.7",
   sizeMB: 161,
-  fileName: "safa-alrouh-v5.6.apk",
-  apkURL: "https://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v5.6/safa-alrouh-v5.6.apk",
+  fileName: "safa-alrouh-v5.7.apk",
+  apkURL: "https://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v5.7/safa-alrouh-v5.7.apk",
   baseDownloads: 10000
 };
 
@@ -838,7 +859,7 @@ function startDownloadSequence(){
   if(dl) dl.style.display = "block";
   if(directBtn) directBtn.style.display = "none";
   if(pauseBtn) pauseBtn.textContent = "⏸ إيقاف مؤقت";
-  setStatus("جاري تسليم الملف لمدير التنزيلات...", "GitHub الرسمي (v5.6) — الحجم 161 ميجابايت", "لحظة واحدة...");
+  setStatus("جاري تسليم الملف لمدير التنزيلات...", "GitHub الرسمي (v5.7) — الحجم 161 ميجابايت", "لحظة واحدة...");
   triggerBrowserDownload(APP.apkURL);
 
   let p = 0;
