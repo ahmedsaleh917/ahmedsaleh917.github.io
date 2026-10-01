@@ -16,7 +16,6 @@
 <meta property="og:title" content="صفاء الروح — تطبيق إسلامي شامل">
 <meta property="og:description" content="مصحف، أذكار، تحديات معرفية، ومصمم بطاقات ذكي — كل ما تحتاجه في تطبيق واحد.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://ahmedsaleh917.github.io/safaa_circular.png">
 
 <link rel="icon" type="image/png" href="safaa_circular.png">
 
@@ -48,7 +47,7 @@ html,body{
 
 .container{max-width:900px;margin:0 auto;padding:20px}
 
-/* Header */
+/* Hero */
 .hero{
   text-align:center;
   padding:60px 20px 40px;
@@ -89,6 +88,8 @@ html,body{
   margin-bottom:24px;
   animation:iconGlow 3s ease-in-out infinite;
   background:linear-gradient(145deg,#1c1917,#0c0a09);
+  position:relative;
+  z-index:2;
 }
 @keyframes iconGlow{
   0%,100%{box-shadow:0 20px 60px rgba(212,175,55,.3),0 0 0 8px rgba(212,175,55,.1)}
@@ -109,6 +110,8 @@ html,body{
   color:var(--gold-light);
   margin-bottom:20px;
   text-transform:uppercase;
+  position:relative;
+  z-index:2;
 }
 
 h1{
@@ -120,6 +123,8 @@ h1{
   background-clip:text;
   margin-bottom:12px;
   letter-spacing:-1px;
+  position:relative;
+  z-index:2;
 }
 
 .tagline{
@@ -127,6 +132,8 @@ h1{
   color:var(--text-dim);
   max-width:600px;
   margin:0 auto 32px;
+  position:relative;
+  z-index:2;
 }
 
 /* Download Button */
@@ -148,6 +155,7 @@ h1{
   transition:all .3s cubic-bezier(.2,.9,.3,1.2);
   position:relative;
   overflow:hidden;
+  z-index:2;
 }
 .download-btn::before{
   content:"";
@@ -172,6 +180,8 @@ h1{
   margin-top:16px;
   font-size:13px;
   color:var(--text-dim);
+  position:relative;
+  z-index:2;
 }
 .file-info b{color:var(--gold-light)}
 
@@ -302,12 +312,6 @@ footer .copyright{
   .stats{grid-template-columns:repeat(3,1fr);gap:8px}
   .stat-num{font-size:22px}
 }
-
-/* Loading state for download */
-.download-btn.loading{
-  pointer-events:none;
-  opacity:.7;
-}
 </style>
 </head>
 <body>
@@ -318,15 +322,16 @@ footer .copyright{
     <span>✦</span> Sabri-FX <span>✦</span>
   </div>
 
-  <img src="safaa_circular.png" alt="صفاء الروح" class="app-icon" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect fill=%22%23d4af37%22 width=%22100%22 height=%22100%22 rx=%2220%22/><text x=%2250%22 y=%2265%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22%230c0a09%22>✦</text></svg>'">
+  <img src="safaa_circular.png" alt="صفاء الروح" class="app-icon"
+       onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect fill=%22%23d4af37%22 width=%22100%22 height=%22100%22 rx=%2220%22/><text x=%2250%22 y=%2265%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22%230c0a09%22>✦</text></svg>'">
 
   <h1>صفاء الروح</h1>
   <p class="tagline">
     تطبيقك الإسلامي الشامل — قرآن، أذكار، تفسير أحلام، ومصمم بطاقات ذكي بالذكاء الاصطناعي
   </p>
 
-  <a href="https://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v5.8/safa_final.apk"
-     class="download-btn" id="downloadBtn" download>
+  <a href="https://www.mediafire.com/file/h2cab69k7swqqtr/safa_final.apk/file"
+     class="download-btn" id="downloadBtn" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
       <polyline points="7 10 12 15 17 10"/>
@@ -456,17 +461,6 @@ footer .copyright{
   <p>نطوّر تطبيقات إسلامية بمعايير عالمية</p>
   <p class="copyright">© 2026 Sabri-FX — جميع الحقوق محفوظة</p>
 </footer>
-
-<script>
-// تحميل فوري عند الضغط
-document.getElementById('downloadBtn').addEventListener('click', function(){
-  this.classList.add('loading');
-  var btn = this;
-  setTimeout(function(){
-    btn.classList.remove('loading');
-  }, 3000);
-});
-</script>
 
 </body>
 </html>
