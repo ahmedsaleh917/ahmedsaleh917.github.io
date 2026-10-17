@@ -2,465 +2,486 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta name="theme-color" content="#0c0a09">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>تطبيق صفاء الروح | Safa Al-Rouh</title>
+<meta name="description" content="صفاء الروح - رفيقك اليومي إلى الطمأنينة. تطبيق إسلامي شامل يجمع القرآن، الأذكار، المواقيت، ومسابقات معرفية ممتعة.">
 
-<!-- SEO -->
-<title>صفاء الروح — تطبيق إسلامي شامل | Sabri-FX</title>
-<meta name="description" content="تطبيق صفاء الروح الإسلامي الشامل: مصحف شريف، مصحف صوتي بأشهر القراء، حصن المسلم، صحيح البخاري، مواقيت الصلاة، اتجاه القبلة، دليل العمرة، تفسير الأحلام، مصمم بطاقات ذكي، تحدي المعرفة، رقية شرعية، أذان بأجمل الأصوات.">
-<meta name="keywords" content="تطبيق إسلامي, صفاء الروح, مصحف, قرآن, أذكار, حصن المسلم, البخاري, مواقيت الصلاة, القبلة, تفسير الأحلام, أذان, تحدي المعرفة, مصمم بطاقات, رقية شرعية, SabriFX, Sabri-FX">
-<meta name="author" content="Sabri-FX">
-<meta name="robots" content="index, follow">
-
-<!-- Open Graph -->
-<meta property="og:title" content="صفاء الروح — تطبيق إسلامي شامل">
-<meta property="og:description" content="مصحف، أذكار، تحديات معرفية، ومصمم بطاقات ذكي — كل ما تحتاجه في تطبيق واحد.">
-<meta property="og:type" content="website">
-
-<link rel="icon" type="image/png" href="safaa_circular.png">
+<!-- ⭐ خط Tajawal من Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-
-:root{
-  --gold:#d4af37;
-  --gold-light:#fbbf24;
-  --gold-dark:#b8860b;
-  --bg:#0c0a09;
-  --card:#1c1917;
-  --text:#fafaf9;
-  --text-dim:#a8a29e;
-  --border:rgba(212,175,55,.25);
-  --shadow:0 10px 40px rgba(0,0,0,.5);
+:root {
+  --navy-0: #03070f;
+  --navy-1: #071228;
+  --gold-1: #ffd9b3;
+  --gold-2: #fdb572;
+  --gold-3: #fb923c;
+  --gold-4: #ea580c;
+  --cyan: #22d3ee;
+  --text: #eef4ff;
+  --dim: #8ba4cf;
+  --card-bg: rgba(12, 30, 66, 0.4);
+  --card-border: rgba(120, 180, 255, 0.15);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --glow: 0 0 20px rgba(251, 146, 60, 0.4);
 }
 
-html,body{
-  font-family:'Segoe UI','Tahoma',Arial,sans-serif;
-  background:radial-gradient(ellipse at 20% 10%,rgba(212,175,55,.08),transparent 50%),
-             radial-gradient(ellipse at 80% 90%,rgba(184,134,11,.06),transparent 50%),
-             var(--bg);
-  color:var(--text);
-  min-height:100vh;
-  overflow-x:hidden;
-  line-height:1.7;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Tajawal', sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.container{max-width:900px;margin:0 auto;padding:20px}
-
-/* Hero */
-.hero{
-  text-align:center;
-  padding:60px 20px 40px;
-  position:relative;
-  overflow:hidden;
-}
-.hero::before{
-  content:"";
-  position:absolute;
-  top:-100px;right:-100px;
-  width:300px;height:300px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(212,175,55,.15),transparent 70%);
-  animation:float 6s ease-in-out infinite;
-}
-.hero::after{
-  content:"";
-  position:absolute;
-  bottom:-100px;left:-100px;
-  width:250px;height:250px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(184,134,11,.1),transparent 70%);
-  animation:float 8s ease-in-out infinite reverse;
-}
-@keyframes float{
-  0%,100%{transform:translateY(0) scale(1)}
-  50%{transform:translateY(-20px) scale(1.05)}
+body {
+  background-color: var(--navy-0);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
 }
 
-.app-icon{
-  width:140px;
-  height:140px;
-  border-radius:32px;
-  border:3px solid var(--gold);
-  box-shadow:0 20px 60px rgba(212,175,55,.3),
-             0 0 0 8px rgba(212,175,55,.1);
-  object-fit:cover;
-  margin-bottom:24px;
-  animation:iconGlow 3s ease-in-out infinite;
-  background:linear-gradient(145deg,#1c1917,#0c0a09);
-  position:relative;
-  z-index:2;
-}
-@keyframes iconGlow{
-  0%,100%{box-shadow:0 20px 60px rgba(212,175,55,.3),0 0 0 8px rgba(212,175,55,.1)}
-  50%{box-shadow:0 20px 80px rgba(212,175,55,.5),0 0 0 12px rgba(212,175,55,.15)}
+/* ═══════════════════════════════════════════
+   🌌 الخلفية الساحرة (Aurora + Stars)
+   ═══════════════════════════════════════════ */
+.bg-container {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: 
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(34, 211, 238, 0.1), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(251, 146, 60, 0.08), transparent 60%),
+    linear-gradient(180deg, var(--navy-0) 0%, var(--navy-1) 100%);
 }
 
-.store-brand{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:8px 18px;
-  background:rgba(212,175,55,.1);
-  border:1.5px solid var(--border);
-  border-radius:100px;
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:3px;
-  color:var(--gold-light);
-  margin-bottom:20px;
-  text-transform:uppercase;
-  position:relative;
-  z-index:2;
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.6;
+  animation: float 20s infinite ease-in-out alternate;
 }
 
-h1{
-  font-size:48px;
-  font-weight:900;
-  background:linear-gradient(135deg,#fbbf24,#d4af37,#b8860b);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-  margin-bottom:12px;
-  letter-spacing:-1px;
-  position:relative;
-  z-index:2;
+.orb.o1 {
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.4), transparent);
+  top: -100px; right: -50px;
 }
 
-.tagline{
-  font-size:17px;
-  color:var(--text-dim);
-  max-width:600px;
-  margin:0 auto 32px;
-  position:relative;
-  z-index:2;
+.orb.o2 {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(251, 146, 60, 0.3), transparent);
+  bottom: 10%; left: -80px;
+  animation-duration: 25s;
 }
 
-/* Download Button */
-.download-btn{
-  display:inline-flex;
-  align-items:center;
-  gap:14px;
-  padding:20px 48px;
-  background:linear-gradient(135deg,#fbbf24,#d4af37,#b8860b);
-  color:#422006;
-  border:0;
-  border-radius:100px;
-  font-size:20px;
-  font-weight:900;
-  cursor:pointer;
-  text-decoration:none;
-  box-shadow:0 15px 45px rgba(212,175,55,.5),
-             inset 0 2px 0 rgba(255,255,255,.3);
-  transition:all .3s cubic-bezier(.2,.9,.3,1.2);
-  position:relative;
-  overflow:hidden;
-  z-index:2;
-}
-.download-btn::before{
-  content:"";
-  position:absolute;
-  top:0;left:-100%;
-  width:100%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
-  transition:left .6s;
-}
-.download-btn:hover::before{left:100%}
-.download-btn:active{transform:scale(.96)}
-.download-btn svg{
-  width:28px;height:28px;
-  animation:bounceDown 1.5s ease-in-out infinite;
-}
-@keyframes bounceDown{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(4px)}
+.orb.o3 {
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.3), transparent);
+  top: 40%; right: 20%;
+  animation-duration: 18s;
 }
 
-.file-info{
-  margin-top:16px;
-  font-size:13px;
-  color:var(--text-dim);
-  position:relative;
-  z-index:2;
-}
-.file-info b{color:var(--gold-light)}
-
-/* Features */
-.section{
-  padding:50px 20px;
-}
-.section-title{
-  text-align:center;
-  font-size:28px;
-  font-weight:900;
-  color:var(--gold-light);
-  margin-bottom:12px;
-  letter-spacing:-.5px;
-}
-.section-sub{
-  text-align:center;
-  color:var(--text-dim);
-  font-size:14px;
-  margin-bottom:36px;
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(30px, 50px) scale(1.1); }
 }
 
-.features-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-  gap:16px;
+.stars {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(1px 1px at 10% 20%, #fff, transparent),
+    radial-gradient(1px 1px at 40% 70%, #fff, transparent),
+    radial-gradient(2px 2px at 80% 30%, rgba(251, 191, 36, 0.8), transparent),
+    radial-gradient(1px 1px at 60% 90%, #fff, transparent),
+    radial-gradient(1px 1px at 90% 60%, rgba(34, 211, 238, 0.8), transparent);
+  background-size: 200px 200px;
+  opacity: 0.3;
+  animation: twinkle 4s infinite alternate;
 }
 
-.feature-card{
-  padding:24px 20px;
-  background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.01));
-  border:1.5px solid var(--border);
-  border-radius:20px;
-  transition:all .3s ease;
-  position:relative;
-  overflow:hidden;
-}
-.feature-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:radial-gradient(circle at top right,rgba(212,175,55,.15),transparent 60%);
-  opacity:0;
-  transition:opacity .3s;
-}
-.feature-card:hover{
-  transform:translateY(-4px);
-  border-color:var(--gold);
-  box-shadow:0 20px 40px rgba(212,175,55,.15);
-}
-.feature-card:hover::before{opacity:1}
-
-.feature-icon{
-  font-size:36px;
-  margin-bottom:12px;
-  display:block;
-  filter:drop-shadow(0 0 12px rgba(212,175,55,.4));
-}
-.feature-title{
-  font-size:17px;
-  font-weight:800;
-  color:var(--gold-light);
-  margin-bottom:6px;
-}
-.feature-desc{
-  font-size:13px;
-  color:var(--text-dim);
-  line-height:1.6;
+@keyframes twinkle {
+  0% { opacity: 0.2; }
+  100% { opacity: 0.5; }
 }
 
-/* Stats */
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
-  max-width:600px;
-  margin:40px auto 0;
-  text-align:center;
-}
-.stat{padding:18px 8px}
-.stat-num{
-  font-size:28px;
-  font-weight:900;
-  color:var(--gold-light);
-  display:block;
-  margin-bottom:4px;
-}
-.stat-label{
-  font-size:11px;
-  color:var(--text-dim);
-  letter-spacing:1px;
-  text-transform:uppercase;
+/* ═══════════════════════════════════════════
+   🏗️ التخطيط العام
+   ═══════════════════════════════════════════ */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Footer */
-footer{
-  text-align:center;
-  padding:40px 20px;
-  border-top:1px solid var(--border);
-  margin-top:40px;
-}
-footer .brand{
-  font-size:22px;
-  font-weight:900;
-  background:linear-gradient(135deg,#fbbf24,#d4af37);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-  letter-spacing:1px;
-}
-footer p{
-  color:var(--text-dim);
-  font-size:13px;
-  margin-top:8px;
-}
-footer .copyright{
-  margin-top:20px;
-  font-size:11px;
-  color:#57534e;
+/* ═══════════════════════════════════════════
+   🎯 قسم الهيرو (Hero Section)
+   ═══════════════════════════════════════════ */
+.hero {
+  text-align: center;
+  margin-bottom: 50px;
+  animation: fadeInDown 1s ease;
 }
 
-@media(max-width:600px){
-  h1{font-size:34px}
-  .app-icon{width:110px;height:110px}
-  .download-btn{padding:18px 36px;font-size:17px}
-  .section{padding:36px 16px}
-  .section-title{font-size:22px}
-  .stats{grid-template-columns:repeat(3,1fr);gap:8px}
-  .stat-num{font-size:22px}
+.logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--gold-3);
+  box-shadow: 0 0 30px rgba(251, 146, 60, 0.4);
+  background: #0c1e42;
+  margin-bottom: 20px;
+  animation: pulseLogo 3s infinite alternate;
+}
+
+@keyframes pulseLogo {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-10px) scale(1.02); }
+}
+
+.app-name {
+  font-size: 38px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--gold-1), var(--gold-3), var(--gold-4));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
+
+.app-desc {
+  font-size: 16px;
+  color: var(--dim);
+  max-width: 500px;
+  margin: 0 auto 30px;
+  font-weight: 500;
+}
+
+/* ⭐ زر التحميل */
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--gold-3), var(--gold-4));
+  color: #0a1428;
+  font-size: 20px;
+  font-weight: 800;
+  padding: 18px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(234, 88, 12, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-download::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-download:hover::before {
+  left: 100%;
+}
+
+.btn-download:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(234, 88, 12, 0.6);
+}
+
+.btn-download svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.version-tag {
+  display: inline-block;
+  margin-top: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 13px;
+  color: var(--gold-1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ═══════════════════════════════════════════
+   ✨ الأقسام والميزات (Features)
+   ═══════════════════════════════════════════ */
+.section-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 30px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.section-title::before, .section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--card-border), transparent);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.feat-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.2s ease, border-color 0.2s;
+}
+
+.feat-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(251, 146, 60, 0.4);
+}
+
+.feat-icon {
+  font-size: 28px;
+  background: rgba(251, 146, 60, 0.1);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  flex-shrink: 0;
+}
+
+.feat-info h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.feat-info p {
+  font-size: 12px;
+  color: var(--dim);
+}
+
+/* ═══════════════════════════════════════════
+   🆕 ما الجديد (What's New)
+   ═══════════════════════════════════════════ */
+.whats-new {
+  background: linear-gradient(145deg, rgba(30, 61, 114, 0.5), rgba(7, 18, 40, 0.8));
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  border-radius: 20px;
+  padding: 30px;
+  width: 100%;
+  margin-bottom: 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.whats-new h2 {
+  color: var(--cyan);
+  font-size: 20px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.whats-new p {
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* ═══════════════════════════════════════════
+   🦶 الفوتر (Footer)
+   ═══════════════════════════════════════════ */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  border-top: 1px solid var(--card-border);
+  color: var(--dim);
+  font-size: 13px;
+  width: 100%;
+}
+
+footer .brand {
+  color: var(--gold-2);
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .features-grid { grid-template-columns: 1fr 1fr; }
+  .app-name { font-size: 30px; }
+  .btn-download { font-size: 16px; padding: 15px 30px; }
+}
+@media (max-width: 400px) {
+  .features-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 
-<!-- Hero -->
-<header class="hero">
-  <div class="store-brand">
-    <span>✦</span> Sabri-FX <span>✦</span>
+<!-- 🌌 الخلفية -->
+<div class="bg-container">
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+  <div class="orb o3"></div>
+  <div class="stars"></div>
+</div>
+
+<div class="container">
+  
+  <!-- 🎯 القسم الرئيسي -->
+  <header class="hero">
+    <!-- تأكد أن شعار التطبيق مرفوع في الجذر باسم safaa_circular.png -->
+    <img src="safaa_circular.png" alt="صفاء الروح" class="logo" onerror="this.src='https://via.placeholder.com/120/0c1e42/fb923c?text=صفاء'">
+    
+    <h1 class="app-name">صفاء الروح</h1>
+    <p class="app-desc">
+      رفيقك اليومي إلى الطمأنينة. تطبيق إسلامي شامل يجمع القرآن، الأذكار، المواقيت، ومسابقات معرفية اجتماعية ممتعة.
+    </p>
+
+    <!-- ⭐ زر التحميل المباشر -->
+    <a href="https://github.com/ahmedsaleh917/ahmedsaleh917.github.io/releases/download/v6.0/safa-alrouh-v6.0.apk" class="btn-download">
+      <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-8 2v2h16v-2H4z"/></svg>
+      تحميل التطبيق الآن
+    </a>
+    <div class="version-tag">آخر إصدار: v6.0 (مستقر)</div>
+  </header>
+
+  <!-- 🆕 قسم ما الجديد -->
+  <div class="whats-new">
+    <h2>🎉 جديد في هذا الإصدار</h2>
+    <p>
+      تمت إضافة <strong>ميزة الحلقات الاجتماعية</strong>! أنشئ حلقتك، اجمع أصدقاءك، وتنافسوا مع حلقات أخرى عبر شات جماعي ومواسم أسبوعية وجوائز للفائزين. كما تم تحسين تجربة منشورات الأصدقاء وتحديث واجهة الكلمات المتقاطعة!
+    </p>
   </div>
 
-  <img src="safaa_circular.png" alt="صفاء الروح" class="app-icon"
-       onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect fill=%22%23d4af37%22 width=%22100%22 height=%22100%22 rx=%2220%22/><text x=%2250%22 y=%2265%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22%230c0a09%22>✦</text></svg>'">
-
-  <h1>صفاء الروح</h1>
-  <p class="tagline">
-    تطبيقك الإسلامي الشامل — قرآن، أذكار، تفسير أحلام، ومصمم بطاقات ذكي بالذكاء الاصطناعي
-  </p>
-
-  <a href="https://www.mediafire.com/file/h2cab69k7swqqtr/safa_final.apk/file"
-     class="download-btn" id="downloadBtn" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-      <polyline points="7 10 12 15 17 10"/>
-      <line x1="12" y1="15" x2="12" y2="3"/>
-    </svg>
-    <span>تحميل التطبيق الآن</span>
-  </a>
-
-  <p class="file-info">
-    الإصدار <b>v5.8</b> · الحجم <b>141 MB</b> · يعمل على <b>Android 7.0+</b>
-  </p>
-</header>
-
-<!-- Features -->
-<section class="section">
-  <h2 class="section-title">✨ ماذا يقدم لك التطبيق؟</h2>
-  <p class="section-sub">مجموعة متكاملة من الأدوات الإسلامية في تطبيق واحد أنيق</p>
-
+  <!-- ✨ الأقسام والميزات -->
+  <h2 class="section-title">✨ كنوز التطبيق</h2>
+  
   <div class="features-grid">
-
-    <div class="feature-card">
-      <span class="feature-icon">📖</span>
-      <div class="feature-title">مصحف شريف</div>
-      <div class="feature-desc">اقرأ القرآن الكريم كاملًا بخط واضح ومريح، مع إمكانية الحفظ والتلاوة.</div>
+    
+    <div class="feat-card">
+      <div class="feat-icon">📖</div>
+      <div class="feat-info">
+        <h3>المصحف الشريف</h3>
+        <p>قراءة كاملة ومريحة</p>
+      </div>
     </div>
 
-    <div class="feature-card">
-      <span class="feature-icon">🌙</span>
-      <div class="feature-title">مصحف القيام</div>
-      <div class="feature-desc">سورة البقرة كاملة في 15 صفحة فقط — مثالي لقيام الليل.</div>
+    <div class="feat-card">
+      <div class="feat-icon">🎧</div>
+      <div class="feat-info">
+        <h3>المصحف الصوتي</h3>
+        <p>أشهر القراء بروايات متعددة</p>
+      </div>
     </div>
 
-    <div class="feature-card">
-      <span class="feature-icon">🎧</span>
-      <div class="feature-title">مصحف صوتي</div>
-      <div class="feature-desc">تلاوات بأصوات أشهر القراء: الحصري، المنشاوي، عبد الباسط، السديس وغيرهم.</div>
+    <div class="feat-card">
+      <div class="feat-icon">📿</div>
+      <div class="feat-info">
+        <h3>الأذكار والمسبحة</h3>
+        <p>أذكار الصباح والمساء والمسابحة</p>
+      </div>
     </div>
 
-    <div class="feature-card">
-      <span class="feature-icon">⚔️</span>
-      <div class="feature-title">تحدي المعرفة</div>
-      <div class="feature-desc">نافس أصدقاءك في مباريات الأسئلة الإسلامية والثقافية، واكسب النقاط والجوائز.</div>
+    <div class="feat-card">
+      <div class="feat-icon">🕌</div>
+      <div class="feat-info">
+        <h3>المواقيت والقبلة</h3>
+        <p>أوقات الصلاة والأذان والبوصلة</p>
+      </div>
     </div>
 
-    <div class="feature-card">
-      <span class="feature-icon">🎨</span>
-      <div class="feature-title">مصمم البطاقات</div>
-      <div class="feature-desc">صمم بطاقات تهنئة احترافية بالذكاء الاصطناعي — صباح الخير، رمضان، العيد، المواليد والمزيد.</div>
+    <div class="feat-card">
+      <div class="feat-icon">🛡️</div>
+      <div class="feat-info">
+        <h3>الرقية الشرعية</h3>
+        <p>حماية وعلاج ميسر</p>
+      </div>
     </div>
 
-    <div class="feature-card">
-      <span class="feature-icon">📿</span>
-      <div class="feature-title">حصن المسلم</div>
-      <div class="feature-desc">الأذكار الكاملة: أذكار الصباح والمساء، النوم، الاستيقاظ، والسفر.</div>
+    <div class="feat-card">
+      <div class="feat-icon">📚</div>
+      <div class="feat-info">
+        <h3>الحديث النبوي</h3>
+        <p>صحيح البخاري والأربعون</p>
+      </div>
     </div>
 
-    <div class="feature-card">
-      <span class="feature-icon">🔘</span>
-      <div class="feature-title">مسبحة إلكترونية</div>
-      <div class="feature-desc">سبّح بحرية مع مسبحة رقمية أنيقة وتحكم كامل في العدّاد.</div>
+    <div class="feat-card">
+      <div class="feat-icon">🌙</div>
+      <div class="feat-info">
+        <h3>تفسير الأحلام</h3>
+        <p>تعبير الرؤى والأحلام</p>
+      </div>
     </div>
 
-    <div class="feature-card">
-      <span class="feature-icon">🛡️</span>
-      <div class="feature-title">رقية شرعية</div>
-      <div class="feature-desc">الرقية الشرعية كاملة من الكتاب والسنة، بصوت واضح وخط كبير.</div>
+    <div class="feat-card">
+      <div class="feat-icon">🕋</div>
+      <div class="feat-info">
+        <h3>دليل العمرة</h3>
+        <p>خطوات العمرة بالتفصيل</p>
+      </div>
     </div>
 
-    <div class="feature-card">
-      <span class="feature-icon">📚</span>
-      <div class="feature-title">صحيح البخاري</div>
-      <div class="feature-desc">أكثر من 7000 حديث نبوي شريف مصنّفة بحسب الأبواب والمواضيع.</div>
+    <div class="feat-card">
+      <div class="feat-icon">🎮</div>
+      <div class="feat-info">
+        <h3>عالم صفاء</h3>
+        <p>تحديات، حلقات، وكلمات متقاطعة</p>
+      </div>
     </div>
 
-    <div class="feature-card">
-      <span class="feature-icon">🕌</span>
-      <div class="feature-title">مواقيت الصلاة</div>
-      <div class="feature-desc">مواقيت دقيقة حسب موقعك مع تنبيهات الأذان لكل صلاة.</div>
-    </div>
-
-    <div class="feature-card">
-      <span class="feature-icon">🧭</span>
-      <div class="feature-title">اتجاه القبلة</div>
-      <div class="feature-desc">بوصلة دقيقة تحدد اتجاه القبلة من أي مكان في العالم.</div>
-    </div>
-
-    <div class="feature-card">
-      <span class="feature-icon">🕋</span>
-      <div class="feature-title">دليل العمرة</div>
-      <div class="feature-desc">خطوات العمرة كاملة بالتفصيل، من الإحرام إلى التحلل، مع الأدعية.</div>
-    </div>
-
-    <div class="feature-card">
-      <span class="feature-icon">🌙</span>
-      <div class="feature-title">تفسير الأحلام</div>
-      <div class="feature-desc">أكثر من 1000 رمز مع تفسيرات موثوقة وجهات اتصال بأشهر المفسرين.</div>
-    </div>
-
-    <div class="feature-card">
-      <span class="feature-icon">🔔</span>
-      <div class="feature-title">أذان بأجمل الأصوات</div>
-      <div class="feature-desc">اختر من بين عدة أصوات جميلة للأذان: الحرم المكي، المدينة، والمسجد الأقصى.</div>
-    </div>
-
-  </div>
-
-  <!-- Stats -->
-  <div class="stats">
-    <div class="stat">
-      <span class="stat-num">+7000</span>
-      <span class="stat-label">حديث شريف</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num">+1000</span>
-      <span class="stat-label">رمز حلم</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num">14</span>
-      <span class="stat-label">قسم متكامل</span>
+    <div class="feat-card">
+      <div class="feat-icon">🎨</div>
+      <div class="feat-info">
+        <h3>مصمم الصور</h3>
+        <p>إنشاء بطاقات بالذكاء الاصطناعي</p>
+      </div>
     </div>
   </div>
-</section>
 
-<!-- Footer -->
-<footer>
-  <div class="brand">Sabri-FX</div>
-  <p>نطوّر تطبيقات إسلامية بمعايير عالمية</p>
-  <p class="copyright">© 2026 Sabri-FX — جميع الحقوق محفوظة</p>
-</footer>
+  <!-- 🦶 الفوتر -->
+  <footer>
+    <div>تصميم وتطوير</div>
+    <div class="brand">Ahmed Saleh Bahada · SabriFX</div>
+    <div style="margin-top: 15px; font-size: 11px;">© 2026 صفاء الروح. جميع الحقوق محفوظة.</div>
+  </footer>
+
+</div>
 
 </body>
 </html>
