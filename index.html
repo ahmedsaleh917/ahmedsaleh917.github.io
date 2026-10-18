@@ -5,11 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>تطبيق صفاء الروح | Safa Al-Rouh</title>
 <meta name="description" content="صفاء الروح - رفيقك اليومي إلى الطمأنينة. تطبيق إسلامي شامل يجمع القرآن، الأذكار، المواقيت، ومسابقات معرفية ممتعة.">
+<!-- ⭐ كلمات مفتاحية قوية للتصدر في محركات البحث -->
+<meta name="keywords" content="تطبيق إسلامي, المصحف الشريف, مواقيت الصلاة, الأذكار, حصن المسلم, مسابقات دينية, عالم صفاء, تحدي المعرفة, تطبيق صفاء الروح, قرآن كريم, تفسير الأحلام, الرقية الشرعية, صحيح البخاري, العاب اسلامية, صفاء الروح, SabriFX">
 
 <!-- ⭐ خط Tajawal من Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -115,10 +117,29 @@ body {
 .container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 20px 20px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* 🏷️ شعار البراند */
+.brand-header {
+  width: 100%;
+  text-align: center;
+  padding: 15px 0 25px;
+  font-size: 14px;
+  color: var(--dim);
+  letter-spacing: 1px;
+}
+
+.brand-header span.brand-name {
+  font-family: 'Reem Kufi', sans-serif;
+  font-size: 20px;
+  background: linear-gradient(135deg, var(--gold-1), var(--gold-3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(251, 146, 60, 0.3);
 }
 
 /* ═══════════════════════════════════════════
@@ -126,14 +147,18 @@ body {
    ═══════════════════════════════════════════ */
 .hero {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   animation: fadeInDown 1s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .logo {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
+  width: 110px;
+  height: 110px;
+  border-radius: 24px; /* حواف دائرية تناسب الأيقونات الحديثة */
   object-fit: cover;
   border: 3px solid var(--gold-3);
   box-shadow: 0 0 30px rgba(251, 146, 60, 0.4);
@@ -144,11 +169,11 @@ body {
 
 @keyframes pulseLogo {
   0% { transform: translateY(0) scale(1); }
-  100% { transform: translateY(-10px) scale(1.02); }
+  100% { transform: translateY(-8px) scale(1.02); }
 }
 
 .app-name {
-  font-size: 38px;
+  font-size: 36px;
   font-weight: 900;
   background: linear-gradient(135deg, var(--gold-1), var(--gold-3), var(--gold-4));
   -webkit-background-clip: text;
@@ -160,7 +185,7 @@ body {
   font-size: 16px;
   color: var(--dim);
   max-width: 500px;
-  margin: 0 auto 30px;
+  margin: 0 auto 25px;
   font-weight: 500;
 }
 
@@ -174,7 +199,7 @@ body {
   color: #0a1428;
   font-size: 20px;
   font-weight: 800;
-  padding: 18px 40px;
+  padding: 16px 40px;
   border-radius: 50px;
   text-decoration: none;
   box-shadow: 0 10px 25px rgba(234, 88, 12, 0.4);
@@ -191,40 +216,103 @@ body {
   transition: left 0.5s ease;
 }
 
-.btn-download:hover::before {
-  left: 100%;
-}
-
+.btn-download:hover::before { left: 100%; }
 .btn-download:hover {
   transform: translateY(-5px) scale(1.05);
   box-shadow: 0 15px 35px rgba(234, 88, 12, 0.6);
 }
 
-.btn-download svg {
-  width: 24px;
-  height: 24px;
-  fill: currentColor;
-}
+.btn-download svg { width: 24px; height: 24px; fill: currentColor; }
 
 .version-tag {
   display: inline-block;
   margin-top: 15px;
   background: rgba(255, 255, 255, 0.1);
-  padding: 5px 15px;
+  padding: 6px 18px;
   border-radius: 20px;
   font-size: 13px;
   color: var(--gold-1);
   border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+}
+
+/* ═══════════════════════════════════════════
+   🖼️ صورة الغلاف (Banner)
+   ═══════════════════════════════════════════ */
+.banner-container {
+  width: 100%;
+  margin-bottom: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--card-border);
+  border: 2px solid rgba(251, 146, 60, 0.2);
+  position: relative;
+}
+
+.banner-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.banner-container:hover img { transform: scale(1.02); }
+
+/* ═══════════════════════════════════════════
+   📱 معرض الصور (Screenshots Carousel)
+   ═══════════════════════════════════════════ */
+.screenshots-section {
+  width: 100%;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.screenshots-scroll {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 10px 5px 20px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold-3) transparent;
+}
+
+.screenshots-scroll::-webkit-scrollbar { height: 6px; }
+.screenshots-scroll::-webkit-scrollbar-thumb { background: var(--gold-3); border-radius: 10px; }
+.screenshots-scroll::-webkit-scrollbar-track { background: transparent; }
+
+.screenshot-item {
+  flex: 0 0 auto;
+  width: 200px; /* حجم مناسب للجوال */
+  scroll-snap-align: center;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  background: var(--card-bg);
+  transition: transform 0.3s ease, border-color 0.3s;
+}
+
+.screenshot-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-3);
+}
+
+.screenshot-item img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* ═══════════════════════════════════════════
    ✨ الأقسام والميزات (Features)
    ═══════════════════════════════════════════ */
 .section-title {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 800;
   color: var(--text);
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   text-align: center;
   display: flex;
   align-items: center;
@@ -241,20 +329,22 @@ body {
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 15px;
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .feat-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 18px;
-  padding: 20px;
+  padding: 20px 15px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 15px;
+  text-align: center;
+  gap: 12px;
   box-shadow: var(--glass-shadow);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -264,24 +354,25 @@ body {
 .feat-card:hover {
   transform: translateY(-3px);
   border-color: rgba(251, 146, 60, 0.4);
+  background: rgba(251, 146, 60, 0.05);
 }
 
 .feat-icon {
-  font-size: 28px;
+  font-size: 32px;
   background: rgba(251, 146, 60, 0.1);
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 14px;
-  flex-shrink: 0;
+  border-radius: 16px;
+  border: 1px solid rgba(251, 146, 60, 0.2);
 }
 
 .feat-info h3 {
   font-size: 16px;
   font-weight: 700;
-  margin-bottom: 3px;
+  margin-bottom: 4px;
 }
 
 .feat-info p {
@@ -296,19 +387,28 @@ body {
   background: linear-gradient(145deg, rgba(30, 61, 114, 0.5), rgba(7, 18, 40, 0.8));
   border: 1px solid rgba(34, 211, 238, 0.3);
   border-radius: 20px;
-  padding: 30px;
+  padding: 25px;
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.whats-new::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 4px; height: 100%;
+  background: var(--cyan);
 }
 
 .whats-new h2 {
   color: var(--cyan);
-  font-size: 20px;
-  margin-bottom: 15px;
+  font-size: 18px;
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .whats-new p {
@@ -333,6 +433,7 @@ footer .brand {
   color: var(--gold-2);
   font-weight: 700;
   margin-top: 5px;
+  font-family: 'Reem Kufi', sans-serif;
 }
 
 @keyframes fadeInDown {
@@ -341,12 +442,10 @@ footer .brand {
 }
 
 @media (max-width: 600px) {
-  .features-grid { grid-template-columns: 1fr 1fr; }
+  .screenshot-item { width: 170px; }
   .app-name { font-size: 30px; }
   .btn-download { font-size: 16px; padding: 15px 30px; }
-}
-@media (max-width: 400px) {
-  .features-grid { grid-template-columns: 1fr; }
+  .features-grid { grid-template-columns: 1fr 1fr; }
 }
 </style>
 </head>
@@ -362,9 +461,15 @@ footer .brand {
 
 <div class="container">
   
+  <!-- 🏷️ البراند العلوي -->
+  <div class="brand-header">
+    Brand by <span class="brand-name">SabriFX</span>
+  </div>
+
   <!-- 🎯 القسم الرئيسي -->
   <header class="hero">
-    <img src="safaa_circular.png" alt="صفاء الروح" class="logo" onerror="this.src='https://via.placeholder.com/120/0c1e42/fb923c?text=صفاء'">
+    <!-- الأيقونة الجديدة screen7.png -->
+    <img src="images/screen7.png" alt="صفاء الروح" class="logo" onerror="this.src='https://via.placeholder.com/110/0c1e42/fb923c?text=صفاء'">
     
     <h1 class="app-name">صفاء الروح</h1>
     <p class="app-desc">
@@ -379,6 +484,24 @@ footer .brand {
     <div class="version-tag">آخر إصدار: v6.0 (مستقر)</div>
   </header>
 
+  <!-- 🖼️ صورة الغلاف (Banner) -->
+  <div class="banner-container">
+    <img src="images/001.png.png" alt="صفاء الروح - الغلاف" onerror="this.style.display='none'">
+  </div>
+
+  <!-- 📱 معرض الصور (Screenshots) -->
+  <h2 class="section-title">📸 لقطات من التطبيق</h2>
+  <div class="screenshots-section">
+    <div class="screenshots-scroll">
+      <div class="screenshot-item"><img src="images/002.png.png" alt="لقطة شاشة 1" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+      <div class="screenshot-item"><img src="images/003.png.png" alt="لقطة شاشة 2" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+      <div class="screenshot-item"><img src="images/004.png.png" alt="لقطة شاشة 3" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+      <div class="screenshot-item"><img src="images/005.png.png" alt="لقطة شاشة 4" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+      <div class="screenshot-item"><img src="images/006.png.png" alt="لقطة شاشة 5" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+      <div class="screenshot-item"><img src="images/007.png.png" alt="لقطة شاشة 6" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+    </div>
+  </div>
+
   <!-- 🆕 قسم ما الجديد -->
   <div class="whats-new">
     <h2>🎉 جديد في هذا الإصدار</h2>
@@ -391,85 +514,45 @@ footer .brand {
   <h2 class="section-title">✨ كنوز التطبيق</h2>
   
   <div class="features-grid">
-    
     <div class="feat-card">
       <div class="feat-icon">📖</div>
-      <div class="feat-info">
-        <h3>المصحف الشريف</h3>
-        <p>قراءة كاملة ومريحة</p>
-      </div>
+      <div class="feat-info"><h3>المصحف الشريف</h3><p>قراءة كاملة ومريحة</p></div>
     </div>
-
     <div class="feat-card">
       <div class="feat-icon">🎧</div>
-      <div class="feat-info">
-        <h3>المصحف الصوتي</h3>
-        <p>أشهر القراء بروايات متعددة</p>
-      </div>
+      <div class="feat-info"><h3>المصحف الصوتي</h3><p>أشهر القراء بروايات متعددة</p></div>
     </div>
-
     <div class="feat-card">
       <div class="feat-icon">📿</div>
-      <div class="feat-info">
-        <h3>الأذكار والمسبحة</h3>
-        <p>أذكار الصباح والمساء والمسابحة</p>
-      </div>
+      <div class="feat-info"><h3>الأذكار والمسبحة</h3><p>أذكار الصباح والمساء</p></div>
     </div>
-
     <div class="feat-card">
       <div class="feat-icon">🕌</div>
-      <div class="feat-info">
-        <h3>المواقيت والقبلة</h3>
-        <p>أوقات الصلاة والأذان والبوصلة</p>
-      </div>
+      <div class="feat-info"><h3>المواقيت والقبلة</h3><p>أوقات الصلاة والأذان</p></div>
     </div>
-
     <div class="feat-card">
       <div class="feat-icon">🛡️</div>
-      <div class="feat-info">
-        <h3>الرقية الشرعية</h3>
-        <p>حماية وعلاج ميسر</p>
-      </div>
+      <div class="feat-info"><h3>الرقية الشرعية</h3><p>حماية وعلاج ميسر</p></div>
     </div>
-
     <div class="feat-card">
       <div class="feat-icon">📚</div>
-      <div class="feat-info">
-        <h3>الحديث النبوي</h3>
-        <p>صحيح البخاري والأربعون</p>
-      </div>
+      <div class="feat-info"><h3>الحديث النبوي</h3><p>صحيح البخاري والأربعون</p></div>
     </div>
-
     <div class="feat-card">
       <div class="feat-icon">🌙</div>
-      <div class="feat-info">
-        <h3>تفسير الأحلام</h3>
-        <p>تعبير الرؤى والأحلام</p>
-      </div>
+      <div class="feat-info"><h3>تفسير الأحلام</h3><p>تعبير الرؤى والأحلام</p></div>
     </div>
-
     <div class="feat-card">
       <div class="feat-icon">🕋</div>
-      <div class="feat-info">
-        <h3>دليل العمرة</h3>
-        <p>خطوات العمرة بالتفصيل</p>
-      </div>
+      <div class="feat-info"><h3>دليل العمرة</h3><p>خطوات العمرة بالتفصيل</p></div>
     </div>
-
     <div class="feat-card">
       <div class="feat-icon">🎮</div>
-      <div class="feat-info">
-        <h3>عالم صفاء</h3>
-        <p>تحديات، حلقات، وكلمات متقاطعة</p>
-      </div>
+      <div class="feat-info"><h3>عالم صفاء</h3><p>تحديات، حلقات، وكلمات متقاطعة</p></div>
     </div>
-
     <div class="feat-card">
       <div class="feat-icon">🎨</div>
-      <div class="feat-info">
-        <h3>مصمم الصور</h3>
-        <p>إنشاء بطاقات بالذكاء الاصطناعي</p>
-      </div>
+      <div class="feat-info"><h3>مصمم الصور</h3><p>إنشاء بطاقات بالذكاء الاصطناعي</p></div>
     </div>
   </div>
 
